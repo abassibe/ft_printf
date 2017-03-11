@@ -6,12 +6,15 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/11 01:11:40 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/11 02:15:22 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "./libft/libft.h"
+#include <stdio.h>
+#include <locale.h>
+#include <limits.h>
 
 int ft_printf(const char *format, ...)
 {
@@ -53,13 +56,26 @@ int ft_printf(const char *format, ...)
 
 int		main(void)
 {
-	char	*str;
-	char	c;
-	int		d;
+	setlocale(LC_ALL, "");
+//	char	*str;
+//	char	c;
+//	int		d;
+	//char	*s;
 
-	str = "blablabla";
-	c = 'A';
-	d = 5;
-	ft_printf("petit test avec une chaine :\n%s\nun char :\n%c\net un int :\n%d\n", str, c, d);
+//	str = "blablabla";
+//	c = 'A';
+//	d = 5;
+	//s = "ksjdfd";
+//	ft_printf("petit test avec une chaine :\n%s\nun char :\n%c\net un int :\n%d\npetit test avec une chaine :\n%s\nun char :\n%c\net un int :\n%d\n", str, c, d, str, c, d);
+	//printf("%05.2s", s);
+	printf("%d\n", INT_MAX);
+	printf("%d\n", LONG_MAX);
+	printf("%ld\n", LONG_MAX);
+	printf("%D\n", LONG_MAX);
+	printf("%s\n", "salut");
+	printf("%S\n", L"allo ӦՂԞ");
+	printf("%s\n", L"allo ӦՂԞ");
+	printf("%ls\n", L"allo ӦՂԞ");
+	printf("%s\n", "salut 2");
 	return (0);
 }
