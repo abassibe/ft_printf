@@ -6,17 +6,14 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/11 03:44:49 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/11 02:08:29 by maviot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-#include <stdio.h>
-#include <locale.h>
-#include <limits.h>
+#include "../ft_printf.h"
+#include "../libft/libft.h"
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			i;
