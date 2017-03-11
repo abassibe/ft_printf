@@ -6,10 +6,12 @@
 /*   By: maviot <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:30:53 by maviot            #+#    #+#             */
-/*   Updated: 2017/03/11 01:45:37 by maviot           ###   ########.fr       */
+/*   Updated: 2017/03/11 02:07:03 by maviot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
+
+int	ft_printf(const char *format, ...);
