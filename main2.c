@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/15 05:48:20 by abassibe         ###   ########.fr       */
+/*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
+/*   Updated: 2017/03/15 04:00:11 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int		main(void)
 {
-	va_list		ap;
-//	va_list		aq;
-	char		*ret;
-
-	OUT_S = 0;
-	create_lst();
-	va_start(ap, format);
-//	va_copy(aq, ap);
-//	chk_error(format, aq); //A voir plus tard
-//	va_end(aq);
-	ret = core(format, ap);
-	va_end(ap);
-	ft_putstr(ret);
-	return (ft_strlen(ret));
+	int		i = 10;
+	char	c = 'A';
+	char	*str = "Hello world";
+	ft_printf("un int %-10.4d, puis u%%%%n char %-20.5c et une chaine %00-3077.6s%.....\n", i, c, str);
+	return (0);
 }

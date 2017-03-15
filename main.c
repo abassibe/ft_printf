@@ -9,6 +9,7 @@ int			main(void)
 	setlocale(LC_ALL, "");
 /*	char	*s;
 	int		d;*/
+	int		c = INT_MAX;
 	signed char x[10] = "blabla";
 	signed char z = 'A';
 	unsigned char q[10] = "blabla";
@@ -29,7 +30,6 @@ int			main(void)
 	int		j = 65536;
 
 /*	d = 12;
-	s = "sdfhhs";
 	printf("___TEST FT_PRINTF___\n");
 	ft_printf("int max %d\n", INT_MAX);
 	ft_printf("long max d %d\n", LONG_MAX);
@@ -45,7 +45,7 @@ int			main(void)
 	printf("%D\n", LONG_MAX);
 	printf("%S\n", L"䯂 : large group of horses traveling in a line");
 	printf("%s\n", L"䯂 : large group of horses traveling in a line");
-	printf("%ls\n", L"䯂 : large group of horses traveling in a line");*/
+	printf("%ls\n", L"䯂 : large group of horses traveling in a line");
 	printf("signed char * : %s\n", x);
 	printf("signed char : %c\n", z);
 	printf("unsigned char * : %s\n", q);
@@ -64,6 +64,7 @@ int			main(void)
 	printf("adresse : %p\n", &adresse);
 	printf("int hexa : %u\n", h);
 	printf("test h : %hd\n", j);
-	printf("%d\n", USHRT_MAX);
+	printf("%d\n", USHRT_MAX);*/
+	printf("%hd\n", c);
 	return (0);
 }

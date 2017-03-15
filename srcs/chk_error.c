@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   chk_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/15 05:48:20 by abassibe         ###   ########.fr       */
+/*   Created: 2017/03/13 12:25:42 by abassibe          #+#    #+#             */
+/*   Updated: 2017/03/13 15:28:03 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int		chk_error(const char *format, va_list aq)
 {
-	va_list		ap;
-//	va_list		aq;
-	char		*ret;
+	int		count;
 
-	OUT_S = 0;
-	create_lst();
-	va_start(ap, format);
-//	va_copy(aq, ap);
-//	chk_error(format, aq); //A voir plus tard
-//	va_end(aq);
-	ret = core(format, ap);
-	va_end(ap);
-	ft_putstr(ret);
-	return (ft_strlen(ret));
+	count = 0;
+	IND = 0;
+	while (format[IND])
+	{
+		if (format[IND] == '%' && format[IND + 1] != '%')
+		{
+			count++;
+			IND++;
+		}
+		IND++;
+	}
+	return (0);
 }
