@@ -6,37 +6,38 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/15 05:51:45 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/16 04:57:08 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		chk_conv(const char *format, char *corr_conv, int i, int ind)
+t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 {
 	int		ci;
+	char	*format;
 
 	ci = 0;
-	while (format[i] != corr_conv[ci])
+	while (lst->fmt[lst->in] != corr_conv[ci])
 	{
-		if (format[i] == '\0' || format[i] == '\n')
+		if (lst->fmt[lst->in] == '\0' || lst->fmt[lst->i] == '\n')
 			return (0);
 		ci++;
 		if (!corr_conv[ci])
 		{
-			i++;
+			lst->in++;
 			ci = 0;
 		}
 	}
-	if (format[i] == corr_conv[ci])
+	if (lst->fmt[lst->in] == corr_conv[ci])
 	{
-		// OUT[OUT_S] = ft_strsub(format, ); les defines C COOOOL mabite
-		i++;
+		 format = ft_strdup(verif_format(lst, ap, ind));
+		lst->in++;
 	}
-	return (i);
+	return (lst);
 }
 
-int		chk_percent(const char *format, char *ret, int *i, int *c)
+int		chk_percent(t_print *lst, char *ret, va_list ap, int *c)
 {
 	char	*corr_conv;
 	int		ci;
@@ -44,37 +45,35 @@ int		chk_percent(const char *format, char *ret, int *i, int *c)
 
 	ci = 0;
 	corr_conv = "sSpdDioOuUxXcC";
-	if (format[*i] == '%' && format[(*i) + 1] == '%')
+	if (lst->fmt[lst->in] == '%' && lst->fmt[lst->in + 1] == '%')
 	{
 		ret[*c] = '%';
-		(*i)++;
+		lst->in++;
 		return (1);
 	}
-	if (format[*i] == '%' && format[(*i) + 1] != '%')
+	if (lst->fmt[lst->in] == '%' && lst->fmt[lst->in + 1] != '%')
 	{
-		ind = *i + 1;
-		(*i)++;
-		*i = chk_conv(format, corr_conv, *i, ind);
+		ind = lst->in + 1;
+		lst->in++;
+		lst = chk_conv(lst, corr_conv, ap, ind);
 	}
-	if (format[*i] == '\0')
+	if (lst->fmt[lst->in] == '\0')
 		return (0);
-	ret[*c] = format[*i];
+	ret[*c] = lst->fmt[lst->in];
 	return (1);
 }
 
-char	*core(const char *format, va_list ap)
+char	*core(t_print *lst, va_list ap)
 {
-	int		i;
 	int		c;
 	char	*ret;
 
-	i = 0;
+	lst->in = 0;
 	c = 0;
-	ap = NULL;
-	ret = ft_strnew(ft_strlen(format));
-	while (chk_percent(format, &(*ret), &i, &c) == 1)
+	ret = ft_strnew(ft_strlen(lst->fmt));
+	while (chk_percent(lst, &(*ret), ap, &c) == 1)
 	{
-		i++;
+		lst->in++;
 		c++;
 	}
 	return (ret);

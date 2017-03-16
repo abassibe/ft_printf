@@ -6,25 +6,31 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/15 05:48:20 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/16 04:41:28 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
+t_print		*crea_lst(const char *format)
+{
+	t_print		*new;
+
+	new = (t_print *)malloc(sizeof(t_print));
+	new->fmt = format;
+	return (new);
+}
+
 int		ft_printf(const char *format, ...)
 {
-	va_list		ap;
-//	va_list		aq;
 	char		*ret;
+	t_print		*lst;
+	va_list		ap;
 
-	OUT_S = 0;
-	create_lst();
 	va_start(ap, format);
-//	va_copy(aq, ap);
+	lst = crea_lst(format);
 //	chk_error(format, aq); //A voir plus tard
-//	va_end(aq);
-	ret = core(format, ap);
+	ret = core(lst, ap);
 	va_end(ap);
 	ft_putstr(ret);
 	return (ft_strlen(ret));

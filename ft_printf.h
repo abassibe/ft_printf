@@ -6,27 +6,23 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/15 05:47:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/16 05:38:17 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
 #include <stdarg.h>
 #include "libft/libft.h"
 #include <stdio.h>
 
-# define FMT g_print.input
-# define OUT g_print.output
-# define OUT_S g_print.out_size
-# define IND g_print.index
-# define ARG g_print.nbr_arg
-
 typedef struct		s_print
 {
-	int					index;
+	int					in;
+	char				*conv;
 	int					nbr_arg;
-	char				*input;
+	const char			*fmt;
 	char				**output;
 	int					out_size;
 	char				*str;
@@ -35,6 +31,10 @@ typedef struct		s_print
 	signed char			s_c;
 	unsigned char		*us_str;
 	unsigned char		us_c;
+	int					hexa;
+	long int			l_hexa;
+	int					octal;
+	long int			l_octal;
 	int					i;
 	unsigned int		us_int;
 	short				s_int;
@@ -50,12 +50,20 @@ typedef struct		s_print
 	char				*address;
 }						t_print;
 
-t_print					g_print;
-
 int						ft_printf(const char *format, ...);
+t_print					*crea_lst(const char *format);
 
-char					*core(const char *format, va_list ap);
+char					*core(t_print *lst, va_list ap);
+int						chk_percent(t_print *lst, char *ret, va_list ap, int *c);
+t_print					*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind);
 
-int						chk_error(const char *format, va_list aq);
+char					*verif_format(t_print *lst, va_list ap, int ind);
+void					dispatch_one(t_print *lst, va_list ap, int pos);
+void					dispatch_two(t_print *lst, va_list ap, int pos);
+void					dispatch_three(t_print *lst, va_list ap, int pos);
+
+t_print					*convert_string(t_print *lst, int pos);
+
+//int						chk_error(const char *format, va_list aq);
 
 #endif

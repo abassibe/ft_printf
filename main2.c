@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/15 04:00:11 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/16 05:49:41 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int		main(void)
 	int		i = 10;
 	char	c = 'A';
 	char	*str = "Hello world";
-	ft_printf("un int %-10.4d, puis u%%%%n char %-20.5c et une chaine %00-3077.6s%.....\n", i, c, str);
+	ft_printf("un int %-10.4d, puis u%%%%n char %-20.5c et une chaine % 00-3077.6s%.....\n", i, c, str);
 	return (0);
 }
