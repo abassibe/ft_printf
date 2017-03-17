@@ -6,13 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/16 05:38:26 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/17 05:16:43 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void		dispatch_three(t_print *lst, va_list ap, int pos)
+t_print		*dispatch_three(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 'U')
 	{
@@ -32,7 +32,6 @@ void		dispatch_three(t_print *lst, va_list ap, int pos)
 	else if (lst->conv[pos] == 'c')
 	{
 		lst->c = va_arg(ap, int);
-		printf("%c\n", lst->c);
 //		lst = convert_char(lst);
 	}
 	else if (lst->conv[pos] == 'C')
@@ -40,9 +39,10 @@ void		dispatch_three(t_print *lst, va_list ap, int pos)
 		lst->uni_c = va_arg(ap, wchar_t);
 //		lst = convert_unic(lst);
 	}
+	return (lst);
 }
 
-void		dispatch_two(t_print *lst, va_list ap, int pos)
+t_print		*dispatch_two(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 'D')
 	{
@@ -66,14 +66,15 @@ void		dispatch_two(t_print *lst, va_list ap, int pos)
 	}
 	else
 		dispatch_three(lst, ap, pos);
+	return (lst);
 }
 
-void		dispatch_one(t_print *lst, va_list ap, int pos)
+t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 's')
 	{
 		lst->str = va_arg(ap, char *);
-		printf("%s\n", lst->str);
+		lst = preci_string(lst);
 		lst = convert_string(lst, pos);
 	}
 	else if (lst->conv[pos] == 'S')
@@ -89,11 +90,11 @@ void		dispatch_one(t_print *lst, va_list ap, int pos)
 	else if (lst->conv[pos] == 'd' || lst->conv[pos] == 'i')
 	{
 		lst->i = va_arg(ap, int);
-		printf("%d\n", lst->i);
 //		lst = convert_int(lst);
 	}
 	else
 		dispatch_two(lst, ap, pos);
+	return (lst);
 }
 
 char		*verif_format(t_print *lst, va_list ap, int ind)
@@ -101,7 +102,10 @@ char		*verif_format(t_print *lst, va_list ap, int ind)
 	int		pos;
 
 	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
+	lst = recup_format(lst);
 	pos = lst->in - ind;
+	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
 	dispatch_one(lst, ap, pos);
+	lst = concaten_result(lst, ind);
 	return (NULL);
 }

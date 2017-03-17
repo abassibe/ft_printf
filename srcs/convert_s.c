@@ -6,38 +6,93 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/16 05:59:19 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/17 04:03:38 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
+t_print		*options_neg(t_print *lst, char *str, int lenght)
+{
+	int		i;
+	int		is;
+
+	i = 0;
+	is = 0;
+	while (i != lenght)
+	{
+		if (lst->str[is] != '\0')
+			str[i++] = lst->str[is++];
+		else
+			str[i++] = ' ';
+	}
+	str[i] = '\0';
+	lst->str = ft_strdup(str);
+	free(str);
+	return (lst);
+}
+
+t_print		*options_pos(t_print *lst, char *str, int lenght)
+{
+	int		i;
+	int		is;
+
+	i = 0;
+	is = 0;
+	while (i != lenght)
+	{
+		if (i >= (lenght - (int)ft_strlen(lst->str)))
+			str[i++] = lst->str[is++];
+		else
+			str[i++] = ' ';
+	}
+	str[i] = '\0';
+	lst->str = ft_strdup(str);
+	free(str);
+	return (lst);
+}
+
+t_print		*options_zero(t_print *lst, char *str, int lenght)
+{
+	int		i;
+	int		is;
+
+	i = 0;
+	is = 0;
+	while (i != lenght)
+	{
+		if (i >= (lenght - (int)ft_strlen(lst->str)))
+		{
+			str[i++] = lst->str[is++];
+		}
+		else
+			str[i++] = '0';
+	}
+	str[i] = '\0';
+	lst->str = ft_strdup(str);
+	free(str);
+	return (lst);
+}
+
 t_print		*convert_string(t_print *lst, int pos)
 {
-	if (lst->conv[0] == '-')
+	char	*str;
+	int		lenght;
+
+	pos = 0;
+	lenght = lst->long_opt;
+	if (lenght < (int)ft_strlen(lst->str))
 	{
-		lst->conv++;
-		options(lst, ft_itoa(lst->conv), '-');
+		lenght = (int)ft_strlen(lst->str);
+		str = ft_strnew(lenght);
 	}
-	if (lst->conv[0] == '+')
-	{
-		lst->conv++;
-		options(lst, ft_itoa(lst->conv), '+');
-	}
-	if (lst->conv[0] == '#')
-	{
-		lst->conv++;
-		options(lst, ft_itoa(lst->conv), '#');
-	}
-	if (lst->conv[0] == '0')
-	{
-		lst->conv++;
-		options(lst, ft_itoa(lst->conv), '0');
-	}
-	if (lst->conv[0] == ' ')
-	{
-		lst->conv++;
-		options(lst, ft_itoa(lst->conv), ' ');
-	}
+	else
+		str = ft_strnew(lenght);
+	if (lst->opt == '-')
+		lst = options_neg(lst, str, lenght);
+	if (lst->opt == '+' || lst->opt == '#' || lst->opt == ' ')
+		lst = options_pos(lst, str, lenght);
+	if (lst->opt == '0')
+		lst = options_zero(lst, str, lenght);
 	return (lst);
 }

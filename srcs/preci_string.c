@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   preci_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/17 05:34:48 by abassibe         ###   ########.fr       */
+/*   Created: 2017/03/17 01:21:28 by abassibe          #+#    #+#             */
+/*   Updated: 2017/03/17 04:10:31 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-t_print		*crea_lst(const char *format)
+t_print		*preci_string(t_print *lst)
 {
-	t_print		*new;
+	char	*str;
+	int		i;
 
-	new = (t_print *)malloc(sizeof(t_print));
-	new->fmt = format;
-	return (new);
-}
-
-int		ft_printf(const char *format, ...)
-{
-	char		*ret;
-	t_print		*lst;
-	va_list		ap;
-
-	va_start(ap, format);
-	lst = crea_lst(format);
-//	chk_error(format, aq); //A voir plus tard
-	ret = core(lst, ap);
-	va_end(ap);
-	ft_putstr(lst->fmt);
-	return (ft_strlen(lst->fmt));
+	i = 0;
+	str = ft_strnew(lst->long_preci);
+	while (i != lst->long_preci)
+	{
+		str[i] = lst->str[i];
+		i++;
+	}
+	lst->str = str;
+	return (lst);
 }
