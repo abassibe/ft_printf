@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chk_error.c                                        :+:      :+:    :+:   */
+/*   height_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/13 12:25:42 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/13 15:28:03 by abassibe         ###   ########.fr       */
+/*   Created: 2017/03/18 00:58:55 by abassibe          #+#    #+#             */
+/*   Updated: 2017/03/18 03:07:54 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int		chk_error(const char *format, va_list aq)
+t_print	*height_string(t_print *lst, int pos)
 {
-	int		count;
-
-	count = 0;
-	IND = 0;
-	while (format[IND])
-	{
-		if (format[IND] == '%' && format[IND + 1] != '%')
-		{
-			count++;
-			IND++;
-		}
-		IND++;
-	}
-	return (0);
+	//Seulement 2 cas a gerer, quand le flag "ls" est donne mais sans caractere unicode (n'affiche rien)
+	//et le flag "ls" avec de l'unicode
+	return (lst);
 }

@@ -6,11 +6,11 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 01:21:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/17 04:10:31 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/18 02:51:59 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../includes/ft_printf.h"
 
 t_print		*preci_string(t_print *lst)
 {
@@ -18,6 +18,8 @@ t_print		*preci_string(t_print *lst)
 	int		i;
 
 	i = 0;
+	if (lst->long_preci == -1)
+		return (lst);
 	str = ft_strnew(lst->long_preci);
 	while (i != lst->long_preci)
 	{

@@ -6,11 +6,11 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/17 05:16:43 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/18 06:32:05 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../includes/ft_printf.h"
 
 t_print		*dispatch_three(t_print *lst, va_list ap, int pos)
 {
@@ -75,7 +75,8 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 	{
 		lst->str = va_arg(ap, char *);
 		lst = preci_string(lst);
-		lst = convert_string(lst, pos);
+		lst = convert_string(lst);
+//		lst = height_string(lst, pos);
 	}
 	else if (lst->conv[pos] == 'S')
 	{
@@ -90,7 +91,8 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 	else if (lst->conv[pos] == 'd' || lst->conv[pos] == 'i')
 	{
 		lst->i = va_arg(ap, int);
-//		lst = convert_int(lst);
+		lst = convert_int(lst);
+		lst = preci_int(lst);
 	}
 	else
 		dispatch_two(lst, ap, pos);

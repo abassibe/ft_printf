@@ -6,11 +6,11 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/17 04:03:34 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/18 06:40:07 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../includes/ft_printf.h"
 
 t_print		*recup_opt(t_print *lst, int *i)
 {
@@ -30,6 +30,7 @@ t_print		*recup_preci(t_print *lst, int i)
 	lst->conv++;
 	lst->long_preci = ft_atoi(tmp);
 	free(tmp);
+	lst->got_opt = 1;
 	return (lst);
 }
 
@@ -61,10 +62,13 @@ t_print		*recup_format(t_print *lst)
 	int		i;
 
 	i = 0;
+	lst->long_preci = -1;
+	lst->got_opt = 0;
 	while (lst->conv[i])
 	{
-		if (lst->conv[i] == '-' || lst->conv[i] == '+' || lst->conv[i] == '#' ||
-				lst->conv[i] == '0' || lst->conv[i] == ' ')
+		if ((lst->conv[i] == '-' || lst->conv[i] == '+' || lst->conv[i] == '#'
+				|| lst->conv[i] == '0' || lst->conv[i] == ' ')
+				&& lst->got_opt != 1)
 			lst = recup_opt(lst, &i);
 		if (lst->conv[i] == '.')
 			lst = recup_preci(lst, i);

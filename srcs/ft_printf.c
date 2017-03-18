@@ -6,11 +6,11 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/17 05:34:48 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/18 02:57:34 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../includes/ft_printf.h"
 
 t_print		*crea_lst(const char *format)
 {
@@ -23,9 +23,11 @@ t_print		*crea_lst(const char *format)
 
 int		ft_printf(const char *format, ...)
 {
+	setlocale(LC_ALL, "");
 	char		*ret;
 	t_print		*lst;
 	va_list		ap;
+	int			end;
 
 	va_start(ap, format);
 	lst = crea_lst(format);
@@ -33,5 +35,7 @@ int		ft_printf(const char *format, ...)
 	ret = core(lst, ap);
 	va_end(ap);
 	ft_putstr(lst->fmt);
-	return (ft_strlen(lst->fmt));
+	end = ft_strlen(lst->fmt);
+	free(lst);
+	return (end);
 }
