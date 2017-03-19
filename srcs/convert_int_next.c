@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_int.c                                      :+:      :+:    :+:   */
+/*   convert_int_next.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/18 06:40:39 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/19 04:17:33 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_print		*options_neg_i(t_print *lst, char *str, char *nb, int lenght)
 
 	i = 0;
 	is = 0;
-	while (i != lenght)
+	while (i < lenght)
 	{
 		if (nb[is] != '\0')
 			str[i++] = nb[is++];
@@ -39,9 +39,11 @@ t_print		*options_pos_i(t_print *lst, char *str, char *nb, int lenght)
 
 	i = 0;
 	is = 0;
-	while (i != lenght)
+	if (lst->long_opt <= lst->long_preci)
+		lenght++;
+	while (i < lenght)
 	{
-		if (i == ((lenght - (int)ft_strlen(nb)) - 1))
+		if (i == (lenght - ((int)ft_strlen(nb) + 1)))
 			str[i++] = '+';
 		else if (i >= (lenght - (int)ft_strlen(nb)))
 			str[i++] = nb[is++];
@@ -63,7 +65,7 @@ t_print		*options_diez_i(t_print *lst, char *str, char *nb, int lenght)
 	is = 0;
 	if (lenght == ((int)ft_strlen(nb) + 1))
 		lenght--;
-	while (i != lenght)
+	while (i < lenght)
 	{
 		if (i >= (lenght - (int)ft_strlen(nb)))
 			str[i++] = nb[is++];
@@ -85,7 +87,7 @@ t_print		*options_zero_i(t_print *lst, char *str, char *nb, int lenght)
 	is = 0;
 	if (lenght == ((int)ft_strlen(nb) + 1))
 		lenght--;
-	while (i != lenght)
+	while (i < lenght)
 	{
 		if (i >= (lenght - (int)ft_strlen(nb)))
 			str[i++] = nb[is++];
@@ -105,9 +107,11 @@ t_print		*options_sp_i(t_print *lst, char *str, char *nb, int lenght)
 
 	i = 0;
 	is = 0;
-	while (i != lenght)
+	if (lst->long_opt <= lst->long_preci)
+		lenght++;
+	while (i < lenght + 1)
 	{
-		if (i == ((lenght - (int)ft_strlen(nb)) - 1))
+		if (i == (lenght - ((int)ft_strlen(nb) + 1)))
 			str[i++] = ' ';
 		else if (i >= (lenght - (int)ft_strlen(nb)))
 			str[i++] = nb[is++];

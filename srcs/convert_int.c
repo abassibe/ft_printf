@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/18 06:40:23 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/19 05:31:09 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@ t_print		*convert_int(t_print *lst)
 	char	*nb;
 	int		lenght;
 
+	lenght = 0;
 	nb = ft_itoa(lst->i);
 	lst->str = nb;
 	lenght = lst->long_opt;
+	if (lenght < lst->long_preci)
+		lenght = lst->long_preci;
 	if (lenght <= (int)ft_strlen(nb))
-		lenght = (int)ft_strlen(nb) + 1;
-	str = ft_strnew(lenght + 1);
+		lenght = (int)ft_strlen(nb);
+	str = ft_strnew(lenght);
 	if (lst->opt == '-')
 		lst = options_neg_i(lst, str, nb, lenght);
 	if (lst->opt == '+')

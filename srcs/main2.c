@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/18 07:02:17 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/19 05:30:28 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,66 @@ int		main(void)
 	printf("test de ls  : %ls | printf\n", uni);
 	ft_printf("test de lls : %lls\n", uni);
 	printf("test de lls : %lls | printf\n", uni);*/
-
-	ft_printf("%+10.2d|\n", i);
-	ft_printf("%+10.4d|\n", i);
-	ft_printf("%+10.10d|\n", i);
-	printf("%+10.2d|printf\n", i);
-	printf("%+10.4d|printf\n", i);
-	printf("%+10.5d|printf\n", i);
-/*	printf("test de int : %d|    |%d|\n", i, i);
-	printf("test de int '-' : %-3d||%-30d|\n", i, i);
-	printf("test de int '+' : %+3d|%+30d|\n", i, i);
-	printf("test de int '#' : %#3d||%#30d|\n", i, i);
-	printf("test de int '0' : %03d||%030d|\n", i, i);
-	printf("test de int ' ' : % 3d|% 30d|\n", i, i);*/
+/*
+	ft_printf("%d|our fucking printf\n", i);
+	printf("%d|printf\n", i);
+	printf("--------\n");
+	ft_printf("%+20.20d|our fucking printf\n", i);
+	printf("%+20.20d|printf +10.2\n", i);
+	printf("--------\n");
+	ft_printf("%+40.100d|our fucking printf\n", i);
+	printf("%+40.100d|printf +10.4\n", i);
+	printf("--------\n");
+	ft_printf("%+50.100d|our fucking printf\n", i);
+	printf("%+50.100d|printf +10.5\n", i);
+	printf("--------\n");
+	ft_printf("%-20.100d|our fucking printf\n", i);
+	printf("%-20.100d|printf -10.2\n", i);
+	printf("--------\n");
+	ft_printf("%-40.100d|our fucking printf\n", i);
+	printf("%-40.100d|printf -10.4\n", i);
+	printf("--------\n");
+	ft_printf("%-50.100d|our fucking printf\n", i);
+	printf("%-50.100d|printf -10.5\n", i);
+	printf("--------\n");
+	ft_printf("%#20.100d|our fucking printf\n", i);
+	printf("%#20.100d|printf #10.2\n", i);
+	printf("--------\n");
+	ft_printf("%#40.100d|our fucking printf\n", i);
+	printf("%#40.100d|printf #10.4\n", i);
+	printf("--------\n");
+	ft_printf("%#50.100d|our fucking printf\n", i);
+	printf("%#50.100d|printf #10.5\n", i);
+	printf("--------\n");
+	ft_printf("%020.100d|our fucking printf\n", i);
+	printf("%020.100d|printf 010.2\n", i);
+	printf("--------\n");
+	ft_printf("%040.100d|our fucking printf\n", i);
+	printf("%040.100d|printf 010.4\n", i);
+	printf("--------\n");
+	ft_printf("%050.100d|our fucking printf\n", i);
+	printf("%050.100d|printf 010.5\n", i);
+	printf("--------\n");
+	ft_printf("% 20.100d|our fucking printf\n", i);
+	printf("% 20.100d|printf  10.2\n", i);
+	printf("--------\n");
+	ft_printf("% 40.100d|our fucking printf\n", i);
+	printf("% 40.100d|printf  10.4\n", i);
+	printf("--------\n");
+	ft_printf("% 50.100d|our fucking printf\n", i);
+	printf("% 50.100d|printf  10.5\n", i);
+	printf("--------\n");*/
+	ft_printf("%.10hd|h\n", i);
+	printf("%.10hd|h printf\n", i);
+	ft_printf("%.10hhd|hh\n", i);
+	printf("%.10hhd|hh printf\n", i);
+	ft_printf("%.10ld|l\n", i);
+	printf("%.10ld|l printf\n", i);
+	ft_printf("%.10lld|ll\n", i);
+	printf("%.10lld|ll printf\n", i);
+	ft_printf("%.10jd|j\n", i);
+	printf("%.10jd|j printf\n", i);
+	ft_printf("%.10zd|z\n", i);
+	printf("%.10zd|z printf\n", i);
 	return (0);
 }

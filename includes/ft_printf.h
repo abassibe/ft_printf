@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/18 06:59:18 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/19 05:32:53 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,13 @@ t_print					*recup_flag(t_print *lst, int *i);
 t_print					*preci_string(t_print *lst);
 
 t_print					*preci_int(t_print *lst);
-t_print					*preci_int_next(t_print *lst, char *str, char *nb, int lenght);
+t_print					*preci_int_next(t_print *lst, char *nb, int lenght);
+t_print					*preci_int_neg(t_print *lst, char *str, char *nb, int lenght);
+t_print					*preci_int_noopt(t_print *lst, char *str, char *nb, int lenght);
 
 t_print					*height_string(t_print *lst, int pos);
+
+t_print					*height_int(t_print *lst, int pos);
 
 t_print					*concaten_result(t_print *lst, int ind);
 

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/18 06:32:05 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/19 05:33:15 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 		lst->i = va_arg(ap, int);
 		lst = convert_int(lst);
 		lst = preci_int(lst);
+//		lst = height_int(lst, pos);
 	}
 	else
 		dispatch_two(lst, ap, pos);
