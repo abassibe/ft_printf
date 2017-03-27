@@ -29,7 +29,7 @@ t_print		*preci_int_next(t_print *lst, char *nb, int lenght)
 	}
 	if (lst->opt == '+')
 	{
-		if (lst->long_preci <= ft_strlen(nb))
+		if (lst->long_preci <= (int)ft_strlen(nb))
 			lst->str[i - 1] = '+';
 		else
 			lst->str[lenght - lst->long_preci - 1] = '+';
@@ -79,7 +79,7 @@ t_print		*preci_int_noopt(t_print *lst, char *str, char *nb, int lenght)
 	}
 	if (lst->opt == '+')
 	{
-		if (lst->long_preci <= ft_strlen(nb))
+		if (lst->long_preci <= (int)ft_strlen(nb))
 			str[i - 1] = '+';
 		else
 			str[lenght - lst->long_preci - 1] = '+';

@@ -27,15 +27,12 @@ int		ft_printf(const char *format, ...)
 	char		*ret;
 	t_print		*lst;
 	va_list		ap;
-	int			end;
 
 	va_start(ap, format);
 	lst = crea_lst(format);
-//	chk_error(format, aq); //A voir plus tard
 	ret = core(lst, ap);
 	va_end(ap);
 	ft_putstr(lst->fmt);
-	end = ft_strlen(lst->fmt);
 	free(lst);
-	return (end);
+	return (ft_strlen(lst->fmt));
 }

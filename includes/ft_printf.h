@@ -99,6 +99,4 @@ t_print					*height_int(t_print *lst, int pos);
 
 t_print					*concaten_result(t_print *lst, int ind);
 
-//int						chk_error(const char *format, va_list aq);
-
 #endif

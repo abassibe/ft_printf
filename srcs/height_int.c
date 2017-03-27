@@ -14,6 +14,7 @@
 
 t_print		*height_int(t_print *lst, int pos)
 {
+	pos = 0;
 	//Seul le cas hh a gerer.
 	return (lst);
 }
