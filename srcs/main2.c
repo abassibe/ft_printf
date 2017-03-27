@@ -14,11 +14,12 @@
 
 int		main(void)
 {
-	int		i = 1000;
+//	int		i = 1000;
+//	float		f =10.675;
 //	char	c = 'A';
-	char	*str = "Hello world";
-	char	*str1 = "deuxieme phrase";
-	char	*str2 = "troisieme";
+//	char	*str = "Hello world";
+//	char	*str1 = "deuxieme phrase";
+//	char	*str2 = "troisieme";
 //	char	*uni = L"䯂 䯂 䯂 䯂 䯂 䯂";
 /*	ft_printf("un int %015.6s, puis u%%%%n char %-20.5s et une chaine %-10.4s%.....\n", uni, str1, str2);
 	ft_printf("str sans uni\n");
@@ -93,7 +94,7 @@ int		main(void)
 	ft_printf("% 50.100d|our fucking printf\n", i);
 	printf("% 50.100d|printf  10.5\n", i);
 	printf("--------\n");*/
-	ft_printf("%.10hd|h\n", i);
+/*	ft_printf("%.10hd|h\n", i);
 	printf("%.10hd|h printf\n", i);
 	ft_printf("%.10hhd|hh\n", i);
 	printf("%.10hhd|hh printf\n", i);
@@ -105,5 +106,5 @@ int		main(void)
 	printf("%.10jd|j printf\n", i);
 	ft_printf("%.10zd|z\n", i);
 	printf("%.10zd|z printf\n", i);
-	return (0);
+	return (0);*/
 }

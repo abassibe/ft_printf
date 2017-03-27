@@ -10,16 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf
+NAME = libftprintf.a
 
 SRCS =	ft_printf.c \
 		main2.c \
 		concaten_result.c \
+		convert_int.c \
+		convert_int_next.c \
 		convert_s.c \
 		core.c \
 		preci_string.c \
 		recup_format.c \
-		verif_format.c
+		verif_format.c \
+		height_int.c \
+		height_string.c \
+		preci_int.c
 
 OBJS = $(SRCS:.c=.o)
 

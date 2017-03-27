@@ -14,6 +14,8 @@
 
 t_print		*height_int(t_print *lst, int pos)
 {
+	pos = 0;
+	//Seul le cas hh a gerer.
 	//Le cas hh a gerer (modifie la valeur de l'int) et convertir en short avec h et long avec l.
 	return (lst);
 }
