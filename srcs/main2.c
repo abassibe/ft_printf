@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/27 18:52:14 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/28 18:09:34 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int		main(void)
 {
-	int		i = 3547;
-//	float		f =10.675;
+	int		i = 65535;
+//	float		f =10.641;
 //	char	c = 'A';
 //	char	*str = "Hello world";
 //	char	*str1 = "deuxieme phrase";
@@ -95,8 +95,8 @@ int		main(void)
 	ft_printf("% 50.100d|our fucking printf\n", i);
 	printf("% 50.100d|printf  10.5\n", i);
 	printf("--------\n");*/
-
-/*	printf("------------- int  = 1000 ---------------\n");
+/*
+	printf("------------- int  = 1000 ---------------\n");
 	ft_printf("%.10d|.10\n", i);
 	printf("%.10d|.10 printf\n", i);
 	ft_printf("%.2d|.2\n", i);

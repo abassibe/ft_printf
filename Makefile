@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/03/27 14:24:02 by abassibe         ###   ########.fr        #
+#    Updated: 2017/03/28 17:18:16 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRCS =	ft_printf.c \
 		verif_format.c \
 		height_int.c \
 		height_string.c \
-		preci_int.c
+		preci_int.c \
+		is_negative.c \
+		is_negative_next.c
 
 OBJS = $(SRCS:.c=.o)
 

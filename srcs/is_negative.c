@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   height_int.c                                       :+:      :+:    :+:   */
+/*   is_negative.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/19 05:31:02 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/28 16:25:52 by abassibe         ###   ########.fr       */
+/*   Created: 2017/03/28 14:17:21 by abassibe          #+#    #+#             */
+/*   Updated: 2017/03/28 18:11:01 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_print		*height_int(t_print *lst, int pos)
+t_print		*negative(t_print *lst)
 {
-	if (ft_strcmp("hh", lst->taille) == 0)
-		while (lst->i > 127)
-			lst->i -= 256;
-	lst->taille = "ko";
+	if (ft_strchr(lst->str, '+'))
+		lst = neg_plus(lst);
+	else if (lst->long_preci >= lst->long_opt)
+		lst = neg_preci(lst);
+	else if (lst->long_opt <= ft_strlen(ft_itoa(lst->i)))
+		lst = neg_preci(lst);
+	else if (lst->opt == '-')
+		lst = neg_moins(lst);
+	else
+		lst = neg(lst);
 	return (lst);
 }

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/27 19:31:03 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/28 18:00:49 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,18 @@ t_print					*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind);
 
 char					*verif_format(t_print *lst, va_list ap, int ind);
 t_print					*i_is_neg(t_print *lst);
-t_print					*i_is_neg_next(t_print *lst);
 t_print					*recup_format(t_print *lst);
 t_print					*dispatch_one(t_print *lst, va_list ap, int pos);
 t_print					*dispatch_two(t_print *lst, va_list ap, int pos);
 t_print					*dispatch_three(t_print *lst, va_list ap, int pos);
+
+t_print					*negative(t_print *lst);
+
+t_print					*neg_plus(t_print *lst);
+t_print					*neg_preci(t_print *lst);
+t_print					*neg_moins(t_print *lst);
+t_print					*neg(t_print *lst);
+t_print					*neg_next(t_print *lst, int len);
 
 t_print					*convert_string(t_print *lst);
 t_print					*options_zero(t_print *lst, char *str, int lenght);

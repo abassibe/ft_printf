@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/27 20:02:18 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/28 17:10:33 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,56 +95,9 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 		lst = i_is_neg(lst);
 		lst = convert_int(lst);
 		lst = preci_int(lst);
-		lst = init_opt(lst);
 	}
 	else
 		dispatch_two(lst, ap, pos);
-	return (lst);
-}
-
-t_print		*i_is_neg_next(t_print *lst)
-{
-	char	*tmp;
-	int		i;
-	int		ib;
-
-	i = -1;
-	ib = -1;
-	if (ft_strchr(lst->str, '+') != NULL)
-	{
-		while (lst->str[i] != '+')
-		{
-			i++;
-			if (lst->str[i] == '+')
-			{
-				lst->str[i] = '-';
-				return (lst);
-			}
-		}
-	}
-	tmp = (char *)malloc(ft_strlen(lst->str) + 1);
-	while (lst->str[i] == ' ' || lst->str[i] == 0)
-	{
-		ib++;
-		i++;
-		if (lst->str[i] == '0')
-		{
-			tmp[ib++] = '-';
-			while (lst->str[i])
-				tmp[ib++] = lst->str[i++];
-			lst->str = ft_strdup(tmp);
-			return (lst);
-		}
-		if (lst->str[i] > 0 && lst->str[i] <= 9)
-		{
-			tmp[ib++] = '-';
-			while (lst->str[i])
-				tmp[ib++] = lst->str[i++];
-			lst->str = ft_strdup(tmp);
-			return (lst);
-		}
-		tmp = lst->str;
-	}
 	return (lst);
 }
 
@@ -161,9 +114,6 @@ t_print		*i_is_neg(t_print *lst)
 		lst->neg = 1;
 		return (lst);
 	}
-	if (lst->neg == 0)
-		return (lst);
-	lst = i_is_neg_next(lst);
 	return (lst);
 }
 
@@ -183,7 +133,8 @@ char		*verif_format(t_print *lst, va_list ap, int ind)
 	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
 	dispatch_one(lst, ap, pos);
 	if (lst->neg == 1)
-		lst = i_is_neg(lst);
+		lst = negative(lst);
 	lst = concaten_result(lst, ind);
+	lst = init_opt(lst);
 	return (NULL);
 }
