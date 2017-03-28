@@ -6,11 +6,18 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/19 05:31:09 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/27 18:18:37 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+t_print		*init_opt(t_print *lst)
+{
+	lst->opt = 0;
+	lst->long_opt = 0;
+	return (lst);
+}
 
 t_print		*convert_int(t_print *lst)
 {

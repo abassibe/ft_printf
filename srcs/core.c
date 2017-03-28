@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/18 02:57:40 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/27 16:55:01 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 	ci = 0;
 	while (lst->fmt[lst->in] != corr_conv[ci])
 	{
-		if (lst->fmt[lst->in] == '\0' || lst->fmt[lst->i] == '\n')
+		if (lst->fmt[lst->in] == '\0'/* || lst->fmt[lst->i] == '\n'*/)
 			break ;
 		ci++;
 		if (!corr_conv[ci])
@@ -31,7 +31,7 @@ t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 	}
 	if (lst->fmt[lst->in] == corr_conv[ci])
 	{
-		 format = ft_strdup(verif_format(lst, ap, ind));
+		format = ft_strdup(verif_format(lst, ap, ind));
 		lst->in++;
 	}
 	return (lst);

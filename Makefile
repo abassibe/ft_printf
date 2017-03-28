@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/03/18 00:44:48 by abassibe         ###   ########.fr        #
+#    Updated: 2017/03/27 14:24:02 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	@gcc $(FLAGS) -c $(addprefix $(SRCPATH), $(SRCS)) \
+	@gcc -c $(addprefix $(SRCPATH), $(SRCS)) \
 		-I includes/ft_printf.h
 	@make -C libft
 	@gcc $(FLAGS) $(OBJS) libft/libft.a -o $(NAME)

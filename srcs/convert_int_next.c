@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/19 04:17:33 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/27 18:06:48 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ t_print		*options_pos_i(t_print *lst, char *str, char *nb, int lenght)
 	is = 0;
 	if (lst->long_opt <= lst->long_preci)
 		lenght++;
+	else if (lst->long_opt < lenght)
+	{
+		str[i++] = '+';
+		lenght++;
+	}
 	while (i < lenght)
 	{
 		if (i == (lenght - ((int)ft_strlen(nb) + 1)))
@@ -109,6 +114,11 @@ t_print		*options_sp_i(t_print *lst, char *str, char *nb, int lenght)
 	is = 0;
 	if (lst->long_opt <= lst->long_preci)
 		lenght++;
+	else if (lst->long_opt < lenght)
+	{
+		str[i++] = ' ';
+		lenght++;
+	}
 	while (i < lenght + 1)
 	{
 		if (i == (lenght - ((int)ft_strlen(nb) + 1)))
