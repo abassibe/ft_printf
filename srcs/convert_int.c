@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/27 18:18:37 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/29 15:48:29 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_print		*init_opt(t_print *lst)
 {
 	lst->opt = 0;
 	lst->long_opt = 0;
+	lst->long_preci = 0;
 	return (lst);
 }
 

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/27 18:06:48 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/29 16:16:55 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,10 @@ t_print		*options_diez_i(t_print *lst, char *str, char *nb, int lenght)
 
 	i = 0;
 	is = 0;
-	if (lenght == ((int)ft_strlen(nb) + 1))
-		lenght--;
+//	if (lst->neg == 1 && lenght == ((int)ft_strlen(nb)))
+//		lenght--;
+//	if (lenght == ((int)ft_strlen(nb) + 1))
+//		lenght--;
 	while (i < lenght)
 	{
 		if (i >= (lenght - (int)ft_strlen(nb)))
@@ -90,8 +92,10 @@ t_print		*options_zero_i(t_print *lst, char *str, char *nb, int lenght)
 
 	i = 0;
 	is = 0;
-	if (lenght == ((int)ft_strlen(nb) + 1))
-		lenght--;
+//	if (lst->neg == 1 && lenght == ((int)ft_strlen(nb)))
+//		lenght--;
+//	else if (lenght == ((int)ft_strlen(nb) + 1))
+//		lenght--;
 	while (i < lenght)
 	{
 		if (i >= (lenght - (int)ft_strlen(nb)))

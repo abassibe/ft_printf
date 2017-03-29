@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/28 18:09:34 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/29 17:04:48 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		main(void)
 {
-	int		i = 65535;
+	int		i = 4294967295;
 //	float		f =10.641;
 //	char	c = 'A';
 //	char	*str = "Hello world";
@@ -95,7 +95,7 @@ int		main(void)
 	ft_printf("% 50.100d|our fucking printf\n", i);
 	printf("% 50.100d|printf  10.5\n", i);
 	printf("--------\n");*/
-/*
+
 	printf("------------- int  = 1000 ---------------\n");
 	ft_printf("%.10d|.10\n", i);
 	printf("%.10d|.10 printf\n", i);
@@ -307,7 +307,7 @@ int		main(void)
 	printf("% 10.50hd| 10.50 printf\n", i);
 	ft_printf("% 2.50hd| 2.50\n", i);
 	printf("% 2.50hd| 2.50 printf\n", i);
-*/
+
 	printf("------------- int  = 1000 avec hh ---------------\n");
 	ft_printf("%.10hhd|.10\n", i);
 	printf("%.10hhd|.10 printf\n", i);
@@ -413,7 +413,7 @@ int		main(void)
 	printf("% 10.50hhd| 10.50 printf\n", i);
 	ft_printf("% 2.50hhd| 2.50\n", i);
 	printf("% 2.50hhd| 2.50 printf\n", i);
-/*
+
 	printf("------------- int  = 1000 avec l ---------------\n");
 	ft_printf("%.10ld|.10\n", i);
 	printf("%.10ld|.10 printf\n", i);
@@ -837,6 +837,6 @@ int		main(void)
 	printf("% 10.50zd| 10.50 printf\n", i);
 	ft_printf("% 2.50zd| 2.50\n", i);
 	printf("% 2.50zd| 2.50 printf\n", i);
-*/
+
 	return (0);
 }
