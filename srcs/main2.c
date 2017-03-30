@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/29 17:04:48 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/30 18:34:25 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 int		main(void)
 {
-	int		i = 4294967295;
+	int		page = 1;
+	int		i = 2147483648;
 //	float		f =10.641;
 //	char	c = 'A';
 //	char	*str = "Hello world";
@@ -97,6 +98,18 @@ int		main(void)
 	printf("--------\n");*/
 
 	printf("------------- int  = 1000 ---------------\n");
+	ft_printf("%.0d|.0\n", i);
+	printf("%.0d|.0 printf\n", i);
+	ft_printf("%-20.0d|-20.0\n", i);
+	printf("%-20.0d|-20.0 printf\n", i);
+	ft_printf("%+20.0d|+20.0\n", i);
+	printf("%+20.0d|+20.0 printf\n", i);
+	ft_printf("%#20.0d|#20.0\n", i);
+	printf("%020.0d|#20.0 printf\n", i);
+	ft_printf("%020.0d|020.0\n", i);
+	printf("%020.0d|020.0 printf\n", i);
+	ft_printf("% 20.0d| 20.0\n", i);
+	printf("% 20.0d| 20.0 printf\n", i);
 	ft_printf("%.10d|.10\n", i);
 	printf("%.10d|.10 printf\n", i);
 	ft_printf("%.2d|.2\n", i);
@@ -201,8 +214,33 @@ int		main(void)
 	printf("% 10.50d| 10.50 printf\n", i);
 	ft_printf("% 2.50d| 2.50\n", i);
 	printf("% 2.50d| 2.50 printf\n", i);
+	ft_printf("%-50.30d|-50.30\n", i);
+	printf("%-50.30d|-50.30 printf\n", i);
+	ft_printf("%+50.30d|+50.30\n", i);
+	printf("%+50.30d|+50.30 printf\n", i);
+	ft_printf("%#50.30d|#50.30\n", i);
+	printf("%#50.30d|#50.30 printf\n", i);
+	ft_printf("%050.30d|050.30\n", i);
+	printf("%050.30d|050.30 printf\n", i);
+	ft_printf("% 50.30d| 50.30\n", i);
+	printf("% 50.30d| 50.30 printf\n", i);
 
+	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
+	page++;
+	getchar();
 	printf("------------- int  = 1000 avec h ---------------\n");
+	ft_printf("%.0d|.0\n", i);
+	printf("%.0d|.0 printf\n", i);
+	ft_printf("%-20.0d|-20.0\n", i);
+	printf("%-20.0d|-20.0 printf\n", i);
+	ft_printf("%+20.0d|+20.0\n", i);
+	printf("%+20.0d|+20.0 printf\n", i);
+	ft_printf("%#20.0d|#20.0\n", i);
+	printf("%020.0d|#20.0 printf\n", i);
+	ft_printf("%020.0d|020.0\n", i);
+	printf("%020.0d|020.0 printf\n", i);
+	ft_printf("% 20.0d| 20.0\n", i);
+	printf("% 20.0d| 20.0 printf\n", i);
 	ft_printf("%.10hd|.10\n", i);
 	printf("%.10hd|.10 printf\n", i);
 	ft_printf("%.2hd|.2\n", i);
@@ -307,8 +345,33 @@ int		main(void)
 	printf("% 10.50hd| 10.50 printf\n", i);
 	ft_printf("% 2.50hd| 2.50\n", i);
 	printf("% 2.50hd| 2.50 printf\n", i);
+	ft_printf("%-50.30d|-50.30\n", i);
+	printf("%-50.30d|-50.30 printf\n", i);
+	ft_printf("%+50.30d|+50.30\n", i);
+	printf("%+50.30d|+50.30 printf\n", i);
+	ft_printf("%#50.30d|#50.30\n", i);
+	printf("%#50.30d|#50.30 printf\n", i);
+	ft_printf("%050.30d|050.30\n", i);
+	printf("%050.30d|050.30 printf\n", i);
+	ft_printf("% 50.30d| 50.30\n", i);
+	printf("% 50.30d| 50.30 printf\n", i);
 
+	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
+	page++;
+	getchar();
 	printf("------------- int  = 1000 avec hh ---------------\n");
+	ft_printf("%.0d|.0\n", i);
+	printf("%.0d|.0 printf\n", i);
+	ft_printf("%-20.0d|-20.0\n", i);
+	printf("%-20.0d|-20.0 printf\n", i);
+	ft_printf("%+20.0d|+20.0\n", i);
+	printf("%+20.0d|+20.0 printf\n", i);
+	ft_printf("%#20.0d|#20.0\n", i);
+	printf("%020.0d|#20.0 printf\n", i);
+	ft_printf("%020.0d|020.0\n", i);
+	printf("%020.0d|020.0 printf\n", i);
+	ft_printf("% 20.0d| 20.0\n", i);
+	printf("% 20.0d| 20.0 printf\n", i);
 	ft_printf("%.10hhd|.10\n", i);
 	printf("%.10hhd|.10 printf\n", i);
 	ft_printf("%.2hhd|.2\n", i);
@@ -413,8 +476,33 @@ int		main(void)
 	printf("% 10.50hhd| 10.50 printf\n", i);
 	ft_printf("% 2.50hhd| 2.50\n", i);
 	printf("% 2.50hhd| 2.50 printf\n", i);
+	ft_printf("%-50.30d|-50.30\n", i);
+	printf("%-50.30d|-50.30 printf\n", i);
+	ft_printf("%+50.30d|+50.30\n", i);
+	printf("%+50.30d|+50.30 printf\n", i);
+	ft_printf("%#50.30d|#50.30\n", i);
+	printf("%#50.30d|#50.30 printf\n", i);
+	ft_printf("%050.30d|050.30\n", i);
+	printf("%050.30d|050.30 printf\n", i);
+	ft_printf("% 50.30d| 50.30\n", i);
+	printf("% 50.30d| 50.30 printf\n", i);
 
+	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
+	page++;
+	getchar();
 	printf("------------- int  = 1000 avec l ---------------\n");
+	ft_printf("%.0d|.0\n", i);
+	printf("%.0d|.0 printf\n", i);
+	ft_printf("%-20.0d|-20.0\n", i);
+	printf("%-20.0d|-20.0 printf\n", i);
+	ft_printf("%+20.0d|+20.0\n", i);
+	printf("%+20.0d|+20.0 printf\n", i);
+	ft_printf("%#20.0d|#20.0\n", i);
+	printf("%020.0d|#20.0 printf\n", i);
+	ft_printf("%020.0d|020.0\n", i);
+	printf("%020.0d|020.0 printf\n", i);
+	ft_printf("% 20.0d| 20.0\n", i);
+	printf("% 20.0d| 20.0 printf\n", i);
 	ft_printf("%.10ld|.10\n", i);
 	printf("%.10ld|.10 printf\n", i);
 	ft_printf("%.2ld|.2\n", i);
@@ -519,8 +607,33 @@ int		main(void)
 	printf("% 10.50ld| 10.50 printf\n", i);
 	ft_printf("% 2.50ld| 2.50\n", i);
 	printf("% 2.50ld| 2.50 printf\n", i);
+	ft_printf("%-50.30d|-50.30\n", i);
+	printf("%-50.30d|-50.30 printf\n", i);
+	ft_printf("%+50.30d|+50.30\n", i);
+	printf("%+50.30d|+50.30 printf\n", i);
+	ft_printf("%#50.30d|#50.30\n", i);
+	printf("%#50.30d|#50.30 printf\n", i);
+	ft_printf("%050.30d|050.30\n", i);
+	printf("%050.30d|050.30 printf\n", i);
+	ft_printf("% 50.30d| 50.30\n", i);
+	printf("% 50.30d| 50.30 printf\n", i);
 
+	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
+	page++;
+	getchar();
 	printf("------------- int  = 1000 avec ll ---------------\n");
+	ft_printf("%.0d|.0\n", i);
+	printf("%.0d|.0 printf\n", i);
+	ft_printf("%-20.0d|-20.0\n", i);
+	printf("%-20.0d|-20.0 printf\n", i);
+	ft_printf("%+20.0d|+20.0\n", i);
+	printf("%+20.0d|+20.0 printf\n", i);
+	ft_printf("%#20.0d|#20.0\n", i);
+	printf("%020.0d|#20.0 printf\n", i);
+	ft_printf("%020.0d|020.0\n", i);
+	printf("%020.0d|020.0 printf\n", i);
+	ft_printf("% 20.0d| 20.0\n", i);
+	printf("% 20.0d| 20.0 printf\n", i);
 	ft_printf("%.10lld|.10\n", i);
 	printf("%.10lld|.10 printf\n", i);
 	ft_printf("%.2lld|.2\n", i);
@@ -625,8 +738,33 @@ int		main(void)
 	printf("% 10.50lld| 10.50 printf\n", i);
 	ft_printf("% 2.50lld| 2.50\n", i);
 	printf("% 2.50lld| 2.50 printf\n", i);
+	ft_printf("%-50.30d|-50.30\n", i);
+	printf("%-50.30d|-50.30 printf\n", i);
+	ft_printf("%+50.30d|+50.30\n", i);
+	printf("%+50.30d|+50.30 printf\n", i);
+	ft_printf("%#50.30d|#50.30\n", i);
+	printf("%#50.30d|#50.30 printf\n", i);
+	ft_printf("%050.30d|050.30\n", i);
+	printf("%050.30d|050.30 printf\n", i);
+	ft_printf("% 50.30d| 50.30\n", i);
+	printf("% 50.30d| 50.30 printf\n", i);
 
+	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
+	page++;
+	getchar();
 	printf("------------- int  = 1000 avec j ---------------\n");
+	ft_printf("%.0d|.0\n", i);
+	printf("%.0d|.0 printf\n", i);
+	ft_printf("%-20.0d|-20.0\n", i);
+	printf("%-20.0d|-20.0 printf\n", i);
+	ft_printf("%+20.0d|+20.0\n", i);
+	printf("%+20.0d|+20.0 printf\n", i);
+	ft_printf("%#20.0d|#20.0\n", i);
+	printf("%020.0d|#20.0 printf\n", i);
+	ft_printf("%020.0d|020.0\n", i);
+	printf("%020.0d|020.0 printf\n", i);
+	ft_printf("% 20.0d| 20.0\n", i);
+	printf("% 20.0d| 20.0 printf\n", i);
 	ft_printf("%.10jd|.10\n", i);
 	printf("%.10jd|.10 printf\n", i);
 	ft_printf("%.2jd|.2\n", i);
@@ -731,8 +869,33 @@ int		main(void)
 	printf("% 10.50jd| 10.50 printf\n", i);
 	ft_printf("% 2.50jd| 2.50\n", i);
 	printf("% 2.50jd| 2.50 printf\n", i);
+	ft_printf("%-50.30d|-50.30\n", i);
+	printf("%-50.30d|-50.30 printf\n", i);
+	ft_printf("%+50.30d|+50.30\n", i);
+	printf("%+50.30d|+50.30 printf\n", i);
+	ft_printf("%#50.30d|#50.30\n", i);
+	printf("%#50.30d|#50.30 printf\n", i);
+	ft_printf("%050.30d|050.30\n", i);
+	printf("%050.30d|050.30 printf\n", i);
+	ft_printf("% 50.30d| 50.30\n", i);
+	printf("% 50.30d| 50.30 printf\n", i);
 
+	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
+	page++;
+	getchar();
 	printf("------------- int  = 1000 avec z ---------------\n");
+	ft_printf("%.0d|.0\n", i);
+	printf("%.0d|.0 printf\n", i);
+	ft_printf("%-20.0d|-20.0\n", i);
+	printf("%-20.0d|-20.0 printf\n", i);
+	ft_printf("%+20.0d|+20.0\n", i);
+	printf("%+20.0d|+20.0 printf\n", i);
+	ft_printf("%#20.0d|#20.0\n", i);
+	printf("%020.0d|#20.0 printf\n", i);
+	ft_printf("%020.0d|020.0\n", i);
+	printf("%020.0d|020.0 printf\n", i);
+	ft_printf("% 20.0d| 20.0\n", i);
+	printf("% 20.0d| 20.0 printf\n", i);
 	ft_printf("%.10zd|.10\n", i);
 	printf("%.10zd|.10 printf\n", i);
 	ft_printf("%.2zd|.2\n", i);
@@ -837,6 +1000,18 @@ int		main(void)
 	printf("% 10.50zd| 10.50 printf\n", i);
 	ft_printf("% 2.50zd| 2.50\n", i);
 	printf("% 2.50zd| 2.50 printf\n", i);
+	ft_printf("%-50.30d|-50.30\n", i);
+	printf("%-50.30d|-50.30 printf\n", i);
+	ft_printf("%+50.30d|+50.30\n", i);
+	printf("%+50.30d|+50.30 printf\n", i);
+	ft_printf("%#50.30d|#50.30\n", i);
+	printf("%#50.30d|#50.30 printf\n", i);
+	ft_printf("%050.30d|050.30\n", i);
+	printf("%050.30d|050.30 printf\n", i);
+	ft_printf("% 50.30d| 50.30\n", i);
+	printf("% 50.30d| 50.30 printf\n", i);
 
+	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
+	page++;
 	return (0);
 }

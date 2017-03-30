@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/29 15:48:29 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:22:52 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ t_print		*init_opt(t_print *lst)
 {
 	lst->opt = 0;
 	lst->long_opt = 0;
-	lst->long_preci = 0;
+	lst->long_preci = -1;
+	lst->neg = 0;
+	lst->str = NULL;
 	return (lst);
 }
 
@@ -26,7 +28,6 @@ t_print		*convert_int(t_print *lst)
 	char	*nb;
 	int		lenght;
 
-	lenght = 0;
 	nb = ft_itoa(lst->i);
 	lst->str = nb;
 	lenght = lst->long_opt;
@@ -35,15 +36,15 @@ t_print		*convert_int(t_print *lst)
 	if (lenght <= (int)ft_strlen(nb))
 		lenght = (int)ft_strlen(nb);
 	str = ft_strnew(lenght);
-	if (lst->opt == '-')
+	if (lst->opt == '-' && (lst->long_preci != 0 || lenght > ft_strlen(nb)))
 		lst = options_neg_i(lst, str, nb, lenght);
-	if (lst->opt == '+')
+	else if (lst->opt == '+' && (lst->long_preci != 0 || lst->i != -2147483648))
 		lst = options_pos_i(lst, str, nb, lenght);
-	if (lst->opt == '#')
+	else if (lst->opt == '#' || lst->long_preci == 0)
 		lst = options_diez_i(lst, str, nb, lenght);
-	if (lst->opt == '0')
+	else if (lst->opt == '0')
 		lst = options_zero_i(lst, str, nb, lenght);
-	if (lst->opt == ' ')
+	else if (lst->opt == ' ' && lst->i != -2147483648)
 		lst = options_sp_i(lst, str, nb, lenght);
 	return (lst);
 }

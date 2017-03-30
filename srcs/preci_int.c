@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 05:22:38 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/27 18:15:13 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/30 17:26:10 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_print		*preci_int_next(t_print *lst, char *nb, int lenght)
 			lst->str[i] = '0';
 		i++;
 	}
-	if (lst->opt == '+')
+	if (lst->opt == '+' && (lst->long_preci != 0 || lst->i != -2147483648))
 	{
 		if (lst->long_preci <= (int)ft_strlen(nb))
 			lst->str[i - 1] = '+';
@@ -96,7 +96,7 @@ t_print		*preci_int(t_print *lst)
 	char	*str;
 	char	*nb;
 
-	if (lst->long_preci == -1)
+	if (lst->long_preci == -1/* || (lst->long_preci == 0 && lst->neg == 1)*/)
 		return (lst);
 	nb = ft_itoa(lst->i);
 	lenght = ft_strlen(lst->str);
@@ -104,11 +104,11 @@ t_print		*preci_int(t_print *lst)
 		lenght = lst->long_preci;
 	str = ft_strnew(lenght);
 	if (lst->opt == '-')
-		preci_int_neg(lst, str, nb, lenght);
+		lst = preci_int_neg(lst, str, nb, lenght);
 	else if (lst->opt == 0)
-		preci_int_noopt(lst, str, nb, lenght);
+		lst = preci_int_noopt(lst, str, nb, lenght);
 	else
-		preci_int_next(lst, nb, lenght);
+		lst = preci_int_next(lst, nb, lenght);
 	free(str);
 	return (lst);
 }
