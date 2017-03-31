@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/30 17:22:52 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/31 18:26:11 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ t_print		*convert_int(t_print *lst)
 	int		lenght;
 
 	nb = ft_itoa(lst->i);
+	if (lst->i == -2147483648)
+		nb = ft_strdup("2147483648");
 	lst->str = nb;
 	lenght = lst->long_opt;
 	if (lenght < lst->long_preci)
@@ -36,15 +38,15 @@ t_print		*convert_int(t_print *lst)
 	if (lenght <= (int)ft_strlen(nb))
 		lenght = (int)ft_strlen(nb);
 	str = ft_strnew(lenght);
-	if (lst->opt == '-' && (lst->long_preci != 0 || lenght > ft_strlen(nb)))
+	if (lst->opt == '-' && ft_strcmp("2147483648", nb) != 0)
 		lst = options_neg_i(lst, str, nb, lenght);
-	else if (lst->opt == '+' && (lst->long_preci != 0 || lst->i != -2147483648))
+	if (lst->opt == '+' && ft_strcmp("2147483648", nb) != 0)
 		lst = options_pos_i(lst, str, nb, lenght);
-	else if (lst->opt == '#' || lst->long_preci == 0)
+	if (lst->opt == '#' && ft_strcmp("2147483648", nb) != 0)
 		lst = options_diez_i(lst, str, nb, lenght);
-	else if (lst->opt == '0')
+	if (lst->opt == '0' ||ft_strcmp("2147483648", nb) == 0)
 		lst = options_zero_i(lst, str, nb, lenght);
-	else if (lst->opt == ' ' && lst->i != -2147483648)
+	if (lst->opt == ' ' && ft_strcmp("2147483648", nb) != 0)
 		lst = options_sp_i(lst, str, nb, lenght);
 	return (lst);
 }

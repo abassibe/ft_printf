@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/30 18:30:56 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/31 17:48:02 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,6 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 
 t_print		*i_is_neg(t_print *lst)
 {
-	int		i;
-	int		ib;
-
-	i = 0;
-	ib = 1;
 	if (lst->i < 0)
 	{
 		lst->i *= -1;
@@ -121,17 +116,14 @@ char		*verif_format(t_print *lst, va_list ap, int ind)
 {
 	int		pos;
 
-	if (lst->i < 0)
-	{
-		lst->i *= -1;
-		lst->neg = 1;
-	}
+	lst->neg = 0;
+	lst = i_is_neg(lst);
 	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
 	lst = recup_format(lst);
 	pos = lst->in - ind;
 	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
 	dispatch_one(lst, ap, pos);
-	if (lst->neg == 1 && lst->i != -2147483648)
+	if (lst->neg == 1)
 		lst = negative(lst);
 	lst = concaten_result(lst, ind);
 	lst = init_opt(lst);

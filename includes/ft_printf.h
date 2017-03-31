@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/29 15:58:02 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/31 18:27:46 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,9 @@ t_print					*negative(t_print *lst);
 
 t_print					*neg_plus(t_print *lst);
 t_print					*neg_preci(t_print *lst);
-t_print					*neg_opt(t_print *lst);
+t_print					*neg_moins(t_print *lst);
 t_print					*neg(t_print *lst);
+t_print					*neg_next(t_print *lst, int len);
 
 t_print					*convert_string(t_print *lst);
 t_print					*options_zero(t_print *lst, char *str, int lenght);
@@ -102,6 +103,7 @@ t_print					*preci_string(t_print *lst);
 t_print					*preci_int(t_print *lst);
 t_print					*preci_int_next(t_print *lst, char *nb, int lenght);
 t_print					*preci_int_neg(t_print *lst, char *str, char *nb, int lenght);
+t_print					*preci_int_neg_next(t_print *lst, char *str, char *nb, int lenght);
 t_print					*preci_int_noopt(t_print *lst, char *str, char *nb, int lenght);
 
 t_print					*height_string(t_print *lst, int pos);

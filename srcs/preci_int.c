@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 05:22:38 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/30 17:26:10 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/03/31 18:29:39 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,18 @@ t_print		*preci_int_next(t_print *lst, char *nb, int lenght)
 			lst->str[i] = '0';
 		i++;
 	}
-	if (lst->opt == '+' && (lst->long_preci != 0 || lst->i != -2147483648))
+	if (lst->opt == '+')
 	{
 		if (lst->long_preci <= (int)ft_strlen(nb))
 			lst->str[i - 1] = '+';
 		else
 			lst->str[lenght - lst->long_preci - 1] = '+';
 	}
+	return (lst);
+}
+
+t_print		*preci_int_neg_next(t_print *lst, char *str, char *nb, int lenght)
+{
 	return (lst);
 }
 
@@ -44,18 +49,22 @@ t_print		*preci_int_neg(t_print *lst, char *str, char *nb, int lenght)
 
 	i = 0;
 	c = 0;
-	while (i < lenght)
-	{
-		if (lst->str[c])
+	printf("%s\n", lst->str);
+	if (lst->i == -2147483648)
+		lst = preci_int_neg_next(lst, str, nb, lenght);
+	else
+		while (i < lenght)
 		{
-			if (i < ((int)lst->long_preci - (int)ft_strlen(nb)))
-				str[i++] = '0';
+			if (lst->str[c])
+			{
+				if (i < ((int)lst->long_preci - (int)ft_strlen(nb)))
+					str[i++] = '0';
+				else
+					str[i++] = lst->str[c++];
+			}
 			else
-				str[i++] = lst->str[c++];
+				str[i++] = ' ';
 		}
-		else
-			str[i++] = ' ';
-	}
 	str[i] = '\0';
 	lst->str = ft_strdup(str);
 	return (lst);
@@ -96,7 +105,7 @@ t_print		*preci_int(t_print *lst)
 	char	*str;
 	char	*nb;
 
-	if (lst->long_preci == -1/* || (lst->long_preci == 0 && lst->neg == 1)*/)
+	if (lst->long_preci == -1)
 		return (lst);
 	nb = ft_itoa(lst->i);
 	lenght = ft_strlen(lst->str);
@@ -104,11 +113,11 @@ t_print		*preci_int(t_print *lst)
 		lenght = lst->long_preci;
 	str = ft_strnew(lenght);
 	if (lst->opt == '-')
-		lst = preci_int_neg(lst, str, nb, lenght);
+		preci_int_neg(lst, str, nb, lenght);
 	else if (lst->opt == 0)
-		lst = preci_int_noopt(lst, str, nb, lenght);
+		preci_int_noopt(lst, str, nb, lenght);
 	else
-		lst = preci_int_next(lst, nb, lenght);
+		preci_int_next(lst, nb, lenght);
 	free(str);
 	return (lst);
 }
