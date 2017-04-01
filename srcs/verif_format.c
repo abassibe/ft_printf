@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/31 17:48:02 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/01 15:46:22 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 		lst = i_is_neg(lst);
 		lst = convert_int(lst);
 		lst = preci_int(lst);
+		lst = i_zero(lst);
 	}
 	else
 		dispatch_two(lst, ap, pos);

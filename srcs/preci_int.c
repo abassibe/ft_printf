@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 05:22:38 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/31 18:29:39 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/01 14:32:58 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 t_print		*preci_int_next(t_print *lst, char *nb, int lenght)
 {
 	int i;
-	int limit;
 
 	i = 0;
-	limit = lenght - ft_strlen(nb);
-	while (i < limit)
+	while (i < lenght - (int)ft_strlen(nb))
 	{
 		if (i < (lenght - lst->long_preci))
 			lst->str[i] = ' ';
@@ -30,7 +28,12 @@ t_print		*preci_int_next(t_print *lst, char *nb, int lenght)
 	if (lst->opt == '+')
 	{
 		if (lst->long_preci <= (int)ft_strlen(nb))
-			lst->str[i - 1] = '+';
+		{
+			if (lst->long_preci != 0 || lst->i != -2147483648)
+				lst->str[i - 1] = '+';
+			else 
+				lst->str[i] = '+';
+		}
 		else
 			lst->str[lenght - lst->long_preci - 1] = '+';
 	}
@@ -39,20 +42,42 @@ t_print		*preci_int_next(t_print *lst, char *nb, int lenght)
 
 t_print		*preci_int_neg_next(t_print *lst, char *str, char *nb, int lenght)
 {
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 1;
+	str[0] = '-';
+	if (lst->long_preci < lst->long_opt)
+		while (j < lenght + 1)
+		{
+			if ((lst->str[i] == '-' || lst->str[i] == '0')
+					&& lst->long_preci < (i + (int)ft_strlen(nb)))
+				i++;
+			else if (lst->str[i] == '\0')
+				str[j++] = ' ';
+			else
+				str[j++] = lst->str[i++];
+		}
+	else
+		while (lst->str[i])
+			str[j++] = lst->str[i++];
+	str[j] = '\0';
+	lst->str = ft_strdup(str);
 	return (lst);
 }
 
 t_print		*preci_int_neg(t_print *lst, char *str, char *nb, int lenght)
 {
-	int i;
-	int c;
+	int		i;
+	int		c;
 
 	i = 0;
 	c = 0;
-	printf("%s\n", lst->str);
 	if (lst->i == -2147483648)
-		lst = preci_int_neg_next(lst, str, nb, lenght);
+		lst = preci_int_neg_next(lst, &(*str), nb, lenght);
 	else
+	{
 		while (i < lenght)
 		{
 			if (lst->str[c])
@@ -65,8 +90,9 @@ t_print		*preci_int_neg(t_print *lst, char *str, char *nb, int lenght)
 			else
 				str[i++] = ' ';
 		}
-	str[i] = '\0';
-	lst->str = ft_strdup(str);
+		str[i] = '\0';
+		lst->str = ft_strdup(str);
+	}
 	return (lst);
 }
 

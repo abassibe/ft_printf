@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:17:36 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/31 15:53:49 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/01 13:37:50 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_print		*neg_preci(t_print *lst)
 	if (lst->str[i] == ' ')
 		i++;
 	tmp[0] = '-';
+	if (lst->str[0] == '-')
+		j--;
 	while (lst->str[i])
 		tmp[j++] = lst->str[i++];
 	tmp[j] = '\0';
@@ -66,6 +68,8 @@ t_print		*neg_moins(t_print *lst)
 	len = ft_strlen(lst->str);
 	tmp = (char *)malloc(len + 1);
 	tmp[0] = '-';
+	if (lst->str[0] == '-')
+		j--;
 	while (i < len - 1)
 		tmp[j++] = lst->str[i++];
 	tmp[j] = '\0';

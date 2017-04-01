@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/31 18:27:46 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/01 15:46:19 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,7 @@ t_print					*height_string(t_print *lst, int pos);
 t_print					*height_int(t_print *lst, int pos);
 
 t_print					*concaten_result(t_print *lst, int ind);
+
+t_print					*i_zero(t_print *lst);
 
 #endif
