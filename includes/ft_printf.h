@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/01 15:46:19 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/01 18:41:47 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <locale.h>
 
-typedef struct		s_print
+typedef struct			s_print
 {
 	int					in;
 	int					neg;
@@ -46,7 +46,7 @@ typedef struct		s_print
 	unsigned int		us_int;
 	short				s_int;
 	unsigned short		uss_int;
-	long				l_int;
+	long int			l_int;
 	unsigned long		usl_int;
 	long long			ll_int;
 	unsigned long long	usll_int;
@@ -108,10 +108,20 @@ t_print					*preci_int_noopt(t_print *lst, char *str, char *nb, int lenght);
 
 t_print					*height_string(t_print *lst, int pos);
 
-t_print					*height_int(t_print *lst, int pos);
+t_print					*height_int(t_print *lst, va_list ap, int pos);
+t_print					*height_int_next(t_print *lst, va_list ap, int pos);
 
 t_print					*concaten_result(t_print *lst, int ind);
 
 t_print					*i_zero(t_print *lst);
+t_print					*l_zero(t_print *lst);
+
+t_print					*convert_int_l(t_print *lst);
+
+t_print					*preci_l_int(t_print *lst);
+t_print					*preci_l_int_next(t_print *lst, char *nb, int lenght);
+t_print					*preci_l_int_neg(t_print *lst, char *str, char *nb, int lenght);
+t_print					*preci_l_int_neg_next(t_print *lst, char *str, char *nb, int lenght);
+t_print					*preci_l_int_noopt(t_print *lst, char *str, char *nb, int lenght);
 
 #endif

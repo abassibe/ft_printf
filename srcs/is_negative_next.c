@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:17:36 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/01 13:37:50 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/01 21:07:39 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_print		*neg_moins(t_print *lst)
 	tmp[0] = '-';
 	if (lst->str[0] == '-')
 		j--;
-	while (i < len - 1)
+	while (i < len)
 		tmp[j++] = lst->str[i++];
 	tmp[j] = '\0';
 	lst->str = ft_strdup(tmp);
