@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/01 16:54:04 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/03 16:27:12 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,7 @@ SRCS =	ft_printf.c \
 		preci_string.c \
 		recup_format.c \
 		verif_format.c \
-		height_int.c \
 		height_string.c \
-		preci_int.c \
-		is_negative.c \
-		is_negative_next.c \
-		particular_case.c \
-		convert_int_l.c \
-		preci_l_int.c
 
 OBJS = $(SRCS:.c=.o)
 

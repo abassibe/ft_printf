@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/01 20:45:53 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/03 18:03:52 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,35 +90,11 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 	}
 	else if (lst->conv[pos] == 'd' || lst->conv[pos] == 'i')
 	{
-//		lst->i = va_arg(ap, int);
-		lst = height_int(lst, ap, pos);
-		lst = i_is_neg(lst);
-		if (ft_strcmp("l", lst->taille) == 0)
-			lst = convert_int_l(lst);
-		else
-			lst = convert_int(lst);
-		if (ft_strcmp("l", lst->taille) == 0)
-			lst = preci_l_int(lst);
-		else
-			lst = preci_int(lst);
-		if (ft_strcmp("l", lst->taille) == 0)
-			lst = l_zero(lst);
-		else
-			lst = i_zero(lst);
+		lst = conv_int(lst, ap);
+		lst = preci_int(lst);
 	}
 	else
 		dispatch_two(lst, ap, pos);
-	return (lst);
-}
-
-t_print		*i_is_neg(t_print *lst)
-{
-	if (lst->i < 0 || lst->l_int < 0)
-	{
-		lst->i *= -1;
-		lst->neg = 1;
-		return (lst);
-	}
 	return (lst);
 }
 
@@ -127,14 +103,11 @@ char		*verif_format(t_print *lst, va_list ap, int ind)
 	int		pos;
 
 	lst->neg = 0;
-	lst = i_is_neg(lst);
 	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
 	lst = recup_format(lst);
 	pos = lst->in - ind;
 	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
 	dispatch_one(lst, ap, pos);
-	if (lst->neg == 1)
-		lst = negative(lst);
 	lst = concaten_result(lst, ind);
 	lst = init_opt(lst);
 	return (NULL);
