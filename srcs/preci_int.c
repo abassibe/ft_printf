@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 18:04:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/03 19:10:32 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/03 19:18:23 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static t_print		*pos(t_print *lst)
 	lst->str_nb = strdup(tmp);
 	free(tmp);
 	}
-	printf("%s|\n", lst->str_nb);
 	return (lst);
 }
 
@@ -59,7 +58,6 @@ static t_print		*neg(t_print *lst)
 	lst->str_nb = strdup(tmp);
 	free(tmp);
 	}
-	printf("%s|\n", lst->str_nb);
 	return (lst);
 }
 
