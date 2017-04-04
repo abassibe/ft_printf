@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/03 18:03:52 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/04 19:26:05 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 	if (lst->conv[pos] == 's')
 	{
 		lst->str = va_arg(ap, char *);
-		lst = preci_string(lst);
-		lst = convert_string(lst);
+//		lst = preci_string(lst);
+//		lst = convert_string(lst);
 //		lst = height_string(lst, pos);
 	}
 	else if (lst->conv[pos] == 'S')
@@ -92,17 +92,17 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 	{
 		lst = conv_int(lst, ap);
 		lst = preci_int(lst);
+		lst = field_int(lst);
 	}
 	else
 		dispatch_two(lst, ap, pos);
 	return (lst);
 }
 
-char		*verif_format(t_print *lst, va_list ap, int ind)
+void		verif_format(t_print *lst, va_list ap, int ind)
 {
 	int		pos;
 
-	lst->neg = 0;
 	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
 	lst = recup_format(lst);
 	pos = lst->in - ind;
@@ -110,5 +110,4 @@ char		*verif_format(t_print *lst, va_list ap, int ind)
 	dispatch_one(lst, ap, pos);
 	lst = concaten_result(lst, ind);
 	lst = init_opt(lst);
-	return (NULL);
 }

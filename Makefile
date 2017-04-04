@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/03 16:27:12 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/04 17:11:30 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,17 @@ NAME = libftprintf.a
 
 SRCS =	ft_printf.c \
 		main2.c \
-		concaten_result.c \
+		verif_format.c \
+		recup_format.c \
 		convert_int.c \
 		convert_int_next.c \
+		preci_int.c \
+		field_int.c \
 		convert_s.c \
 		core.c \
 		preci_string.c \
-		recup_format.c \
-		verif_format.c \
 		height_string.c \
+		concaten_result.c \
 
 OBJS = $(SRCS:.c=.o)
 

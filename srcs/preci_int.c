@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 18:04:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/03 19:18:23 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/04 20:41:45 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static t_print		*pos(t_print *lst)
 				tmp[i++] = lst->str_nb[j++];
 		}
 	lst->str_nb = strdup(tmp);
+	lst->len_str_nb = ft_strlen(lst->str_nb);
 	free(tmp);
 	}
 	return (lst);
@@ -42,20 +43,20 @@ static t_print		*neg(t_print *lst)
 	int		j;
 	char	*tmp;
 
-	i = 1;
-	j = 1;
+	i = 0;
+	j = 0;
 	if (lst->long_preci > lst->len_str_nb)
 	{
 		tmp = ft_strnew(lst->long_preci);
-		tmp[0] = '-';
 		while (i < lst->long_preci + 1)
 		{
-			if (i < ((lst->long_preci + 2) - lst->len_str_nb))
+			if (i < ((lst->long_preci) - lst->len_str_nb))
 				tmp[i++] = '0';
 			else
 				tmp[i++] = lst->str_nb[j++];
 		}
 	lst->str_nb = strdup(tmp);
+	lst->len_str_nb = ft_strlen(lst->str_nb);
 	free(tmp);
 	}
 	return (lst);
@@ -63,12 +64,13 @@ static t_print		*neg(t_print *lst)
 
 t_print		*preci_int(t_print *lst)
 {
-	if (lst->str_nb[0] == 0 && lst->long_preci == 0)
+	if (lst->long_preci == -1)
+		return (lst);
+	if (lst->str_nb[0] == '0' && lst->long_preci == 0)
 		lst->str_nb = ft_strnew(0);
 	else if (lst->neg == 1)
 		lst = neg(lst);
 	else
 		lst = pos(lst);
-	
 	return (lst);
 }

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/03 19:12:06 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/04 20:35:43 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int		main(void)
 {
 	int		page = 1;
-	long int		i = 684615;
+	int		i = -2147483648;
 //	float		f =10.641;
 //	char	c = 'A';
 //	char	*str = "Hello world";
@@ -96,7 +96,7 @@ int		main(void)
 	ft_printf("% 50.100d|our fucking printf\n", i);
 	printf("% 50.100d|printf  10.5\n", i);
 	printf("--------\n");*/
-/*
+
 	printf("------------- int  = 1000 ---------------\n");
 	ft_printf("%.0d|.0\n", i);
 	printf("%.0d|.0 printf\n", i);
@@ -365,7 +365,7 @@ int		main(void)
 	ft_printf("%-20.0hhd|-20.0\n", i);
 	printf("%-20.0hhd|-20.0 printf\n", i);
 	ft_printf("%+20.0hhd|+20.0\n", i);
-	printf("%+20.0hd|+20.0 printf\n", i);
+	printf("%+20.0hhd|+20.0 printf\n", i);
 	ft_printf("%#20.0hhd|#20.0\n", i);
 	printf("%020.0hhd|#20.0 printf\n", i);
 	ft_printf("%020.0hhd|020.0\n", i);
@@ -1010,10 +1010,7 @@ int		main(void)
 	printf("%050.30zd|050.30 printf\n", i);
 	ft_printf("% 50.30zd| 50.30\n", i);
 	printf("% 50.30zd| 50.30 printf\n", i);
-	*/
-	i = -2147483;
-	ft_printf("asdsdf : %.10d|\n", i);
-	printf("%.10d|\n", i);
+
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	return (0);

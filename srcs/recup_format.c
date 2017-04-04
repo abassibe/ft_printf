@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/27 17:43:14 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/04 19:37:09 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,33 @@
 
 t_print		*recup_opt(t_print *lst, int *i)
 {
-	lst->opt = lst->conv[0];
-	lst->conv++;
-	lst->long_opt = ft_atoi(lst->conv);
-	while (lst->conv[*i] >= 48 && lst->conv[*i] <= 57)
-		(*i)++;
+	if (lst->conv[(*i)] == '+')
+		lst->plus = 1;
+	if (lst->conv[(*i)] == '-')
+		lst->less = 1;
+	if (lst->conv[(*i)] == '#')
+		lst->diez = 1;
+	if (lst->conv[(*i)] == '0' &&
+			!(lst->conv[(*i - 1)] > '0' && lst->conv[(*i - 1)] <= '9'))
+		lst->zero = 1;
+	if (lst->conv[(*i)] == ' ')
+		lst->space = 1;
+	if (lst->plus == 1 && lst->space == 1)
+		lst->space = 0;
+	if (lst->less == 1 && lst->zero == 1)
+		lst->zero = 0;
+	return (lst);
+}
+
+t_print		*lenght_field(t_print *lst, int *i)
+{
+
+	lst->long_opt = ((int)lst->conv[(*i)++] - 48);
+	while (lst->conv[(*i)] >= 48 && lst->conv[(*i)] <= 57)
+	{
+		lst->long_opt *= 10;
+		lst->long_opt += ((int)lst->conv[(*i)++] - 48);
+	}
 	return (lst);
 }
 
@@ -30,7 +52,6 @@ t_print		*recup_preci(t_print *lst, int i)
 	lst->conv++;
 	lst->long_preci = ft_atoi(tmp);
 	free(tmp);
-	lst->got_opt = 1;
 	return (lst);
 }
 
@@ -38,22 +59,22 @@ t_print		*recup_flag(t_print *lst, int *i)
 {
 	if (lst->conv[*i] == 'h' && lst->conv[*i + 1] == 'h')
 	{
-		lst->taille = ft_strsub(lst->conv, *i, 2);
+		lst->hh = 1;
 		(*i)++;
 	}
 	else if (lst->conv[*i] == 'h')
-		lst->taille = ft_strsub(lst->conv, *i, 1);
+		lst->h = 1;
 	else if (lst->conv[*i] == 'l' && lst->conv[*i + 1] == 'l')
 	{
-		lst->taille = ft_strsub(lst->conv, *i, 2);
+		lst->ll = 1;
 		(*i)++;
 	}
 	else if (lst->conv[*i] == 'l')
-		lst->taille = ft_strsub(lst->conv, *i, 1);
+		lst->l = 1;
 	else if (lst->conv[*i] == 'j')
-		lst->taille = ft_strsub(lst->conv, *i, 1);
+		lst->j = 1;
 	else if (lst->conv[*i] == 'z')
-		lst->taille = ft_strsub(lst->conv, *i, 1);
+		lst->z = 1;
 	return (lst);
 }
 
@@ -62,15 +83,13 @@ t_print		*recup_format(t_print *lst)
 	int		i;
 
 	i = 0;
-	lst->long_preci = -1;
-	lst->got_opt = 0;
-	lst->taille = "ko";
 	while (lst->conv[i])
 	{
-		if ((lst->conv[i] == '-' || lst->conv[i] == '+' || lst->conv[i] == '#'
+		if (lst->conv[i] == '-' || lst->conv[i] == '+' || lst->conv[i] == '#'
 				|| lst->conv[i] == '0' || lst->conv[i] == ' ')
-				&& lst->got_opt != 1)
 			lst = recup_opt(lst, &i);
+		if (lst->conv[i] > 48 && lst->conv[i] < 58)
+			lst = lenght_field(lst, &i);
 		if (lst->conv[i] == '.')
 			lst = recup_preci(lst, i);
 		if (lst->conv[i] == 'h' || lst->conv[i] == 'l' || lst->conv[i] == 'j' ||

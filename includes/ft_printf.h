@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/03 18:24:18 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/04 17:03:18 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,20 @@ typedef struct			s_print
 	const char			*fmt;
 	char				*output;
 	int					out_size;
-	char				opt;
+	int					plus;
+	int					less;
+	int					diez;
+	int					zero;
+	int					space;
+	int					h;
+	int					hh;
+	int					l;
+	int					ll;
+	int					j;
+	int					z;
 	int					got_opt;
 	int					long_opt;
 	int					long_preci;
-	char				*taille;
 	char				*str_nb;
 	int					len_str_nb;
 	int					len_str;
@@ -61,13 +70,14 @@ typedef struct			s_print
 }						t_print;
 
 int						ft_printf(const char *format, ...);
+t_print					*init_opt(t_print *lst);
 t_print					*crea_lst(const char *format);
 
 char					*core(t_print *lst, va_list ap);
 int						chk_percent(t_print *lst, char *ret, va_list ap, int *c);
 t_print					*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind);
 
-char					*verif_format(t_print *lst, va_list ap, int ind);
+void					verif_format(t_print *lst, va_list ap, int ind);
 t_print					*recup_format(t_print *lst);
 t_print					*dispatch_one(t_print *lst, va_list ap, int pos);
 t_print					*dispatch_two(t_print *lst, va_list ap, int pos);
@@ -78,7 +88,6 @@ t_print					*options_zero(t_print *lst, char *str, int lenght);
 t_print					*options_pos(t_print *lst, char *str, int lenght);
 t_print					*options_neg(t_print *lst, char *str, int lenght);
 
-t_print					*init_opt(t_print *lst);
 t_print					*conv_int(t_print *lst, va_list ap);
 t_print					*conv_d(t_print *lst, va_list ap);
 t_print					*allocate_str(t_print *lst);
@@ -91,8 +100,11 @@ t_print					*conv_z(t_print *lst, va_list ap);
 
 t_print					*preci_int(t_print *lst);
 
+t_print					*field_int(t_print *lst);
+
 t_print					*recup_format(t_print *lst);
 t_print					*recup_opt(t_print *lst, int *i);
+t_print					*lenght_field(t_print *lst, int *i);
 t_print					*recup_preci(t_print *lst, int i);
 t_print					*recup_flag(t_print *lst, int *i);
 

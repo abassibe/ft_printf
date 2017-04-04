@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/01 15:46:17 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/04 19:26:52 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,31 @@ t_print		*crea_lst(const char *format)
 	return (new);
 }
 
+t_print		*init_opt(t_print *lst)
+{
+	lst->h = 0;
+	lst->hh = 0;
+	lst->l = 0;
+	lst->ll = 0;
+	lst->j = 0;
+	lst->z = 0;
+	lst->plus = 0;
+	lst->less = 0;
+	lst->diez = 0;
+	lst->zero = 0;
+	lst->space = 0;
+	lst->got_opt = 0;
+	lst->c = 0;
+	lst->s_int = 0;
+	lst->str_nb = NULL;
+	lst->len_str_nb = 0;
+	lst->long_opt = 0;
+	lst->long_preci = -1;
+	lst->neg = 0;
+	lst->str = NULL;
+	return (lst);
+}
+
 int		ft_printf(const char *format, ...)
 {
 	setlocale(LC_ALL, "");
@@ -30,6 +55,7 @@ int		ft_printf(const char *format, ...)
 
 	va_start(ap, format);
 	lst = crea_lst(format);
+	lst = init_opt(lst);
 	ret = core(lst, ap);
 	va_end(ap);
 	ft_putstr(lst->fmt);

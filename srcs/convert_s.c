@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/18 04:17:48 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/04 17:10:33 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,11 @@ t_print		*convert_string(t_print *lst)
 //	}
 //	else
 //		str = ft_strnew(lenght);
-	if (lst->opt == '-')
+	if (lst->less == 1)
 		lst = options_neg(lst, str, lenght);
-	if (lst->opt == '+' || lst->opt == '#' || lst->opt == ' ')
+	if (lst->plus == 1 || lst->diez == 1 || lst->space == 1)
 		lst = options_pos(lst, str, lenght);
-	if (lst->opt == '0')
+	if (lst->zero == 1)
 		lst = options_zero(lst, str, lenght);
 	return (lst);
 }

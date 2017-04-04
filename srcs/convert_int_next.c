@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:25:45 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/03 17:51:46 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/04 21:09:00 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,65 @@
 
 t_print		*conv_h(t_print *lst, va_list ap)
 {
+	unsigned long long	nb;
+
 	lst->s_int = va_arg(ap, int);
-	lst->str_nb = ft_strdup(ft_itoa(lst->s_int));
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	nb = lst->s_int;
 	if (lst->s_int < 0)
+	{
 		lst->neg = 1;
+		nb = (long long)(lst->s_int) * -1;
+	}
+	lst->str_nb = ft_strdup(ft_itoa_long(nb));
+	lst->len_str_nb = ft_strlen(lst->str_nb);
 	return (lst);
 }
 
 t_print		*conv_hh(t_print *lst, va_list ap)
 {
+	unsigned long long	nb;
+
 	lst->c = va_arg(ap, int);
-	lst->str_nb = ft_strdup(ft_itoa((int)lst->c));
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	nb = (int)lst->c;
 	if ((int)lst->c < 0)
+	{
 		lst->neg = 1;
+		nb = (long long)(lst->c) * -1;
+	}
+	lst->str_nb = ft_strdup(ft_itoa_long(nb));
+	lst->len_str_nb = ft_strlen(lst->str_nb);
 	return (lst);
 }
 
 t_print		*conv_l(t_print *lst, va_list ap)
 {
+	unsigned long long	nb;
+
 	lst->l_int = va_arg(ap, long);
-	lst->str_nb = ft_strdup(ft_itoa_long(lst->l_int));
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	nb = lst->l_int;
 	if (lst->l_int < 0)
+	{
 		lst->neg = 1;
+		nb = (long long)(lst->l_int) * -1;
+	}
+	lst->str_nb = ft_strdup(ft_itoa_long(nb));
+	lst->len_str_nb = ft_strlen(lst->str_nb);
 	return (lst);
 }
 
 t_print		*conv_j(t_print *lst, va_list ap)
 {
+	unsigned long long	nb;
+
 	lst->l_int = va_arg(ap, intmax_t);
-	lst->str_nb = ft_strdup(ft_itoa_long(lst->l_int));
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	nb = lst->l_int;
 	if (lst->l_int < 0)
+	{
 		lst->neg = 1;
+		nb = (long long)(lst->l_int) * -1;
+	}
+	lst->str_nb = ft_strdup(ft_itoa_long(nb));
+	lst->len_str_nb = ft_strlen(lst->str_nb);
 	return (lst);
 }
 
