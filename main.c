@@ -6,23 +6,63 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 03:03:52 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 07:33:54 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include <limits.h>
+#include <string.h>
 
 int		main(void)
 {
 	int		page = 1;
 //	int		i = 2147483647;
-	printf("%lld| printf\n", -9223372036854775808);
-	ft_printf("%lld| ft_printf\n", -9223372036854775808);
 //	float		f =10.641;
 //	char	c = 'A';
-//	char	*str = "Hello world";
-//	char	*str1 = "deuxieme phrase";
+	
+	char	*str = "this";
+	ft_printf("%10s is a string\n", "this");
+	printf("%10s is a string\n", "this");
+	printf("%.4s|.4 printf\n", str);
+	ft_printf("%.4s|.4\n", str);
+	printf("%.0s|.0 printf\n", str);
+	ft_printf("%.0s|.0\n", str);
+	printf("%-2s|-2 printf\n", str);
+	ft_printf("%-2s|-2\n", str);
+	printf("%-20s|-20 printf\n", str);
+	ft_printf("%-20s|-20\n", str);
+	printf("%+2s|+2 printf\n", str);
+	ft_printf("%+2s|+2\n", str);
+	printf("%+20s|+20 printf\n", str);
+	ft_printf("%+20s|+20\n", str);
+	printf("%#2s|#2 printf\n", str);
+	ft_printf("%#2s|#2\n", str);
+	printf("%#20s|#20 printf\n", str);
+	ft_printf("%#20s|#20\n", str);
+	printf("%02s|02 printf\n", str);
+	ft_printf("%02s|02\n", str);
+	printf("%020s|020 printf\n", str);
+	ft_printf("%020s|020\n", str);
+	printf("%-2.10s|-2.10 printf\n", str);
+	ft_printf("%-2.10s|-2.10\n", str);
+	printf("%-20.10s|-20.10 printf\n", str);
+	ft_printf("%-20.10s|-20.10\n", str);
+	printf("%+2.10s|+2.10 printf\n", str);
+	ft_printf("%+2.10s|+2.10\n", str);
+	printf("%+20.10s|+20.10 printf\n", str);
+	ft_printf("%+20.10s|+20.10\n", str);
+	printf("%#2.10s|#2.10 printf\n", str);
+	ft_printf("%#2.10s|#2.10\n", str);
+	printf("%#20.10s|#20.10 printf\n", str);
+	ft_printf("%#20.10s|#20.10\n", str);
+	printf("%02.10s|02.10 printf\n", str);
+	ft_printf("%02.10s|02.10\n", str);
+	printf("%020.10s|020.10 printf\n", str);
+	ft_printf("%020.10s|020.10\n", str);
+	printf("%0-20.10s|0-20.10 printf\n", str);
+	ft_printf("%0-20.10s|0-20.10\n", str);
+	//	char	*str1 = "deuxieme phrase";
 //	char	*str2 = "troisieme";
 //	char	*uni = L"䯂 䯂 䯂 䯂 䯂 䯂";
 /*	ft_printf("un int %015.6s, puis u%%%%n char %-20.5s et une chaine %-10.4s%.....\n", uni, str1, str2);

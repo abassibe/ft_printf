@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_s.c                                        :+:      :+:    :+:   */
+/*   field_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:57:54 by abassibe         ###   ########.fr       */
+/*   Created: 2017/04/06 07:07:28 by abassibe          #+#    #+#             */
+/*   Updated: 2017/04/06 07:35:19 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-//#include "ft_printf.h"
 
 t_print		*options_neg(t_print *lst, char *str, int lenght)
 {
@@ -82,17 +81,13 @@ t_print		*convert_string(t_print *lst)
 
 	lenght = lst->long_opt;
 	if (lenght < (int)ft_strlen(lst->str))
-//	{
 		lenght = (int)ft_strlen(lst->str);
-		str = ft_strnew(lenght);
-//	}
-//	else
-//		str = ft_strnew(lenght);
+	str = ft_strnew(lenght);
 	if (lst->less == 1)
 		lst = options_neg(lst, str, lenght);
-	if (lst->plus == 1 || lst->diez == 1 || lst->space == 1)
-		lst = options_pos(lst, str, lenght);
-	if (lst->zero == 1)
+	else if (lst->zero == 1)
 		lst = options_zero(lst, str, lenght);
+	else
+		lst = options_pos(lst, str, lenght);
 	return (lst);
 }

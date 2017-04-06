@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:53:42 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 06:55:32 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct			s_print
 	int					long_opt;
 	int					long_preci;
 	char				*str_nb;
-	int					len_str_nb;
+	int					len_str_conv;
 	int					len_str;
 	char				*str;
 	char				c;
@@ -108,9 +108,9 @@ t_print					*lenght_field(t_print *lst, int *i);
 t_print					*recup_preci(t_print *lst, int i);
 t_print					*recup_flag(t_print *lst, int *i);
 
-t_print					*preci_string(t_print *lst);
+void					conv_s(t_print *lst, va_list ap);
 
-t_print					*height_string(t_print *lst, int pos);
+t_print					*preci_string(t_print *lst);
 
 t_print					*concaten_result(t_print *lst, int ind);
 

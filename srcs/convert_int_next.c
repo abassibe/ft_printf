@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:25:45 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 03:12:53 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 05:31:15 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_print		*conv_h(t_print *lst, va_list ap)
 		nb = (long long)(lst->s_int) * -1;
 	}
 	lst->str_nb = ft_strdup(ft_itoa_long(nb));
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	lst->len_str_conv = ft_strlen(lst->str_nb);
 	return (lst);
 }
 
@@ -41,7 +41,7 @@ t_print		*conv_hh(t_print *lst, va_list ap)
 		nb = (long long)(lst->c) * -1;
 	}
 	lst->str_nb = ft_strdup(ft_itoa_long(nb));
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	lst->len_str_conv = ft_strlen(lst->str_nb);
 	return (lst);
 }
 
@@ -65,7 +65,7 @@ t_print		*conv_l(t_print *lst, va_list ap)
 		}
 		lst->str_nb = ft_strdup(ft_itoa_long(nb));
 	}
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	lst->len_str_conv = ft_strlen(lst->str_nb);
 	return (lst);
 }
 
@@ -81,7 +81,7 @@ t_print		*conv_j(t_print *lst, va_list ap)
 		nb = (long long)(lst->l_int) * -1;
 	}
 	lst->str_nb = ft_strdup(ft_itoa_long(nb));
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	lst->len_str_conv = ft_strlen(lst->str_nb);
 	return (lst);
 }
 
@@ -89,6 +89,6 @@ t_print		*conv_z(t_print *lst, va_list ap)
 {
 	lst->size_t_i = va_arg(ap, size_t);
 	lst->str_nb = ft_strdup(ft_itoa_long(lst->size_t_i));
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	lst->len_str_conv = ft_strlen(lst->str_nb);
 	return (lst);
 }

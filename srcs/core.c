@@ -6,12 +6,11 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 03:21:58 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 05:33:03 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-//#include "ft_printf.h"
 
 t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 {
@@ -32,7 +31,8 @@ t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 	if (lst->fmt[lst->in] == corr_conv[ci])
 	{
 		verif_format(lst, ap, ind);
-		lst->in++;
+		if (lst->len_str_conv < (int)ft_strlen(lst->conv))
+			lst->in -= (int)ft_strlen(lst->conv) - lst->len_str_conv;
 	}
 	return (lst);
 }
@@ -53,6 +53,7 @@ int		chk_percent(t_print *lst, char *ret, va_list ap, int *c)
 	}
 	if (lst->fmt[lst->in] == '%' && lst->fmt[lst->in + 1] != '%')
 	{
+
 		ind = lst->in + 1;
 		lst->in++;
 		lst = chk_conv(lst, corr_conv, ap, ind);

@@ -6,12 +6,11 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:58:03 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 06:54:07 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-//#include "ft_printf.h"
 
 t_print		*allocate_str(t_print *lst)
 {
@@ -36,7 +35,7 @@ t_print		*conv_d(t_print *lst, va_list ap)
 		nb = (long long)(lst->i) * -1;
 	}
 	lst->str_nb = ft_strdup(ft_itoa_long(nb));
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	lst->len_str_conv = ft_strlen(lst->str_nb);
 	return (lst);
 }
 

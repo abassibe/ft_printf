@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 18:04:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 02:40:00 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 05:34:35 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ static t_print		*pos(t_print *lst)
 
 	i = 0;
 	j = 0;
-	if (lst->long_preci > lst->len_str_nb)
+	if (lst->long_preci > lst->len_str_conv)
 	{
 		tmp = ft_strnew(lst->long_preci);
 		while (i < lst->long_preci)
 		{
-			if (i < (lst->long_preci - lst->len_str_nb))
+			if (i < (lst->long_preci - lst->len_str_conv))
 				tmp[i++] = '0';
 			else
 				tmp[i++] = lst->str_nb[j++];
 		}
-	lst->str_nb = strdup(tmp);
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	lst->str_nb = ft_strdup(tmp);
+	lst->len_str_conv = ft_strlen(lst->str_nb);
 	free(tmp);
 	}
 	return (lst);
@@ -46,18 +46,18 @@ static t_print		*neg(t_print *lst)
 
 	i = 0;
 	j = 0;
-	if (lst->long_preci > lst->len_str_nb)
+	if (lst->long_preci > lst->len_str_conv)
 	{
 		tmp = ft_strnew(lst->long_preci);
 		while (i < lst->long_preci + 1)
 		{
-			if (i < ((lst->long_preci) - lst->len_str_nb))
+			if (i < ((lst->long_preci) - lst->len_str_conv))
 				tmp[i++] = '0';
 			else
 				tmp[i++] = lst->str_nb[j++];
 		}
-	lst->str_nb = strdup(tmp);
-	lst->len_str_nb = ft_strlen(lst->str_nb);
+	lst->str_nb = ft_strdup(tmp);
+	lst->len_str_conv = ft_strlen(lst->str_nb);
 	free(tmp);
 	}
 	return (lst);

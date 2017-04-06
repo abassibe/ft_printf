@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/06 01:58:26 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/06 07:19:32 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,10 @@ SRCS =	ft_printf.c \
 		convert_int_next.c \
 		preci_int.c \
 		field_int.c \
-		convert_s.c \
+		field_string.c \
 		core.c \
+		conv_string.c \
 		preci_string.c \
-		height_string.c \
 		concaten_result.c \
 		ft_atoi.c \
 		ft_itoa_long.c \
@@ -56,9 +56,9 @@ $(OBJS): $(SRCSFULL)
 .PHONY: all clean fclean re
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all

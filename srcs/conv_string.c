@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   height_string.c                                    :+:      :+:    :+:   */
+/*   conv_string.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/18 00:58:55 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:57:36 by abassibe         ###   ########.fr       */
+/*   Created: 2017/04/06 05:51:23 by abassibe          #+#    #+#             */
+/*   Updated: 2017/04/06 07:24:22 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-//#include "ft_printf.h"
 
-t_print	*height_string(t_print *lst, int pos)
+void	conv_s(t_print *lst, va_list ap)
 {
-	pos = 0;
-	//Seulement 2 cas a gerer, quand le flag "ls" est donne mais sans caractere unicode (n'affiche rien)
-	//et le flag "ls" avec de l'unicode
-	return (lst);
+	char	*tmp;
+
+//	if (lst->l == 1)
+//	{
+		// fait qqchose
+//	}
+//	else
+		tmp = va_arg(ap, char *);
+	lst->str = ft_strdup(tmp);
+	if (tmp == NULL)
+		lst->str = ft_strdup("(null)");
+	lst->len_str_conv = ft_strlen(lst->str);
 }
