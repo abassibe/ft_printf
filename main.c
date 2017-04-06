@@ -6,17 +6,19 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:47:12 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 03:03:52 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "includes/ft_printf.h"
 #include <limits.h>
 
 int		main(void)
 {
-//	int		page = 1;
+	int		page = 1;
 //	int		i = 2147483647;
+	printf("%lld| printf\n", -9223372036854775808);
+	ft_printf("%lld| ft_printf\n", -9223372036854775808);
 //	float		f =10.641;
 //	char	c = 'A';
 //	char	*str = "Hello world";
@@ -1010,8 +1012,8 @@ int		main(void)
 	printf("%050.30zd|050.30 printf\n", i);
 	ft_printf("% 50.30zd| 50.30\n", i);
 	printf("% 50.30zd| 50.30 printf\n", i);
-
+*/
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
-	page++;*/
+	page++;
 	return (0);
 }

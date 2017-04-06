@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/04 17:03:18 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/05 23:53:42 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 #include <stdarg.h>
-#include "../libft/libft.h"
+#include "libft.h"
 #include <stdio.h>
 #include <locale.h>
 

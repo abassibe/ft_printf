@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preci_string.c                                     :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 01:21:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:57:26 by abassibe         ###   ########.fr       */
+/*   Created: 2017/01/23 17:45:45 by abassibe          #+#    #+#             */
+/*   Updated: 2017/01/23 18:00:26 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-//#include "ft_printf.h"
+#include "libft.h"
 
-t_print		*preci_string(t_print *lst)
+char	*ft_strnew(size_t size)
 {
-	char	*str;
-	int		i;
+	char	*m;
+	size_t	c;
 
-	i = 0;
-	if (lst->long_preci == -1)
-		return (lst);
-	str = ft_strnew(lst->long_preci);
-	while (i != lst->long_preci)
+	c = 0;
+	m = (char *)malloc(size + 1);
+	if (m == NULL)
+		return (NULL);
+	while (c != size)
 	{
-		str[i] = lst->str[i];
-		i++;
+		m[c] = '\0';
+		c++;
 	}
-	lst->str = str;
-	return (lst);
+	m[c] = '\0';
+	return (m);
 }

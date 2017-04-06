@@ -6,11 +6,12 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/04 14:10:59 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 03:21:58 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+//#include "ft_printf.h"
 
 t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 {

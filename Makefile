@@ -6,14 +6,13 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/04 17:11:30 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/06 01:58:26 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRCS =	ft_printf.c \
-		main2.c \
 		verif_format.c \
 		recup_format.c \
 		convert_int.c \
@@ -25,6 +24,17 @@ SRCS =	ft_printf.c \
 		preci_string.c \
 		height_string.c \
 		concaten_result.c \
+		ft_atoi.c \
+		ft_itoa_long.c \
+		ft_putstr.c \
+		ft_strdup.c \
+		ft_strjoin.c \
+		ft_strlen.c \
+		ft_strnew.c \
+		ft_strsub.c \
+		ft_memalloc.c \
+		ft_putchar.c \
+		ft_memset.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -32,23 +42,23 @@ SRCPATH = ./srcs/
 
 FLAGS = -Wall -Wextra -Werror
 
+SRCSFULL = $(addprefix $(SRCPATH), $(SRCS))
+
 all: $(NAME)
 
-$(NAME):
-	@gcc -c $(addprefix $(SRCPATH), $(SRCS)) \
-		-I includes/ft_printf.h
-	@make -C libft
-	@gcc $(FLAGS) $(OBJS) libft/libft.a -o $(NAME)
+$(NAME): $(OBJS)
+	@ar rc $(NAME) $(OBJS) *.o
+	@ranlib $(NAME)
+
+$(OBJS): $(SRCSFULL)
+	@gcc $(FLAGS) -c $(SRCSFULL) -I ./includes/
 
 .PHONY: all clean fclean re
 
 clean:
-	@make -C libft clean
 	@rm -rf $(OBJS)
 
 fclean: clean
-	@make -C libft fclean
-	@rm -rf libft/libft.a $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
-

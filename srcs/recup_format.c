@@ -6,11 +6,12 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/04 19:37:09 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/05 23:57:21 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+//#include "ft_printf.h"
 
 t_print		*recup_opt(t_print *lst, int *i)
 {

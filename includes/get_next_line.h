@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preci_string.c                                     :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 01:21:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:57:26 by abassibe         ###   ########.fr       */
+/*   Created: 2017/02/23 13:50:58 by abassibe          #+#    #+#             */
+/*   Updated: 2017/03/10 23:18:27 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-//#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-t_print		*preci_string(t_print *lst)
+# include "libft.h"
+# define BUFF_SIZE 9
+
+typedef struct		s_buff
 {
-	char	*str;
-	int		i;
+	int				fd;
+	int				ind;
+	char			*buff;
+	struct s_buff	*next;
+}					t_buff;
 
-	i = 0;
-	if (lst->long_preci == -1)
-		return (lst);
-	str = ft_strnew(lst->long_preci);
-	while (i != lst->long_preci)
-	{
-		str[i] = lst->str[i];
-		i++;
-	}
-	lst->str = str;
-	return (lst);
-}
+int					get_next_line(const int fd, char **line);
+int					read_file(t_buff *cpy, char **line, int fd);
+
+#endif

@@ -6,11 +6,12 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/04 19:26:52 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 03:22:00 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+//#include "ft_printf.h"
 
 t_print		*crea_lst(const char *format)
 {

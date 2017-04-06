@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preci_string.c                                     :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 01:21:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:57:26 by abassibe         ###   ########.fr       */
+/*   Created: 2017/01/21 04:50:59 by abassibe          #+#    #+#             */
+/*   Updated: 2017/01/21 05:04:21 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-//#include "ft_printf.h"
+#include "libft.h"
 
-t_print		*preci_string(t_print *lst)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*str;
-	int		i;
+	char	*s;
+	size_t	k;
 
-	i = 0;
-	if (lst->long_preci == -1)
-		return (lst);
-	str = ft_strnew(lst->long_preci);
-	while (i != lst->long_preci)
+	s = b;
+	k = 0;
+	while (k < len)
 	{
-		str[i] = lst->str[i];
-		i++;
+		s[k] = c;
+		k++;
 	}
-	lst->str = str;
-	return (lst);
+	return (b);
 }

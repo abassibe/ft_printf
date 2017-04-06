@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preci_string.c                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 01:21:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:57:26 by abassibe         ###   ########.fr       */
+/*   Created: 2017/01/22 09:04:09 by abassibe          #+#    #+#             */
+/*   Updated: 2017/02/22 21:12:24 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-//#include "ft_printf.h"
+#include "libft.h"
 
-t_print		*preci_string(t_print *lst)
+void	ft_putstr(const char *c)
 {
-	char	*str;
-	int		i;
+	int p;
 
-	i = 0;
-	if (lst->long_preci == -1)
-		return (lst);
-	str = ft_strnew(lst->long_preci);
-	while (i != lst->long_preci)
+	if (!(c))
+		return ;
+	p = 0;
+	while (c[p] != '\0')
 	{
-		str[i] = lst->str[i];
-		i++;
+		ft_putchar(c[p]);
+		p++;
 	}
-	lst->str = str;
-	return (lst);
 }

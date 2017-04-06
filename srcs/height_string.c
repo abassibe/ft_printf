@@ -6,11 +6,12 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 00:58:55 by abassibe          #+#    #+#             */
-/*   Updated: 2017/03/18 03:07:54 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/05 23:57:36 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+//#include "ft_printf.h"
 
 t_print	*height_string(t_print *lst, int pos)
 {

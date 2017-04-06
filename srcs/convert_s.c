@@ -6,11 +6,12 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/04 17:10:33 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/05 23:57:54 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+//#include "ft_printf.h"
 
 t_print		*options_neg(t_print *lst, char *str, int lenght)
 {

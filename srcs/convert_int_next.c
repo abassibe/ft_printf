@@ -6,11 +6,12 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:25:45 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/04 21:09:00 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/06 03:12:53 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+//#include "ft_printf.h"
 
 t_print		*conv_h(t_print *lst, va_list ap)
 {
@@ -46,16 +47,24 @@ t_print		*conv_hh(t_print *lst, va_list ap)
 
 t_print		*conv_l(t_print *lst, va_list ap)
 {
-	unsigned long long	nb;
+	long long	nb;
 
 	lst->l_int = va_arg(ap, long);
 	nb = lst->l_int;
-	if (lst->l_int < 0)
+	if (nb < -9223372036854775807)
 	{
+		lst->str_nb = ft_strdup("9223372036854775808");
 		lst->neg = 1;
-		nb = (long long)(lst->l_int) * -1;
 	}
-	lst->str_nb = ft_strdup(ft_itoa_long(nb));
+	else
+	{
+		if (lst->l_int < 0)
+		{
+			lst->neg = 1;
+			nb = (long long)(lst->l_int) * -1;
+		}
+		lst->str_nb = ft_strdup(ft_itoa_long(nb));
+	}
 	lst->len_str_nb = ft_strlen(lst->str_nb);
 	return (lst);
 }

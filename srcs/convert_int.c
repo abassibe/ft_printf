@@ -6,11 +6,12 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/04 21:09:02 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/05 23:58:03 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+//#include "ft_printf.h"
 
 t_print		*allocate_str(t_print *lst)
 {
@@ -19,12 +20,6 @@ t_print		*allocate_str(t_print *lst)
 		lst->len_str = lst->long_opt;
 	if (lst->len_str < lst->long_preci)
 		lst->len_str = lst->long_preci;
-	if ((lst->long_preci >= lst->len_str) && (lst->neg == 1 ||
-			lst->plus == 1 || lst->space == 1))
-		lst->len_str++;
-	else if ((lst->len_str_nb > lst->long_opt && lst->len_str_nb > lst->long_preci)
-			&& (lst->neg == 1 || lst->plus == 1 || lst->space == 1))
-			lst->len_str++;
 	lst->str = ft_strnew(lst->len_str); //allocation
 	return (lst);
 }

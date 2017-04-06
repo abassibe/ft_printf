@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preci_string.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 01:21:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:57:26 by abassibe         ###   ########.fr       */
+/*   Created: 2017/01/18 15:09:47 by abassibe          #+#    #+#             */
+/*   Updated: 2017/03/02 04:52:16 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-//#include "ft_printf.h"
+#include "libft.h"
 
-t_print		*preci_string(t_print *lst)
+char	*ft_strdup(const char *src)
 {
-	char	*str;
-	int		i;
+	size_t		c;
+	char		*dst;
 
-	i = 0;
-	if (lst->long_preci == -1)
-		return (lst);
-	str = ft_strnew(lst->long_preci);
-	while (i != lst->long_preci)
+	c = 0;
+	if (!(dst = (char *)malloc(sizeof(char) * ft_strlen(src) + 1)))
+		return (NULL);
+	while (c != ft_strlen(src))
 	{
-		str[i] = lst->str[i];
-		i++;
+		dst[c] = src[c];
+		c++;
 	}
-	lst->str = str;
-	return (lst);
+	dst[c] = '\0';
+	return (dst);
+	free(dst);
 }

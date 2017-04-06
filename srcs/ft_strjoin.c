@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preci_string.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 01:21:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:57:26 by abassibe         ###   ########.fr       */
+/*   Created: 2017/01/24 15:50:47 by abassibe          #+#    #+#             */
+/*   Updated: 2017/03/03 06:46:04 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-//#include "ft_printf.h"
+#include "libft.h"
 
-t_print		*preci_string(t_print *lst)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
+	char	*join;
 	int		i;
+	int		j;
 
+	if (!s1 || !s2)
+		return (NULL);
+	if (!(join = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
+		return (NULL);
 	i = 0;
-	if (lst->long_preci == -1)
-		return (lst);
-	str = ft_strnew(lst->long_preci);
-	while (i != lst->long_preci)
+	j = 0;
+	while (s1[i])
 	{
-		str[i] = lst->str[i];
+		join[i] = s1[i];
 		i++;
 	}
-	lst->str = str;
-	return (lst);
+	while (s2[j])
+	{
+		join[i + j] = s2[j];
+		j++;
+	}
+	return (join);
 }
