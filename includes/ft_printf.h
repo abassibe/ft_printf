@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 06:55:32 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/08 05:28:46 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,14 +103,20 @@ t_print					*preci_int(t_print *lst);
 t_print					*field_int(t_print *lst);
 
 t_print					*recup_format(t_print *lst);
-t_print					*recup_opt(t_print *lst, int *i);
+t_print					*recup_opt(t_print *lst, int i);
 t_print					*lenght_field(t_print *lst, int *i);
-t_print					*recup_preci(t_print *lst, int i);
+t_print					*recup_preci(t_print *lst, int *i);
 t_print					*recup_flag(t_print *lst, int *i);
 
 void					conv_s(t_print *lst, va_list ap);
 
 t_print					*preci_string(t_print *lst);
+
+void					conv_c(t_print *lst, va_list ap);
+
+void					conv_hexa(t_print *lst, va_list ap);
+
+void					conv_octal(t_print *lst, va_list ap);
 
 t_print					*concaten_result(t_print *lst, int ind);
 
