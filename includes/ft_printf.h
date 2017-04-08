@@ -92,6 +92,8 @@ t_print					*conv_int(t_print *lst, va_list ap);
 t_print					*conv_d(t_print *lst, va_list ap);
 t_print					*allocate_str(t_print *lst);
 
+void					conv_c(t_print *lst, va_list ap);
+
 t_print					*conv_h(t_print *lst, va_list ap);
 t_print					*conv_hh(t_print *lst, va_list ap);
 t_print					*conv_l(t_print *lst, va_list ap);
@@ -109,6 +111,10 @@ t_print					*recup_preci(t_print *lst, int *i);
 t_print					*recup_flag(t_print *lst, int *i);
 
 void					conv_s(t_print *lst, va_list ap);
+
+void					conv_octal(t_print *lst, va_list ap);
+
+void					conv_hexa(t_print *lst, va_list ap);
 
 t_print					*preci_string(t_print *lst);
 
