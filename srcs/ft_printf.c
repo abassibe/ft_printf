@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/08 06:59:22 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 00:58:07 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_print		*init_opt(t_print *lst)
 	lst->long_preci = -1;
 	lst->neg = 0;
 	lst->str = NULL;
+	lst->len_str = 0;
 	return (lst);
 }
 
@@ -67,5 +68,5 @@ int		ft_printf(const char *format, ...)
 	va_end(ap);
 	ft_putstr(lst->fmt);
 	free(lst);
-	return (ft_strlen(lst->fmt));
+	return ((int)ft_strlen(lst->fmt) + lst->c_zero);
 }

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/08 01:40:41 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 01:20:46 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,20 @@ void	conv_c_next(t_print *lst)
 			lst->str[i++] = '0';
 		lst->str[i] = lst->c;
 	}
-	else if (lst->space == 1 || lst->diez == 1 || lst->plus == 1)
+	else
 	{
 		while (i < lst->len_str_conv - 1)
 			lst->str[i++] = ' ';
 		lst->str[i] = lst->c;
 	}
-	else
-		lst->str[0] = lst->c;
 }
 
 void	conv_c(t_print *lst, va_list ap)
 {
+	lst->c_zero = 0;
 	lst->c = va_arg(ap, int);
+	if (lst->c == 0)
+		lst->c_zero = 1;
 	lst->len_str_conv = 1;
 	if (lst->len_str_conv < lst->long_opt)
 		lst->len_str_conv = lst->long_opt;

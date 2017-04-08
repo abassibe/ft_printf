@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/08 00:57:42 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 01:47:25 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int		chk_percent(t_print *lst, char *ret, va_list ap, int *c)
 	}
 	if (lst->fmt[lst->in] == '%' && lst->fmt[lst->in + 1] != '%')
 	{
-
 		ind = lst->in + 1;
 		lst->in++;
 		lst = chk_conv(lst, corr_conv, ap, ind);

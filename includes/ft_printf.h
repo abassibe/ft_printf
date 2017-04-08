@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/08 05:28:46 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 00:53:28 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct			s_print
 {
 	int					in;
 	int					neg;
+	int					c_zero;
 	char				*conv;
 	int					nbr_arg;
 	const char			*fmt;
@@ -92,6 +93,8 @@ t_print					*conv_int(t_print *lst, va_list ap);
 t_print					*conv_d(t_print *lst, va_list ap);
 t_print					*allocate_str(t_print *lst);
 
+void					conv_c(t_print *lst, va_list ap);
+
 t_print					*conv_h(t_print *lst, va_list ap);
 t_print					*conv_hh(t_print *lst, va_list ap);
 t_print					*conv_l(t_print *lst, va_list ap);
@@ -109,6 +112,10 @@ t_print					*recup_preci(t_print *lst, int *i);
 t_print					*recup_flag(t_print *lst, int *i);
 
 void					conv_s(t_print *lst, va_list ap);
+
+void					conv_octal(t_print *lst, va_list ap);
+
+void					conv_hexa(t_print *lst, va_list ap);
 
 t_print					*preci_string(t_print *lst);
 

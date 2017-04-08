@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/08 06:41:25 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/09 00:17:00 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ FLAGS = -Wall -Wextra -Werror
 SRCSFULL = $(addprefix $(SRCPATH), $(SRCS))
 
 all: $(NAME)
+	@chmod 755 $(NAME)
 
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS) *.o

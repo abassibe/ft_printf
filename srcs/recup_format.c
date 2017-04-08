@@ -6,12 +6,11 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/08 04:49:14 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 00:42:09 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-//#include "ft_printf.h"
 
 t_print		*recup_opt(t_print *lst, int i)
 {
@@ -48,7 +47,8 @@ t_print		*lenght_field(t_print *lst, int *i)
 t_print		*recup_preci(t_print *lst, int *i)
 {
 	(*i)++;
-	lst->long_preci = ((int)lst->conv[(*i)++] - 48);
+//	lst->long_preci = ((int)lst->conv[(*i)++] - 48);
+	lst->long_preci = 0;
 	while (lst->conv[(*i)] >= 48 && lst->conv[(*i)] <= 57)
 	{
 		lst->long_preci *= 10;

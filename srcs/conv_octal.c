@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/08 07:00:04 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 01:23:46 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,13 @@ static void		preci_octal(t_print *lst)
 
 	i = 0;
 	j = 0;
+	if (lst->long_preci == 0 && lst->str_nb[0] == '0' && lst->diez != 1)
+	{
+		lst->str_nb = ft_strnew(0);
+		if (lst->long_opt == 0)
+			lst->len_str = 0;
+		return ;
+	}
 	if (lst->long_preci == -1 &&
 			(lst->long_opt > lst->len_str_conv && lst->zero == 1))
 		lst->len_str_conv = lst->long_opt;
@@ -107,7 +114,7 @@ void			conv_octal(t_print *lst, va_list ap)
 	}
 	else
 		recup_arg(lst, ap);
-	if (lst->diez == 1)
+	if (lst->diez == 1 && lst->usll_int > 0)
 		lst->str_nb = ft_strjoin ("0", ft_itoa_base_unsigned(lst->usll_int, 8));
 	else
 		lst->str_nb = ft_itoa_base_unsigned (lst->usll_int, 8);

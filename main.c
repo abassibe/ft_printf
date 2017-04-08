@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/08 07:00:19 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 01:48:10 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int		main(void)
 {
 	int		page = 1;
-	long long		i = 18446744073709551615;
+//	long long		i = 18446744073709551615;
 //	float		f =10.641;
 //	char	c = 'A';
 //	char	*str = "bla";
@@ -1110,7 +1110,7 @@ int		main(void)
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-*/
+
 	printf("------------- Octal ---------------\n");
 	printf("%o|printf\n", i);
 	ft_printf("%o|\n", i);
@@ -1469,6 +1469,6 @@ int		main(void)
 	printf("% 10.20zo| 10.20 printf\n", i);
 	ft_printf("% 10.20zo| 10.20\n", i);
 	printf("%#10.20zo|#10.20 printf\n", i);
-	ft_printf("%#10.20zo|#10.20\n", i);
+	ft_printf("%#10.20zo|#10.20\n", i);*/
 	return (0);
 }
