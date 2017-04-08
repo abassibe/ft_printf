@@ -103,9 +103,9 @@ t_print					*preci_int(t_print *lst);
 t_print					*field_int(t_print *lst);
 
 t_print					*recup_format(t_print *lst);
-t_print					*recup_opt(t_print *lst, int *i);
+t_print					*recup_opt(t_print *lst, int i);
 t_print					*lenght_field(t_print *lst, int *i);
-t_print					*recup_preci(t_print *lst, int i);
+t_print					*recup_preci(t_print *lst, int *i);
 t_print					*recup_flag(t_print *lst, int *i);
 
 void					conv_s(t_print *lst, va_list ap);

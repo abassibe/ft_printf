@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-//#include "ft_printf.h"
 
 t_print		*recup_opt(t_print *lst, int i)
 {
