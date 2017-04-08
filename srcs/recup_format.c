@@ -6,25 +6,25 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/05 23:57:21 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/08 04:49:14 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 //#include "ft_printf.h"
 
-t_print		*recup_opt(t_print *lst, int *i)
+t_print		*recup_opt(t_print *lst, int i)
 {
-	if (lst->conv[(*i)] == '+')
+	if (lst->conv[i] == '+')
 		lst->plus = 1;
-	if (lst->conv[(*i)] == '-')
+	if (lst->conv[i] == '-')
 		lst->less = 1;
-	if (lst->conv[(*i)] == '#')
+	if (lst->conv[i] == '#')
 		lst->diez = 1;
-	if (lst->conv[(*i)] == '0' &&
-			!(lst->conv[(*i - 1)] > '0' && lst->conv[(*i - 1)] <= '9'))
+	if (lst->conv[i] == '0' &&
+			!(lst->conv[i - 1] > '0' && lst->conv[i - 1] <= '9'))
 		lst->zero = 1;
-	if (lst->conv[(*i)] == ' ')
+	if (lst->conv[i] == ' ')
 		lst->space = 1;
 	if (lst->plus == 1 && lst->space == 1)
 		lst->space = 0;
@@ -45,14 +45,15 @@ t_print		*lenght_field(t_print *lst, int *i)
 	return (lst);
 }
 
-t_print		*recup_preci(t_print *lst, int i)
+t_print		*recup_preci(t_print *lst, int *i)
 {
-	char	*tmp;
-
-	tmp = ft_strsub(lst->conv, i + 1, (ft_strlen(lst->conv) - i));
-	lst->conv++;
-	lst->long_preci = ft_atoi(tmp);
-	free(tmp);
+	(*i)++;
+	lst->long_preci = ((int)lst->conv[(*i)++] - 48);
+	while (lst->conv[(*i)] >= 48 && lst->conv[(*i)] <= 57)
+	{
+		lst->long_preci *= 10;
+		lst->long_preci += ((int)lst->conv[(*i)++] - 48);
+	}
 	return (lst);
 }
 
@@ -88,11 +89,11 @@ t_print		*recup_format(t_print *lst)
 	{
 		if (lst->conv[i] == '-' || lst->conv[i] == '+' || lst->conv[i] == '#'
 				|| lst->conv[i] == '0' || lst->conv[i] == ' ')
-			lst = recup_opt(lst, &i);
+			lst = recup_opt(lst, i);
 		if (lst->conv[i] > 48 && lst->conv[i] < 58)
 			lst = lenght_field(lst, &i);
 		if (lst->conv[i] == '.')
-			lst = recup_preci(lst, i);
+			lst = recup_preci(lst, &i);
 		if (lst->conv[i] == 'h' || lst->conv[i] == 'l' || lst->conv[i] == 'j' ||
 				lst->conv[i] == 'z')
 			lst = recup_flag(lst, &i);

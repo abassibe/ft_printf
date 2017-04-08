@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 07:05:12 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/08 05:39:01 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ t_print		*dispatch_three(t_print *lst, va_list ap, int pos)
 //		lst = convert_lhexa(lst);
 	}
 	else if (lst->conv[pos] == 'c')
-	{
-		lst->c = va_arg(ap, int);
-//		lst = convert_char(lst);
-	}
+		conv_c(lst, ap);
 	else if (lst->conv[pos] == 'C')
 	{
 		lst->uni_c = va_arg(ap, wchar_t);
@@ -50,10 +47,7 @@ t_print		*dispatch_two(t_print *lst, va_list ap, int pos)
 //		lst = convert_lint(lst);
 	}
 	else if (lst->conv[pos] == 'o')
-	{
-		lst->octal = va_arg(ap, int);
-//		lst = convert_octal(lst);
-	}
+		conv_octal(lst, ap);
 	else if (lst->conv[pos] == 'O')
 	{
 		lst->l_octal = va_arg(ap, long int);
@@ -83,10 +77,7 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 //		lst = convert_lstring(lst);
 	}
 	else if (lst->conv[pos] == 'p')
-	{
-		lst->address = va_arg(ap, char *);
-//		lst = convert_address(lst);
-	}
+		conv_hexa(lst, ap);
 	else if (lst->conv[pos] == 'd' || lst->conv[pos] == 'i')
 	{
 		lst = conv_int(lst, ap);
@@ -108,5 +99,4 @@ void		verif_format(t_print *lst, va_list ap, int ind)
 	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
 	dispatch_one(lst, ap, pos);
 	lst = concaten_result(lst, ind);
-	lst = init_opt(lst);
 }

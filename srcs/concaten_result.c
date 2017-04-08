@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:22:49 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 04:47:58 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/08 00:57:23 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ t_print		*concaten_result(t_print *lst, int ind)
 	tmp = ft_strjoin(tmp, lst->str);
 	tmp = ft_strjoin(tmp, ft_strsub(lst->fmt, (lst->in + 1), ft_strlen(lst->fmt)));
 	lst->fmt = tmp;
+	lst->in = ind + ft_strlen(lst->str) - 1;
 	return (lst);
 }

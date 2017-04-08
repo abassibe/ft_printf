@@ -6,12 +6,11 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 18:04:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 05:34:35 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/08 03:49:45 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-//#include "ft_printf.h"
 
 static t_print		*pos(t_print *lst)
 {

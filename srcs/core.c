@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 05:33:03 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/08 00:57:42 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 	ci = 0;
 	while (lst->fmt[lst->in] != corr_conv[ci])
 	{
-		if (lst->fmt[lst->in] == '\0'/* || lst->fmt[lst->i] == '\n'*/)
+		if (lst->fmt[lst->in] == '\0')
 			break ;
 		ci++;
 		if (!corr_conv[ci])
@@ -31,8 +31,7 @@ t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 	if (lst->fmt[lst->in] == corr_conv[ci])
 	{
 		verif_format(lst, ap, ind);
-		if (lst->len_str_conv < (int)ft_strlen(lst->conv))
-			lst->in -= (int)ft_strlen(lst->conv) - lst->len_str_conv;
+		lst = init_opt(lst);
 	}
 	return (lst);
 }
