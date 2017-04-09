@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/09 06:18:04 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/09 06:26:37 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ SRCS =	ft_printf.c \
 		ft_strsub.c \
 		ft_memalloc.c \
 		ft_putchar.c \
-		ft_memset.c
 
 OBJS = $(SRCS:.c=.o)
 
