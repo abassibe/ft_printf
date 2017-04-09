@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:18:04 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 06:04:07 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:04:01 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static int		compte(unsigned long long nbr, int base)
 	return (ret);
 }
 
-char			*ft_itoa_base_unsigned(unsigned long long value, int base)
+char			*ft_itoa_base_maj_unsigned(unsigned long long value, int base)
 {
 	char	*retour;
 	int		nb;
 	int		i;
 	char	*tab;
 
-	tab = "0123456789abcdef";
+	tab = "0123456789ABCDEF";
 	if (value == 0)
 		return (ft_strdup("0"));
 	nb = compte(value, base);

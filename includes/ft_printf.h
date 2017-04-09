@@ -6,17 +6,17 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 00:53:28 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:17:02 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <stdarg.h>
-#include "libft.h"
-#include <stdio.h>
-#include <locale.h>
+# include <stdarg.h>
+# include "libft.h"
+# include <stdio.h>
+# include <locale.h>
 
 typedef struct			s_print
 {
@@ -75,8 +75,10 @@ t_print					*init_opt(t_print *lst);
 t_print					*crea_lst(const char *format);
 
 char					*core(t_print *lst, va_list ap);
-int						chk_percent(t_print *lst, char *ret, va_list ap, int *c);
-t_print					*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind);
+int						chk_percent(t_print *lst, char *ret,
+		va_list ap, int *c);
+t_print					*chk_conv(t_print *lst, char *corr_conv,
+		va_list ap, int ind);
 
 void					verif_format(t_print *lst, va_list ap, int ind);
 t_print					*recup_format(t_print *lst);
@@ -105,6 +107,12 @@ t_print					*preci_int(t_print *lst);
 
 t_print					*field_int(t_print *lst);
 
+t_print					*field_diez(t_print *lst);
+t_print					*field_space(t_print *lst);
+t_print					*field_zero(t_print *lst);
+t_print					*field_plus(t_print *lst);
+t_print					*field_less(t_print *lst);
+
 t_print					*recup_format(t_print *lst);
 t_print					*recup_opt(t_print *lst, int i);
 t_print					*lenght_field(t_print *lst, int *i);
@@ -113,17 +121,17 @@ t_print					*recup_flag(t_print *lst, int *i);
 
 void					conv_s(t_print *lst, va_list ap);
 
+t_print					*preci_string(t_print *lst);
+
 void					conv_octal(t_print *lst, va_list ap);
 
 void					conv_hexa(t_print *lst, va_list ap);
-
-t_print					*preci_string(t_print *lst);
 
 void					conv_c(t_print *lst, va_list ap);
 
-void					conv_hexa(t_print *lst, va_list ap);
+void					conv_hexa_x(t_print *lst);
 
-void					conv_octal(t_print *lst, va_list ap);
+void					recup_args_hexa(t_print *lst, va_list ap, int chack);
 
 t_print					*concaten_result(t_print *lst, int ind);
 

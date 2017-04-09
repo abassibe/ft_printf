@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/08 05:39:01 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:06:28 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ t_print		*dispatch_three(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 'U')
 	{
-		lst->usl_int = va_arg(ap, unsigned long int);
-//		lst = convert_uslint(lst);
 	}
 	else if (lst->conv[pos] == 'x')
 	{
-		lst->hexa = va_arg(ap, int);
-//		lst = convert_hexa(lst);
+		recup_args_hexa(lst, ap, 0);
+		conv_hexa_x(lst);
 	}
 	else if (lst->conv[pos] == 'X')
 	{
-		lst->l_hexa = va_arg(ap, long int);
-//		lst = convert_lhexa(lst);
+		recup_args_hexa(lst, ap, 1);
+		conv_hexa_x(lst);
+		if (lst->str[1] == 'x')
+			lst->str[1] = 'X';
 	}
 	else if (lst->conv[pos] == 'c')
 		conv_c(lst, ap);
 	else if (lst->conv[pos] == 'C')
 	{
-		lst->uni_c = va_arg(ap, wchar_t);
-//		lst = convert_unic(lst);
+		lst->l = 1;
+		conv_c(lst, ap);
 	}
 	return (lst);
 }
@@ -43,20 +43,20 @@ t_print		*dispatch_two(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 'D')
 	{
-		lst->l_int = va_arg(ap, long int);
-//		lst = convert_lint(lst);
+		lst->l = 1;
+		lst = conv_int(lst, ap);
+		lst = preci_int(lst);
+		lst = field_int(lst);
 	}
 	else if (lst->conv[pos] == 'o')
 		conv_octal(lst, ap);
 	else if (lst->conv[pos] == 'O')
 	{
-		lst->l_octal = va_arg(ap, long int);
-//		lst = convert_loctal(lst);
+		lst->l = 1;
+		conv_octal(lst, ap);
 	}
 	else if (lst->conv[pos] == 'u')
 	{
-		lst->us_int = va_arg(ap, unsigned int);
-//		lst = convert_usint(lst);
 	}
 	else
 		dispatch_three(lst, ap, pos);
@@ -73,8 +73,10 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 	}
 	else if (lst->conv[pos] == 'S')
 	{
-		lst->uni_str = va_arg(ap, wchar_t *);
-//		lst = convert_lstring(lst);
+		lst->l = 1;
+		conv_s(lst, ap);
+		lst = preci_string(lst);
+		lst = convert_string(lst);
 	}
 	else if (lst->conv[pos] == 'p')
 		conv_hexa(lst, ap);

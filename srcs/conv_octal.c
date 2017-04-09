@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 01:23:46 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:01:53 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void		octal_less(t_print *lst)
 		tmp[i++] = lst->str_nb[j++];
 	while (i < lst->len_str)
 		tmp[i++] = ' ';
-	lst->str_nb = ft_strdup (tmp);
+	lst->str_nb = ft_strdup(tmp);
 }
 
 static void		octal_field(t_print *lst)
@@ -115,9 +115,9 @@ void			conv_octal(t_print *lst, va_list ap)
 	else
 		recup_arg(lst, ap);
 	if (lst->diez == 1 && lst->usll_int > 0)
-		lst->str_nb = ft_strjoin ("0", ft_itoa_base_unsigned(lst->usll_int, 8));
+		lst->str_nb = ft_strjoin("0", ft_itoa_base_unsigned(lst->usll_int, 8));
 	else
-		lst->str_nb = ft_itoa_base_unsigned (lst->usll_int, 8);
+		lst->str_nb = ft_itoa_base_unsigned(lst->usll_int, 8);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
 	if (lst->long_preci > lst->len_str_conv)
 		lst->len_str_conv = lst->long_preci;

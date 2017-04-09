@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:18:04 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/08 06:42:25 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:03:32 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int		compte(long long nbr, int base)
 
 char			*ft_itoa_base(long long value, int base)
 {
-	char*	retour;
+	char	*retour;
 	int		nb;
 	int		i;
 	char	*tab;

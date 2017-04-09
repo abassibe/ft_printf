@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 00:42:09 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:05:36 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_print		*recup_opt(t_print *lst, int i)
 
 t_print		*lenght_field(t_print *lst, int *i)
 {
-
 	lst->long_opt = ((int)lst->conv[(*i)++] - 48);
 	while (lst->conv[(*i)] >= 48 && lst->conv[(*i)] <= 57)
 	{
@@ -47,7 +46,6 @@ t_print		*lenght_field(t_print *lst, int *i)
 t_print		*recup_preci(t_print *lst, int *i)
 {
 	(*i)++;
-//	lst->long_preci = ((int)lst->conv[(*i)++] - 48);
 	lst->long_preci = 0;
 	while (lst->conv[(*i)] >= 48 && lst->conv[(*i)] <= 57)
 	{

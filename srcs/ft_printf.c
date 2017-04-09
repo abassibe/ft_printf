@@ -6,14 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 00:58:07 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:20:26 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-//#include "ft_printf.h"
 
-t_print		*crea_lst(const char *format)
+t_print			*crea_lst(const char *format)
 {
 	t_print		*new;
 
@@ -22,7 +21,15 @@ t_print		*crea_lst(const char *format)
 	return (new);
 }
 
-t_print		*init_opt(t_print *lst)
+static void		init_opt_next(t_print *lst)
+{
+	lst->long_preci = -1;
+	lst->neg = 0;
+	lst->str = NULL;
+	lst->len_str = 0;
+}
+
+t_print			*init_opt(t_print *lst)
 {
 	lst->h = 0;
 	lst->hh = 0;
@@ -47,14 +54,11 @@ t_print		*init_opt(t_print *lst)
 	lst->str_nb = NULL;
 	lst->len_str_conv = 0;
 	lst->long_opt = 0;
-	lst->long_preci = -1;
-	lst->neg = 0;
-	lst->str = NULL;
-	lst->len_str = 0;
+	init_opt_next(lst);
 	return (lst);
 }
 
-int		ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	char		*ret;
 	t_print		*lst;

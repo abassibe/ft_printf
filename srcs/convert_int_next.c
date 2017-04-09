@@ -6,12 +6,11 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:25:45 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 05:31:15 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 05:45:00 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-//#include "ft_printf.h"
 
 t_print		*conv_h(t_print *lst, va_list ap)
 {

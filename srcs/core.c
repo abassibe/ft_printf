@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 01:47:25 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:02:14 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 	return (lst);
 }
 
-int		chk_percent(t_print *lst, char *ret, va_list ap, int *c)
+int			chk_percent(t_print *lst, char *ret, va_list ap, int *c)
 {
 	char	*corr_conv;
 	int		ci;
@@ -62,7 +62,7 @@ int		chk_percent(t_print *lst, char *ret, va_list ap, int *c)
 	return (1);
 }
 
-char	*core(t_print *lst, va_list ap)
+char		*core(t_print *lst, va_list ap)
 {
 	int		c;
 	char	*ret;

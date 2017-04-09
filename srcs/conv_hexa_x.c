@@ -6,11 +6,39 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 05:55:32 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:01:04 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static void		hexa_diez(t_print *lst, int lenght, int i)
+{
+	char	*tmp;
+	int		j;
+
+	j = 0;
+	if (lst->long_opt == 0 && lst->long_preci == 0 && lst->l_hexa == 0)
+		return ;
+	tmp = ft_strnew(lst->len_str);
+	if (lst->long_opt > lenght && lst->long_opt > lst->long_preci &&
+			(lst->zero == 1 && lst->diez == 1))
+	{
+		tmp[0] = '0';
+		tmp[1] = 'x';
+		i = 2;
+		j = 4;
+		lst->len_str -= 2;
+	}
+	while (i < lst->len_str + 2)
+	{
+		if (i < lst->len_str - ((int)ft_strlen(lst->str_nb)))
+			tmp[i++] = ' ';
+		else
+			tmp[i++] = lst->str_nb[j++];
+	}
+	lst->str_nb = ft_strdup(tmp);
+}
 
 static void		hexa_less(t_print *lst)
 {
@@ -20,8 +48,10 @@ static void		hexa_less(t_print *lst)
 
 	i = 0;
 	j = 0;
-	tmp = (char *)malloc(lst->len_str);
-	while (j < lst->len_str_conv + 2)
+	if (lst->diez == 1)
+		lst->len_str_conv += 2;
+	tmp = ft_strnew(lst->len_str);
+	while (j < lst->len_str_conv)
 		tmp[i++] = lst->str_nb[j++];
 	while (i < lst->len_str)
 		tmp[i++] = ' ';
@@ -36,8 +66,10 @@ static void		hexa_field(t_print *lst)
 
 	i = 0;
 	j = 0;
-	tmp = (char *)malloc(lst->len_str);
-	while (i < lst->len_str + 2)
+	tmp = ft_strnew(lst->len_str);
+	if (lst->long_opt == 0)
+		return ;
+	while (i < lst->len_str)
 	{
 		if (i < lst->len_str - ((int)ft_strlen(lst->str_nb)))
 			tmp[i++] = ' ';
@@ -57,7 +89,7 @@ static void		preci_hexa(t_print *lst)
 	j = 0;
 	if (lst->long_preci == -1 &&
 			(lst->long_opt > lst->len_str_conv && lst->zero == 1))
-		lst->len_str_conv = lst->long_opt - 2;
+		lst->len_str_conv = lst->long_opt;
 	if (lst->long_preci == 0 && lst->l_hexa == 0)
 	{
 		tmp = ft_strnew(0);
@@ -65,7 +97,7 @@ static void		preci_hexa(t_print *lst)
 		return ;
 	}
 	else
-		tmp = (char *)malloc(lst->len_str_conv);
+		tmp = ft_strnew(lst->len_str_conv);
 	while (i < lst->len_str_conv)
 	{
 		if (i < (lst->len_str_conv - (int)ft_strlen(lst->str_nb)))
@@ -76,10 +108,13 @@ static void		preci_hexa(t_print *lst)
 	lst->str_nb = ft_strdup(tmp);
 }
 
-void			conv_hexa(t_print *lst, va_list ap)
+void			conv_hexa_x(t_print *lst)
 {
-	lst->l_hexa = va_arg(ap, long long);
-	lst->str_nb = ft_itoa_base(lst->l_hexa, 16);
+	int		lenght;
+	int		i;
+
+	i = 0;
+	lenght = lst->len_str_conv;
 	lst->len_str_conv = ft_strlen(lst->str_nb);
 	if (lst->long_preci > lst->len_str_conv)
 		lst->len_str_conv = lst->long_preci;
@@ -87,10 +122,13 @@ void			conv_hexa(t_print *lst, va_list ap)
 	if (lst->long_opt > lst->len_str)
 		lst->len_str = lst->long_opt;
 	preci_hexa(lst);
+	if (lst->diez == 1 && lst->l_hexa != 0)
+		lst->str_nb = ft_strjoin("0x", lst->str_nb);
 	lst->str = ft_strnew(lst->len_str);
-	lst->str_nb = ft_strjoin("0x", lst->str_nb);
 	if (lst->less == 1)
 		hexa_less(lst);
+	else if (lst->diez == 1)
+		hexa_diez(lst, lenght, i);
 	else
 		hexa_field(lst);
 	lst->str = ft_strdup(lst->str_nb);

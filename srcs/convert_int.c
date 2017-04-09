@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 06:54:07 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 05:56:45 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_print		*allocate_str(t_print *lst)
 		lst->len_str = lst->long_opt;
 	if (lst->len_str < lst->long_preci)
 		lst->len_str = lst->long_preci;
-	lst->str = ft_strnew(lst->len_str); //allocation
+	lst->str = ft_strnew(lst->len_str);
 	return (lst);
 }
 

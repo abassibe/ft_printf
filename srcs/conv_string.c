@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 05:51:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/06 07:24:22 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/09 06:11:42 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,7 @@ void	conv_s(t_print *lst, va_list ap)
 {
 	char	*tmp;
 
-//	if (lst->l == 1)
-//	{
-		// fait qqchose
-//	}
-//	else
-		tmp = va_arg(ap, char *);
+	tmp = va_arg(ap, char *);
 	lst->str = ft_strdup(tmp);
 	if (tmp == NULL)
 		lst->str = ft_strdup("(null)");
