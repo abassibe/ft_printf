@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   concaten_result.c                                  :+:      :+:    :+:   */
+/*   ft_itoa_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 04:22:49 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/10 17:43:58 by abassibe         ###   ########.fr       */
+/*   Created: 2017/01/25 18:24:17 by abassibe          #+#    #+#             */
+/*   Updated: 2017/04/10 15:38:16 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
-t_print		*concaten_result(t_print *lst, int ind)
+char	*ft_itoa_ulong(unsigned long int n)
 {
-	char	*tmp;
+	unsigned long int	tmp;
+	int					len;
+	int					neg;
+	char				*str;
 
-	tmp = ft_strsub(lst->fmt, 0, ind - 1);
-	tmp = ft_strjoin(tmp, lst->str);
-	tmp = ft_strjoin(tmp, ft_strsub(lst->fmt,
-				(lst->in + 1), ft_strlen(lst->fmt)));
-	lst->fmt = ft_strdup(tmp);
-	lst->in = ind + ft_strlen(lst->str) - 2;
-	free(tmp);
-	return (lst);
+	tmp = n;
+	len = 2;
+	neg = 0;
+	while (tmp /= 10)
+		len++;
+	len += neg;
+	if ((str = (char*)malloc(sizeof(char) * len)) == NULL)
+		return (NULL);
+	str[--len] = '\0';
+	while (len--)
+	{
+		str[len] = n % 10 + '0';
+		n = n / 10;
+	}
+	if (neg)
+		str[0] = '-';
+	return (str);
 }

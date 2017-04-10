@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/09 06:48:01 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/10 16:20:35 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,13 @@ PRINTFSRC =	ft_printf.c \
 			conv_octal.c \
 			conv_hexa_x.c \
 			recup_args_hexa.c \
-			concaten_result.c
+			concaten_result.c \
+			conv_uint.c \
+			conv_percent.c
 
 LFTSRC =	ft_atoi.c \
 			ft_itoa_long.c \
+			ft_itoa_ulong.c \
 			ft_itoa_base.c \
 			ft_itoa_base_maj.c \
 			ft_itoa_base_unsigned.c \

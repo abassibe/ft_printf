@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 06:17:02 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/10 16:10:45 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,10 @@ void					conv_c(t_print *lst, va_list ap);
 void					conv_hexa_x(t_print *lst);
 
 void					recup_args_hexa(t_print *lst, va_list ap, int chack);
+
+void					conv_uint(t_print *lst, va_list ap);
+
+void					conv_percent(t_print *lst);
 
 t_print					*concaten_result(t_print *lst, int ind);
 

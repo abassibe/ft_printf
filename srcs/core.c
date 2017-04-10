@@ -6,13 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 06:02:14 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/10 17:39:49 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
+t_print			*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 {
 	int		ci;
 
@@ -36,21 +36,15 @@ t_print		*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
 	return (lst);
 }
 
-int			chk_percent(t_print *lst, char *ret, va_list ap, int *c)
+int				chk_percent(t_print *lst, char *ret, va_list ap, int *c)
 {
 	char	*corr_conv;
 	int		ci;
 	int		ind;
 
 	ci = 0;
-	corr_conv = "sSpdDioOuUxXcC";
-	if (lst->fmt[lst->in] == '%' && lst->fmt[lst->in + 1] == '%')
-	{
-		ret[*c] = '%';
-		lst->in++;
-		return (1);
-	}
-	if (lst->fmt[lst->in] == '%' && lst->fmt[lst->in + 1] != '%')
+	corr_conv = "sSpdDioOuUxXcC%";
+	if (lst->fmt[lst->in] == '%')
 	{
 		ind = lst->in + 1;
 		lst->in++;
@@ -62,7 +56,7 @@ int			chk_percent(t_print *lst, char *ret, va_list ap, int *c)
 	return (1);
 }
 
-char		*core(t_print *lst, va_list ap)
+char			*core(t_print *lst, va_list ap)
 {
 	int		c;
 	char	*ret;
