@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/11 17:42:00 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 18:37:32 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ static void		simple_percent(t_print *lst, char *perc)
 			lst->conv = ft_strsub(perc, 0, i);
 			return ;
 		}
-		 else
-			 j++;
+		else
+			j++;
 	}
 	lst->conv = ".0%";
 }

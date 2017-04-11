@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 06:01:04 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 19:08:57 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void		hexa_diez(t_print *lst, int lenght, int i)
 			tmp[i++] = lst->str_nb[j++];
 	}
 	lst->str_nb = ft_strdup(tmp);
+	free(tmp);
 }
 
 static void		hexa_less(t_print *lst)
@@ -56,6 +57,7 @@ static void		hexa_less(t_print *lst)
 	while (i < lst->len_str)
 		tmp[i++] = ' ';
 	lst->str_nb = ft_strdup(tmp);
+	free(tmp);
 }
 
 static void		hexa_field(t_print *lst)
@@ -77,6 +79,7 @@ static void		hexa_field(t_print *lst)
 			tmp[i++] = lst->str_nb[j++];
 	}
 	lst->str_nb = ft_strdup(tmp);
+	free(tmp);
 }
 
 static void		preci_hexa(t_print *lst)
@@ -92,8 +95,7 @@ static void		preci_hexa(t_print *lst)
 		lst->len_str_conv = lst->long_opt;
 	if (lst->long_preci == 0 && lst->l_hexa == 0)
 	{
-		tmp = ft_strnew(0);
-		lst->str_nb = ft_strdup(tmp);
+		lst->str_nb = ft_strnew(0);
 		return ;
 	}
 	else
@@ -106,6 +108,7 @@ static void		preci_hexa(t_print *lst)
 			tmp[i++] = lst->str_nb[j++];
 	}
 	lst->str_nb = ft_strdup(tmp);
+	free(tmp);
 }
 
 void			conv_hexa_x(t_print *lst)
@@ -123,7 +126,7 @@ void			conv_hexa_x(t_print *lst)
 		lst->len_str = lst->long_opt;
 	preci_hexa(lst);
 	if (lst->diez == 1 && lst->l_hexa != 0)
-		lst->str_nb = ft_strjoin("0x", lst->str_nb);
+		lst->str_nb = ft_strjoinfn("0x", lst->str_nb);
 	lst->str = ft_strnew(lst->len_str);
 	if (lst->less == 1)
 		hexa_less(lst);
@@ -132,4 +135,5 @@ void			conv_hexa_x(t_print *lst)
 	else
 		hexa_field(lst);
 	lst->str = ft_strdup(lst->str_nb);
+	free(lst->str_nb);
 }

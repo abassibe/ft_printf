@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/11 17:41:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 18:52:12 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,4 +117,5 @@ void		verif_format(t_print *lst, va_list ap)
 	pos = ft_strlen(lst->conv) - 1;
 	lst = recup_format(lst);
 	dispatch_one(lst, ap, pos);
+	free(lst->conv);
 }
