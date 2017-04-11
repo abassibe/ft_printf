@@ -6,22 +6,25 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:22:49 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/10 17:43:58 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 15:07:47 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_print		*concaten_result(t_print *lst, int ind)
+int		concaten_result(t_print *lst, int ind)
 {
 	char	*tmp;
+	int		len_conv;
+	int		i;
 
+	len_conv = (int)ft_strlen(lst->conv);
 	tmp = ft_strsub(lst->fmt, 0, ind - 1);
 	tmp = ft_strjoin(tmp, lst->str);
-	tmp = ft_strjoin(tmp, ft_strsub(lst->fmt,
-				(lst->in + 1), ft_strlen(lst->fmt)));
+	i = (int)ft_strlen(tmp) - 1;
+	tmp = ft_strjoin(tmp, ft_strsub(lst->fmt, ind + len_conv,
+				ft_strlen(lst->fmt) - ind + len_conv));
 	lst->fmt = ft_strdup(tmp);
-	lst->in = ind + ft_strlen(lst->str) - 2;
 	free(tmp);
-	return (lst);
+	return (i);
 }

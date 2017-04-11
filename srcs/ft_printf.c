@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 06:20:26 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 17:46:15 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void		init_opt_next(t_print *lst)
 	lst->neg = 0;
 	lst->str = NULL;
 	lst->len_str = 0;
+	lst->conv = NULL;
 }
 
 t_print			*init_opt(t_print *lst)
@@ -60,17 +61,16 @@ t_print			*init_opt(t_print *lst)
 
 int				ft_printf(const char *format, ...)
 {
-	char		*ret;
 	t_print		*lst;
 	va_list		ap;
 
 	va_start(ap, format);
 	lst = crea_lst(format);
 	lst = init_opt(lst);
-	lst->output = ft_strdup(format);
-	ret = core(lst, ap);
+	core(lst, ap);
 	va_end(ap);
 	ft_putstr(lst->fmt);
+	free(lst->str);
 	free(lst);
 	return ((int)ft_strlen(lst->fmt) + lst->c_zero);
 }

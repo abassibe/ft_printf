@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/10 17:01:13 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 17:41:51 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ void		dispatch_four(t_print *lst, va_list ap, int pos)
 		conv_c(lst, ap);
 	}
 	else if (lst->conv[pos] == '%')
+	{
 		conv_percent(lst);
+	}
 	else
 		lst->str = ft_strnew(0);
 }
+
 t_print		*dispatch_three(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 'u')
@@ -107,14 +110,11 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 	return (lst);
 }
 
-void		verif_format(t_print *lst, va_list ap, int ind)
+void		verif_format(t_print *lst, va_list ap)
 {
 	int		pos;
 
-	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
+	pos = ft_strlen(lst->conv) - 1;
 	lst = recup_format(lst);
-	pos = lst->in - ind;
-	lst->conv = ft_strsub(lst->fmt, ind, (lst->in - ind) + 1);
 	dispatch_one(lst, ap, pos);
-	lst = concaten_result(lst, ind);
 }

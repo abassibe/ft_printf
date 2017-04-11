@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 17:05:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/10 15:17:17 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 15:16:30 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,15 @@ t_print		*field_zero(t_print *lst)
 		i++;
 	while (j >= 0)
 		lst->str[i--] = lst->str_nb[j--];
+	if (lst->neg == 1 && lst->long_preci != -1)
+		lst->str[i--] = '-';
 	while (i >= 0 && lst->long_preci > -1)
 		lst->str[i--] = ' ';
 	while (i >= 0 && lst->long_preci == -1)
 		lst->str[i--] = '0';
 	if (i < 0)
 		i = 0;
-	if (lst->neg == 1 && lst->long_preci != -1)
-		lst->str[i--] = '-';
-	else if (lst->long_preci == -1 && lst->neg == 1)
+	if (lst->long_preci == -1 && lst->neg == 1)
 		lst->str[0] = '-';
 	else if (lst->plus == 1)
 		lst->str[0] = '+';

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/10 17:36:29 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 18:09:40 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 int		main(void)
 {
 	int		page = 1;
-	int				i = -30;
+	int				i = -500000;
 //	long int		i = 9223372036854775807;
 //	long int		i = -9223372036854775808;
 //	unsigned long long		i = 18446744073709551615;
 //	float		f =10.641;
-//	char	c = 'A';
-//	char	*str = "bla";
+	char	c = 'A';
+	char	*str = "bla";
 //	char	*i = "deuxieme phrase";
 //	char	*str2 = "troisieme";
 //	char	*uni = L"䯂 䯂 䯂 䯂 䯂 䯂";
@@ -1056,8 +1056,8 @@ int		main(void)
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-
-	printf("------------- Hexa ---------------\n");
+*/
+	printf("------------- Adresse ---------------\n");
 	printf("%p|printf\n", i);
 	ft_printf("%p|\n", i);
 	printf("%.20p|.20 printf\n", i);
@@ -1831,7 +1831,7 @@ int		main(void)
 	printf("%#10.20zx|#10.20 printf\n", i);
 	ft_printf("%#10.20zx|#10.20\n", i);
 
-	printf("------------- int  ---------------\n");
+	printf("------------- unsigned int ---------------\n");
 	ft_printf("%.0u|.0\n", i);
 	printf("%.0u|.0 printf\n", i);
 	ft_printf("%-20.0u|-20.0\n", i);
@@ -1894,7 +1894,7 @@ int		main(void)
 	printf("%-2.2u|-2.2 printf\n", i);
 	ft_printf("%+10.2u|+10.2\n", i);
 	printf("%+10.2u|+10.2 printf\n", i);
-	printf("Appuyez sur ENTRER pour continuer...(int)\n");
+	printf("Appuyez sur ENTRER pour continuer...(unsigned int)\n");
 	getchar();
 	ft_printf("%+2.2u|+2.2\n", i);
 	printf("%+2.2u|+2.2 printf\n", i);
@@ -1964,7 +1964,7 @@ int		main(void)
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-	printf("------------- int avec h ---------------\n");
+	printf("------------- unsigned int avec h ---------------\n");
 	ft_printf("%.0hu|.0\n", i);
 	printf("%.0hu|.0 printf\n", i);
 	ft_printf("%-20.0hu|-20.0\n", i);
@@ -2027,7 +2027,7 @@ int		main(void)
 	printf("%-2.2hu|-2.2 printf\n", i);
 	ft_printf("%+10.2hu|+10.2\n", i);
 	printf("%+10.2hu|+10.2 printf\n", i);
-	printf("Appuyez sur ENTRER pour continuer...(int avec h)\n");
+	printf("Appuyez sur ENTRER pour continuer...(unsigned int avec h)\n");
 	getchar();
 	ft_printf("%+2.2hu|+2.2\n", i);
 	printf("%+2.2hu|+2.2 printf\n", i);
@@ -2097,7 +2097,7 @@ int		main(void)
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-	printf("------------- int avec hh ---------------\n");
+	printf("------------- unsigned int avec hh ---------------\n");
 	ft_printf("%.0hhu|.0\n", i);
 	printf("%.0hhu|.0 printf\n", i);
 	ft_printf("%-20.0hhu|-20.0\n", i);
@@ -2160,7 +2160,7 @@ int		main(void)
 	printf("%-2.2hhu|-2.2 printf\n", i);
 	ft_printf("%+10.2hhu|+10.2\n", i);
 	printf("%+10.2hhu|+10.2 printf\n", i);
-	printf("Appuyez sur ENTRER pour continuer...(int avec hh)\n");
+	printf("Appuyez sur ENTRER pour continuer...(unsigned int avec hh)\n");
 	getchar();
 	ft_printf("%+2.2hhu|+2.2\n", i);
 	printf("%+2.2hhu|+2.2 printf\n", i);
@@ -2230,7 +2230,7 @@ int		main(void)
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-	printf("------------- int avec l ---------------\n");
+	printf("------------- unsigned int avec l ---------------\n");
 	ft_printf("%.0lu|.0\n", i);
 	printf("%.0lu|.0 printf\n", i);
 	ft_printf("%-20.0lu|-20.0\n", i);
@@ -2293,7 +2293,7 @@ int		main(void)
 	printf("%-2.2lu|-2.2 printf\n", i);
 	ft_printf("%+10.2lu|+10.2\n", i);
 	printf("%+10.2lu|+10.2 printf\n", i);
-	printf("Appuyez sur ENTRER pour continuer...(int avec l)\n");
+	printf("Appuyez sur ENTRER pour continuer...(unsigned int avec l)\n");
 	getchar();
 	ft_printf("%+2.2lu|+2.2\n", i);
 	printf("%+2.2lu|+2.2 printf\n", i);
@@ -2363,7 +2363,7 @@ int		main(void)
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-	printf("------------- int avec ll ---------------\n");
+	printf("------------- unsigned int avec ll ---------------\n");
 	ft_printf("%.0llu|.0\n", i);
 	printf("%.0llu|.0 printf\n", i);
 	ft_printf("%-20.0llu|-20.0\n", i);
@@ -2426,7 +2426,7 @@ int		main(void)
 	printf("%-2.2llu|-2.2 printf\n", i);
 	ft_printf("%+10.2llu|+10.2\n", i);
 	printf("%+10.2llu|+10.2 printf\n", i);
-	printf("Appuyez sur ENTRER pour continuer...(int avec ll)\n");
+	printf("Appuyez sur ENTRER pour continuer...(unsigned int avec ll)\n");
 	getchar();
 	ft_printf("%+2.2llu|+2.2\n", i);
 	printf("%+2.2llu|+2.2 printf\n", i);
@@ -2496,7 +2496,7 @@ int		main(void)
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-	printf("------------- int avec j ---------------\n");
+	printf("------------- unsigned int avec j ---------------\n");
 	ft_printf("%.0ju|.0\n", i);
 	printf("%.0ju|.0 printf\n", i);
 	ft_printf("%-20.0ju|-20.0\n", i);
@@ -2559,7 +2559,7 @@ int		main(void)
 	printf("%-2.2ju|-2.2 printf\n", i);
 	ft_printf("%+10.2ju|+10.2\n", i);
 	printf("%+10.2ju|+10.2 printf\n", i);
-	printf("Appuyez sur ENTRER pour continuer...(int avec j)\n");
+	printf("Appuyez sur ENTRER pour continuer...(unsigned int avec j)\n");
 	getchar();
 	ft_printf("%+2.2ju|+2.2\n", i);
 	printf("%+2.2ju|+2.2 printf\n", i);
@@ -2629,7 +2629,7 @@ int		main(void)
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-	printf("------------- int avec z ---------------\n");
+	printf("------------- unsigned int avec z ---------------\n");
 	ft_printf("%.0zu|.0\n", i);
 	printf("%.0zu|.0 printf\n", i);
 	ft_printf("%-20.0zu|-20.0\n", i);
@@ -2692,7 +2692,7 @@ int		main(void)
 	printf("%-2.2zu|-2.2 printf\n", i);
 	ft_printf("%+10.2zu|+10.2\n", i);
 	printf("%+10.2zu|+10.2 printf\n", i);
-	printf("Appuyez sur ENTRER pour continuer...(int avec z)\n");
+	printf("Appuyez sur ENTRER pour continuer...(unsigned int avec z)\n");
 	getchar();
 	ft_printf("%+2.2zu|+2.2\n", i);
 	printf("%+2.2zu|+2.2 printf\n", i);
@@ -2759,49 +2759,9 @@ int		main(void)
 	ft_printf("% 50.30zu| 50.30\n", i);
 	printf("% 50.30zu| 50.30 printf\n", i);
 
-
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-	printf("------------- %% ---------------\n");
-	printf("%%|printf\n");
-	ft_printf("%%|\n");
-	printf("%.0%|.0 printf\n");
-	ft_printf("%.0%|.0\n");
-	printf("%.5%|.5 printf\n");
-	ft_printf("%.5%|.5\n");
-	printf("%5%|5 printf\n");
-	ft_printf("%5%|5\n");
-	printf("% 5%| 5 printf\n");
-	ft_printf("% 5%| 5\n");
-	printf("%-5%|-5 printf\n");
-	ft_printf("%-5%|-5\n");
-	printf("%+5%|+5 printf\n");
-	ft_printf("%+5%|+5\n");
-	printf("%05%|05 printf\n");
-	ft_printf("%05%|05\n");
-	printf("%#5%|#5 printf\n");
-	ft_printf("%#5%|#5\n");
-	printf("% 5.2%| 5.2 printf\n");
-	ft_printf("% 5.2%| 5.2\n");
-	printf("%-5.2%|-5.2 printf\n");
-	ft_printf("%-5.2%|-5.2\n");
-	printf("%+5.2%|+5.2 printf\n");
-	ft_printf("%+5.2%|+5.2\n");
-	printf("%05.2%|05.2 printf\n");
-	ft_printf("%05.2%|05.2\n");
-	printf("%#5.2%|#5.2 printf\n");
-	ft_printf("%#5.2%|#5.2\n");
-	printf("% 5.10%| 5.10 printf\n");
-	ft_printf("% 5.10%| 5.10\n");
-	printf("%-5.10%|-5.10 printf\n");
-	ft_printf("%-5.10%|-5.10\n");
-	printf("%+5.10%|+5.10 printf\n");
-	ft_printf("%+5.10%|+5.10\n");
-	printf("%05.10%|05.10 printf\n");
-	ft_printf("%05.10%|05.10\n");
-	printf("%#5.10%|#5.10 printf\n");
-	ft_printf("%#5.10%|#5.10\n");
-*/
+
 	return (0);
 }

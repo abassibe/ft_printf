@@ -6,68 +6,111 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/10 17:39:49 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 17:42:00 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_print			*chk_conv(t_print *lst, char *corr_conv, va_list ap, int ind)
+static void		double_percent(t_print *lst, char *perc)
+{
+	char	*comp;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	comp = " -+0#hljz123456789";
+	while (perc[i])
+	{
+		j++;
+		if (!comp[j])
+		{
+			i++;
+			j = 0;
+		}
+		if (perc[i] == comp[j])
+		{
+			lst->conv = perc;
+			return ;
+		}
+		else if (!perc[i])
+			lst->conv = ft_strnew(0);
+	}
+}
+
+static void		simple_percent(t_print *lst, char *perc)
+{
+	char	*comp;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	comp = " -+0#hljz123456789";
+	while (perc[i])
+	{
+		if (perc[i] == comp[j])
+		{
+			i++;
+			j = 0;
+		}
+		else if (!comp[j])
+		{
+			lst->conv = ft_strsub(perc, 0, i);
+			return ;
+		}
+		 else
+			 j++;
+	}
+	lst->conv = ".0%";
+}
+
+static void		chk_percent(t_print *lst, char *corr_conv, int c, int ind)
 {
 	int		ci;
 
 	ci = 0;
-	while (lst->fmt[lst->in] != corr_conv[ci])
+	while (lst->fmt[c] != corr_conv[ci])
 	{
-		if (lst->fmt[lst->in] == '\0')
-			break ;
 		ci++;
+		if (lst->fmt[c] == '%')
+		{
+			double_percent(lst, ft_strsub(lst->fmt, ind, c - ind + 1));
+			break ;
+		}
+		if (lst->fmt[c] == '\0')
+		{
+			simple_percent(lst, ft_strsub(lst->fmt, ind, c - ind + 1));
+			break ;
+		}
 		if (!corr_conv[ci])
 		{
-			lst->in++;
+			c++;
 			ci = 0;
 		}
 	}
-	if (lst->fmt[lst->in] == corr_conv[ci])
-	{
-		verif_format(lst, ap, ind);
-		lst = init_opt(lst);
-	}
-	return (lst);
+	if (lst->fmt[c] == corr_conv[ci])
+		lst->conv = ft_strsub(lst->fmt, ind, c - ind + 1);
 }
 
-int				chk_percent(t_print *lst, char *ret, va_list ap, int *c)
+void			core(t_print *lst, va_list ap)
 {
 	char	*corr_conv;
-	int		ci;
-	int		ind;
-
-	ci = 0;
-	corr_conv = "sSpdDioOuUxXcC%";
-	if (lst->fmt[lst->in] == '%')
-	{
-		ind = lst->in + 1;
-		lst->in++;
-		lst = chk_conv(lst, corr_conv, ap, ind);
-	}
-	if (lst->fmt[lst->in] == '\0')
-		return (0);
-	ret[*c] = lst->fmt[lst->in];
-	return (1);
-}
-
-char			*core(t_print *lst, va_list ap)
-{
 	int		c;
-	char	*ret;
 
-	lst->in = 0;
+	corr_conv = "sSpdDioOuUxXcC";
 	c = 0;
-	ret = ft_strnew(ft_strlen(lst->fmt));
-	while (chk_percent(lst, &(*ret), ap, &c) == 1)
+	while (lst->fmt[c])
 	{
-		lst->in++;
+		if (lst->fmt[c] == '%')
+		{
+			c++;
+			chk_percent(lst, corr_conv, c, c);
+			verif_format(lst, ap);
+			c = concaten_result(lst, c);
+			init_opt(lst);
+		}
 		c++;
 	}
-	return (ret);
 }

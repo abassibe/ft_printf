@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/10 16:10:45 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/11 15:02:46 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,11 @@ int						ft_printf(const char *format, ...);
 t_print					*init_opt(t_print *lst);
 t_print					*crea_lst(const char *format);
 
-char					*core(t_print *lst, va_list ap);
-int						chk_percent(t_print *lst, char *ret,
-		va_list ap, int *c);
+void					core(t_print *lst, va_list ap);
 t_print					*chk_conv(t_print *lst, char *corr_conv,
 		va_list ap, int ind);
 
-void					verif_format(t_print *lst, va_list ap, int ind);
+void					verif_format(t_print *lst, va_list ap);
 t_print					*recup_format(t_print *lst);
 t_print					*dispatch_one(t_print *lst, va_list ap, int pos);
 t_print					*dispatch_two(t_print *lst, va_list ap, int pos);
@@ -137,6 +135,6 @@ void					conv_uint(t_print *lst, va_list ap);
 
 void					conv_percent(t_print *lst);
 
-t_print					*concaten_result(t_print *lst, int ind);
+int						concaten_result(t_print *lst, int ind);
 
 #endif
