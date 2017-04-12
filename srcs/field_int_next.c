@@ -6,13 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 17:05:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/11 15:16:30 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:51:43 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_print		*field_less(t_print *lst)
+void	field_less(t_print *lst)
 {
 	int		i;
 	int		j;
@@ -29,10 +29,9 @@ t_print		*field_less(t_print *lst)
 		lst->str[i++] = lst->str_nb[j++];
 	while (i < lst->len_str)
 		lst->str[i++] = ' ';
-	return (lst);
 }
 
-t_print		*field_plus(t_print *lst)
+void	field_plus(t_print *lst)
 {
 	int		i;
 	int		j;
@@ -49,10 +48,9 @@ t_print		*field_plus(t_print *lst)
 		lst->str[i--] = '+';
 	while (i >= 0)
 		lst->str[i--] = ' ';
-	return (lst);
 }
 
-t_print		*field_zero(t_print *lst)
+void	field_zero(t_print *lst)
 {
 	int		i;
 	int		j;
@@ -75,10 +73,9 @@ t_print		*field_zero(t_print *lst)
 		lst->str[0] = '-';
 	else if (lst->plus == 1)
 		lst->str[0] = '+';
-	return (lst);
 }
 
-t_print		*field_space(t_print *lst)
+void	field_space(t_print *lst)
 {
 	int		i;
 	int		j;
@@ -95,10 +92,9 @@ t_print		*field_space(t_print *lst)
 		lst->str[i--] = ' ';
 	while (i >= 0)
 		lst->str[i--] = ' ';
-	return (lst);
 }
 
-t_print		*field_diez(t_print *lst)
+void	field_diez(t_print *lst)
 {
 	int		i;
 	int		j;
@@ -113,5 +109,4 @@ t_print		*field_diez(t_print *lst)
 		lst->str[i--] = '-';
 	while (i >= 0)
 		lst->str[i--] = ' ';
-	return (lst);
 }

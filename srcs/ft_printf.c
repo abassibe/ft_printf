@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/11 17:46:15 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:31:59 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_print			*crea_lst(const char *format)
 	t_print		*new;
 
 	new = (t_print *)malloc(sizeof(t_print));
-	new->fmt = format;
+	new->fmt = ft_strdup((char *)format);
 	return (new);
 }
 
@@ -30,7 +30,7 @@ static void		init_opt_next(t_print *lst)
 	lst->conv = NULL;
 }
 
-t_print			*init_opt(t_print *lst)
+void			init_opt(t_print *lst)
 {
 	lst->h = 0;
 	lst->hh = 0;
@@ -56,7 +56,6 @@ t_print			*init_opt(t_print *lst)
 	lst->len_str_conv = 0;
 	lst->long_opt = 0;
 	init_opt_next(lst);
-	return (lst);
 }
 
 int				ft_printf(const char *format, ...)
@@ -66,11 +65,11 @@ int				ft_printf(const char *format, ...)
 
 	va_start(ap, format);
 	lst = crea_lst(format);
-	lst = init_opt(lst);
+	init_opt(lst);
 	core(lst, ap);
 	va_end(ap);
 	ft_putstr(lst->fmt);
-	free(lst->str);
+	free(lst->fmt);
 	free(lst);
 	return ((int)ft_strlen(lst->fmt) + lst->c_zero);
 }

@@ -6,13 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:25:45 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 13:26:14 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:46:26 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_print		*conv_h(t_print *lst, va_list ap)
+void	conv_h(t_print *lst, va_list ap)
 {
 	unsigned long long	nb;
 
@@ -25,10 +25,9 @@ t_print		*conv_h(t_print *lst, va_list ap)
 	}
 	lst->str_nb = ft_itoa_long(nb);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
-	return (lst);
 }
 
-t_print		*conv_hh(t_print *lst, va_list ap)
+void	conv_hh(t_print *lst, va_list ap)
 {
 	unsigned long long	nb;
 
@@ -41,10 +40,9 @@ t_print		*conv_hh(t_print *lst, va_list ap)
 	}
 	lst->str_nb = ft_itoa_long(nb);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
-	return (lst);
 }
 
-t_print		*conv_l(t_print *lst, va_list ap)
+void	conv_l(t_print *lst, va_list ap)
 {
 	long long	nb;
 
@@ -65,10 +63,9 @@ t_print		*conv_l(t_print *lst, va_list ap)
 		lst->str_nb = ft_itoa_long(nb);
 	}
 	lst->len_str_conv = ft_strlen(lst->str_nb);
-	return (lst);
 }
 
-t_print		*conv_j(t_print *lst, va_list ap)
+void	conv_j(t_print *lst, va_list ap)
 {
 	unsigned long long	nb;
 
@@ -81,13 +78,11 @@ t_print		*conv_j(t_print *lst, va_list ap)
 	}
 	lst->str_nb = ft_itoa_long(nb);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
-	return (lst);
 }
 
-t_print		*conv_z(t_print *lst, va_list ap)
+void	conv_z(t_print *lst, va_list ap)
 {
 	lst->size_t_i = va_arg(ap, size_t);
 	lst->str_nb = ft_itoa_long(lst->size_t_i);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
-	return (lst);
 }

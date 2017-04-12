@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/11 18:37:32 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:23:40 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ static void		double_percent(t_print *lst, char *perc)
 		}
 		if (perc[i] == comp[j])
 		{
-			lst->conv = perc;
+			lst->conv = ft_strdup(perc);
+			free(perc);
 			return ;
 		}
 		else if (!perc[i])
 			lst->conv = ft_strnew(0);
 	}
+	free(perc);
 }
 
 static void		simple_percent(t_print *lst, char *perc)
@@ -64,6 +66,7 @@ static void		simple_percent(t_print *lst, char *perc)
 			j++;
 	}
 	lst->conv = ".0%";
+	free(perc);
 }
 
 static void		chk_percent(t_print *lst, char *corr_conv, int c, int ind)
@@ -109,6 +112,7 @@ void			core(t_print *lst, va_list ap)
 			chk_percent(lst, corr_conv, c, c);
 			verif_format(lst, ap);
 			c = concaten_result(lst, c);
+			free(lst->conv);
 			init_opt(lst);
 		}
 		c++;

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:49:31 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/10 15:31:00 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:26:16 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strsubf(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strjoinf(char const *s1, char const *s2);
+char				*ft_strjoinf(char const *s1, char const *s2);
 char				*ft_strjoinfn(char const *s1, char const *s2);
+char				*ft_strjoinff(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);

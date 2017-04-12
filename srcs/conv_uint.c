@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/10 14:42:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 13:38:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:54:00 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void			conv_uint(t_print *lst, va_list ap)
 		conv_hhu(lst, ap);
 	else
 		conv_u(lst, ap);
-	lst = allocate_str(lst);
+	allocate_str(lst);
 	if (lst->plus == 1)
 		lst->plus = 0;
 	if (lst->space == 1)

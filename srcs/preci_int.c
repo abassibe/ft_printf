@@ -6,13 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 18:04:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 13:30:35 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:48:56 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static t_print		*pos(t_print *lst)
+static void		pos(t_print *lst)
 {
 	int		i;
 	int		j;
@@ -33,10 +33,9 @@ static t_print		*pos(t_print *lst)
 		lst->str_nb = tmp;
 		lst->len_str_conv = ft_strlen(lst->str_nb);
 	}
-	return (lst);
 }
 
-static t_print		*neg(t_print *lst)
+static void		neg(t_print *lst)
 {
 	int		i;
 	int		j;
@@ -57,18 +56,16 @@ static t_print		*neg(t_print *lst)
 		lst->str_nb = tmp;
 		lst->len_str_conv = ft_strlen(lst->str_nb);
 	}
-	return (lst);
 }
 
-t_print				*preci_int(t_print *lst)
+void			preci_int(t_print *lst)
 {
 	if (lst->long_preci == -1)
-		return (lst);
+		return ;
 	if (lst->str_nb[0] == '0' && lst->long_preci == 0)
 		lst->str_nb = ft_strnew(0);
 	else if (lst->neg == 1)
-		lst = neg(lst);
+		neg(lst);
 	else
-		lst = pos(lst);
-	return (lst);
+		pos(lst);
 }

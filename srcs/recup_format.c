@@ -6,13 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/11 12:51:25 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:35:44 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_print		*recup_opt(t_print *lst, int i)
+static void		recup_opt(t_print *lst, int i)
 {
 	if (lst->conv[i] == '+')
 		lst->plus = 1;
@@ -29,10 +29,9 @@ t_print		*recup_opt(t_print *lst, int i)
 		lst->space = 0;
 	if (lst->less == 1 && lst->zero == 1)
 		lst->zero = 0;
-	return (lst);
 }
 
-t_print		*lenght_field(t_print *lst, int *i)
+static void		lenght_field(t_print *lst, int *i)
 {
 	lst->long_opt = ((int)lst->conv[(*i)++] - 48);
 	while (lst->conv[(*i)] >= 48 && lst->conv[(*i)] <= 57)
@@ -40,10 +39,9 @@ t_print		*lenght_field(t_print *lst, int *i)
 		lst->long_opt *= 10;
 		lst->long_opt += ((int)lst->conv[(*i)++] - 48);
 	}
-	return (lst);
 }
 
-t_print		*recup_preci(t_print *lst, int *i)
+static void		recup_preci(t_print *lst, int *i)
 {
 	(*i)++;
 	lst->long_preci = 0;
@@ -52,10 +50,9 @@ t_print		*recup_preci(t_print *lst, int *i)
 		lst->long_preci *= 10;
 		lst->long_preci += ((int)lst->conv[(*i)++] - 48);
 	}
-	return (lst);
 }
 
-t_print		*recup_flag(t_print *lst, int *i)
+static void		recup_flag(t_print *lst, int *i)
 {
 	if (lst->conv[*i] == 'h' && lst->conv[*i + 1] == 'h')
 	{
@@ -75,10 +72,9 @@ t_print		*recup_flag(t_print *lst, int *i)
 		lst->j = 1;
 	else if (lst->conv[*i] == 'z')
 		lst->z = 1;
-	return (lst);
 }
 
-t_print		*recup_format(t_print *lst)
+void			recup_format(t_print *lst)
 {
 	int		i;
 
@@ -87,15 +83,14 @@ t_print		*recup_format(t_print *lst)
 	{
 		if (lst->conv[i] == '-' || lst->conv[i] == '+' || lst->conv[i] == '#'
 				|| lst->conv[i] == '0' || lst->conv[i] == ' ')
-			lst = recup_opt(lst, i);
+			recup_opt(lst, i);
 		if (lst->conv[i] > 48 && lst->conv[i] < 58)
-			lst = lenght_field(lst, &i);
+			lenght_field(lst, &i);
 		if (lst->conv[i] == '.')
-			lst = recup_preci(lst, &i);
+			recup_preci(lst, &i);
 		if (lst->conv[i] == 'h' || lst->conv[i] == 'l' || lst->conv[i] == 'j' ||
 				lst->conv[i] == 'z')
-			lst = recup_flag(lst, &i);
+			recup_flag(lst, &i);
 		i++;
 	}
-	return (lst);
 }

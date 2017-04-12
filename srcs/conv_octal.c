@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 13:35:48 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:53:32 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void		preci_octal(t_print *lst)
 	lst->str_nb = tmp;
 }
 
-void			recup_arg(t_print *lst, va_list ap)
+static void		recup_arg(t_print *lst, va_list ap)
 {
 	if (lst->hh == 1)
 	{
@@ -130,5 +130,5 @@ void			conv_octal(t_print *lst, va_list ap)
 		octal_less(lst);
 	else
 		octal_field(lst);
-	lst->str = lst->str_nb;
+	lst->str = ft_strdup(lst->str_nb);
 }

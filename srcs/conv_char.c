@@ -6,13 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 01:20:46 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:56:17 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	conv_c_next(t_print *lst)
+static void		conv_c_next(t_print *lst)
 {
 	int		i;
 
@@ -37,7 +37,7 @@ void	conv_c_next(t_print *lst)
 	}
 }
 
-void	conv_c(t_print *lst, va_list ap)
+void			conv_c(t_print *lst, va_list ap)
 {
 	lst->c_zero = 0;
 	lst->c = va_arg(ap, int);

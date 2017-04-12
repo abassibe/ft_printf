@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/11 15:02:46 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 20:11:13 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 
 typedef struct			s_print
 {
-	int					in;
+	int					in; /*est utilise ????*/
 	int					neg;
 	int					c_zero;
 	char				*conv;
-	int					nbr_arg;
-	const char			*fmt;
-	char				*output;
-	int					out_size;
+	int					nbr_arg; /*est utilise ????*/
+	char				*fmt;
+	char				*output; /*est utilise ????*/
+	int					out_size; /*est utilise ????*/
 	int					plus;
 	int					less;
 	int					diez;
@@ -51,10 +51,7 @@ typedef struct			s_print
 	signed char			s_c;
 	unsigned char		*us_str;
 	unsigned char		us_c;
-	int					hexa;
 	long int			l_hexa;
-	int					octal;
-	long int			l_octal;
 	int					i;
 	size_t				size_t_i;
 	unsigned int		us_int;
@@ -67,59 +64,44 @@ typedef struct			s_print
 	float				f_int;
 	wchar_t				*uni_str;
 	wchar_t				uni_c;
-	char				*address;
 }						t_print;
 
 int						ft_printf(const char *format, ...);
-t_print					*init_opt(t_print *lst);
+void					init_opt(t_print *lst);
 t_print					*crea_lst(const char *format);
 
 void					core(t_print *lst, va_list ap);
-t_print					*chk_conv(t_print *lst, char *corr_conv,
-		va_list ap, int ind);
 
 void					verif_format(t_print *lst, va_list ap);
-t_print					*recup_format(t_print *lst);
-t_print					*dispatch_one(t_print *lst, va_list ap, int pos);
-t_print					*dispatch_two(t_print *lst, va_list ap, int pos);
-t_print					*dispatch_three(t_print *lst, va_list ap, int pos);
+void					recup_format(t_print *lst);
 
-t_print					*convert_string(t_print *lst);
-t_print					*options_zero(t_print *lst, char *str, int lenght);
-t_print					*options_pos(t_print *lst, char *str, int lenght);
-t_print					*options_neg(t_print *lst, char *str, int lenght);
+void					convert_string(t_print *lst);
 
-t_print					*conv_int(t_print *lst, va_list ap);
-t_print					*conv_d(t_print *lst, va_list ap);
-t_print					*allocate_str(t_print *lst);
+void					conv_int(t_print *lst, va_list ap);
+void					conv_d(t_print *lst, va_list ap);
+void					allocate_str(t_print *lst);
+
+void					conv_h(t_print *lst, va_list ap);
+void					conv_hh(t_print *lst, va_list ap);
+void					conv_l(t_print *lst, va_list ap);
+void					conv_j(t_print *lst, va_list ap);
+void					conv_z(t_print *lst, va_list ap);
+
+void					preci_int(t_print *lst);
+
+void					field_int(t_print *lst);
+
+void					field_diez(t_print *lst);
+void					field_space(t_print *lst);
+void					field_zero(t_print *lst);
+void					field_plus(t_print *lst);
+void					field_less(t_print *lst);
 
 void					conv_c(t_print *lst, va_list ap);
 
-t_print					*conv_h(t_print *lst, va_list ap);
-t_print					*conv_hh(t_print *lst, va_list ap);
-t_print					*conv_l(t_print *lst, va_list ap);
-t_print					*conv_j(t_print *lst, va_list ap);
-t_print					*conv_z(t_print *lst, va_list ap);
-
-t_print					*preci_int(t_print *lst);
-
-t_print					*field_int(t_print *lst);
-
-t_print					*field_diez(t_print *lst);
-t_print					*field_space(t_print *lst);
-t_print					*field_zero(t_print *lst);
-t_print					*field_plus(t_print *lst);
-t_print					*field_less(t_print *lst);
-
-t_print					*recup_format(t_print *lst);
-t_print					*recup_opt(t_print *lst, int i);
-t_print					*lenght_field(t_print *lst, int *i);
-t_print					*recup_preci(t_print *lst, int *i);
-t_print					*recup_flag(t_print *lst, int *i);
-
 void					conv_s(t_print *lst, va_list ap);
 
-t_print					*preci_string(t_print *lst);
+void					preci_string(t_print *lst);
 
 void					conv_octal(t_print *lst, va_list ap);
 

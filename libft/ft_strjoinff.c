@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoinff.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 15:09:47 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:11:23 by abassibe         ###   ########.fr       */
+/*   Created: 2017/01/24 15:50:47 by abassibe          #+#    #+#             */
+/*   Updated: 2017/04/12 19:25:29 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strdup(const char *src)
+char	*ft_strjoinff(char const *s1, char const *s2)
 {
-	size_t		c;
-	char		*dst;
+	char	*join;
+	int		i;
+	int		j;
 
-	c = 0;
-	if (!(dst = (char *)malloc(sizeof(char) * (int)ft_strlen(src) + 1)))
+	if (!s1 || !s2)
 		return (NULL);
-	while (c != ft_strlen(src))
+	if (!(join = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i])
 	{
-		dst[c] = src[c];
-		c++;
+		join[i] = s1[i];
+		i++;
 	}
-	dst[c] = '\0';
-	return (dst);
+	while (s2[j])
+	{
+		join[i + j] = s2[j];
+		j++;
+	}
+	free((void *)s1);
+	return (join);
 }

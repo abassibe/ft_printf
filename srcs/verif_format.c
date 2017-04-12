@@ -6,13 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 13:54:18 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:58:04 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void		dispatch_four(t_print *lst, va_list ap, int pos)
+static void		dispatch_four(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 'C')
 	{
@@ -25,13 +25,13 @@ void		dispatch_four(t_print *lst, va_list ap, int pos)
 		lst->str = ft_strnew(0);
 }
 
-t_print		*dispatch_three(t_print *lst, va_list ap, int pos)
+static void		dispatch_three(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 'u')
 	{
 		conv_uint(lst, ap);
-		lst = preci_int(lst);
-		lst = field_int(lst);
+		preci_int(lst);
+		field_int(lst);
 	}
 	else if (lst->conv[pos] == 'x')
 	{
@@ -41,24 +41,23 @@ t_print		*dispatch_three(t_print *lst, va_list ap, int pos)
 	else if (lst->conv[pos] == 's')
 	{
 		conv_s(lst, ap);
-		lst = preci_string(lst);
-		lst = convert_string(lst);
+		preci_string(lst);
+		convert_string(lst);
 	}
 	else if (lst->conv[pos] == 'c')
 		conv_c(lst, ap);
 	else
 		dispatch_four(lst, ap, pos);
-	return (lst);
 }
 
-t_print		*dispatch_two(t_print *lst, va_list ap, int pos)
+static void		dispatch_two(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 'D')
 	{
 		lst->l = 1;
-		lst = conv_int(lst, ap);
-		lst = preci_int(lst);
-		lst = field_int(lst);
+		conv_int(lst, ap);
+		preci_int(lst);
+		field_int(lst);
 	}
 	else if (lst->conv[pos] == 'o')
 		conv_octal(lst, ap);
@@ -66,8 +65,8 @@ t_print		*dispatch_two(t_print *lst, va_list ap, int pos)
 	{
 		lst->l = 1;
 		conv_uint(lst, ap);
-		lst = preci_int(lst);
-		lst = field_int(lst);
+		preci_int(lst);
+		field_int(lst);
 	}
 	else if (lst->conv[pos] == 'O')
 	{
@@ -76,10 +75,9 @@ t_print		*dispatch_two(t_print *lst, va_list ap, int pos)
 	}
 	else
 		dispatch_three(lst, ap, pos);
-	return (lst);
 }
 
-t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
+static void		dispatch_one(t_print *lst, va_list ap, int pos)
 {
 	if (lst->conv[pos] == 'X')
 	{
@@ -92,33 +90,31 @@ t_print		*dispatch_one(t_print *lst, va_list ap, int pos)
 	{
 		lst->l = 1;
 		conv_s(lst, ap);
-		lst = preci_string(lst);
-		lst = convert_string(lst);
+		preci_string(lst);
+		convert_string(lst);
 	}
 	else if (lst->conv[pos] == 'p')
 		conv_hexa(lst, ap);
 	else if (lst->conv[pos] == 'd' || lst->conv[pos] == 'i')
 	{
-		lst = conv_int(lst, ap);
-		lst = preci_int(lst);
-		lst = field_int(lst);
+		conv_int(lst, ap);
+		preci_int(lst);
+		field_int(lst);
 	}
 	else
 		dispatch_two(lst, ap, pos);
-	return (lst);
 }
 
-void		verif_format(t_print *lst, va_list ap)
+void			verif_format(t_print *lst, va_list ap)
 {
 	int		pos;
 
 	pos = ft_strlen(lst->conv) - 1;
-	lst = recup_format(lst);
+	recup_format(lst);
 	dispatch_one(lst, ap, pos);
-	/*if (lst->str_nb != NULL)
+	if (lst->str_nb != NULL)
 	{
 		free(lst->str_nb);
 		lst->str_nb = NULL;
-	}*/
-	free(lst->conv);
+	}
 }
