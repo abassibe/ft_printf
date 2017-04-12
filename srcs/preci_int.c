@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 18:04:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/11 13:27:21 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 13:30:35 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ static t_print		*pos(t_print *lst)
 			else
 				tmp[i++] = lst->str_nb[j++];
 		}
-		lst->str_nb = ft_strdup(tmp);
+		lst->str_nb = tmp;
 		lst->len_str_conv = ft_strlen(lst->str_nb);
-		free(tmp);
 	}
 	return (lst);
 }
@@ -55,9 +54,8 @@ static t_print		*neg(t_print *lst)
 			else
 				tmp[i++] = lst->str_nb[j++];
 		}
-		lst->str_nb = ft_strdup(tmp);
+		lst->str_nb = tmp;
 		lst->len_str_conv = ft_strlen(lst->str_nb);
-		free(tmp);
 	}
 	return (lst);
 }

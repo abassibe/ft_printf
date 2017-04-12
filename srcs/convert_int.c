@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 05:56:45 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 13:25:11 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_print		*conv_d(t_print *lst, va_list ap)
 		lst->neg = 1;
 		nb = (long long)(lst->i) * -1;
 	}
-	lst->str_nb = ft_strdup(ft_itoa_long(nb));
+	lst->str_nb = ft_itoa_long(nb);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
 	return (lst);
 }

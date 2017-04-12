@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 06:01:53 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 13:35:48 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void		octal_less(t_print *lst)
 		tmp[i++] = lst->str_nb[j++];
 	while (i < lst->len_str)
 		tmp[i++] = ' ';
-	lst->str_nb = ft_strdup(tmp);
+	lst->str_nb = tmp;
 }
 
 static void		octal_field(t_print *lst)
@@ -44,7 +44,7 @@ static void		octal_field(t_print *lst)
 		else
 			tmp[i++] = lst->str_nb[j++];
 	}
-	lst->str_nb = ft_strdup(tmp);
+	lst->str_nb = tmp;
 }
 
 static void		preci_octal(t_print *lst)
@@ -73,7 +73,7 @@ static void		preci_octal(t_print *lst)
 		else
 			tmp[i++] = lst->str_nb[j++];
 	}
-	lst->str_nb = ft_strdup(tmp);
+	lst->str_nb = tmp;
 }
 
 void			recup_arg(t_print *lst, va_list ap)
@@ -130,5 +130,5 @@ void			conv_octal(t_print *lst, va_list ap)
 		octal_less(lst);
 	else
 		octal_field(lst);
-	lst->str = ft_strdup(lst->str_nb);
+	lst->str = lst->str_nb;
 }

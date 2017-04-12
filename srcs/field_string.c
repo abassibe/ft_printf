@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 07:07:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/11 19:17:56 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 13:46:10 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,7 @@ t_print		*options_zero(t_print *lst, char *str, int lenght)
 	while (i != lenght)
 	{
 		if (i >= (lenght - (int)ft_strlen(lst->str)))
-		{
 			str[i++] = lst->str[is++];
-		}
 		else
 			str[i++] = '0';
 	}

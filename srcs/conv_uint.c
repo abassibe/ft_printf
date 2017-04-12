@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/10 14:42:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/10 15:42:12 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/12 13:38:51 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,28 @@
 static void		conv_u(t_print *lst, va_list ap)
 {
 	lst->us_int = va_arg(ap, unsigned int);
-	lst->str_nb = ft_strdup(ft_itoa_long(lst->us_int));
+	lst->str_nb = ft_itoa_long(lst->us_int);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
 }
 
 static void		conv_lu(t_print *lst, va_list ap)
 {
 	lst->usl_int = va_arg(ap, unsigned long long);
-	lst->str_nb = ft_strdup(ft_itoa_ulong(lst->usl_int));
+	lst->str_nb = ft_itoa_ulong(lst->usl_int);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
 }
 
 static void		conv_hhu(t_print *lst, va_list ap)
 {
 	lst->us_c = va_arg(ap, unsigned int);
-	lst->str_nb = ft_strdup(ft_itoa_long(lst->us_c));
+	lst->str_nb = ft_itoa_long(lst->us_c);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
 }
 
 static void		conv_hu(t_print *lst, va_list ap)
 {
 	lst->uss_int = va_arg(ap, unsigned int);
-	lst->str_nb = ft_strdup(ft_itoa_long(lst->uss_int));
+	lst->str_nb = ft_itoa_long(lst->uss_int);
 	lst->len_str_conv = ft_strlen(lst->str_nb);
 }
 
