@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/12 19:58:34 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/13 22:40:33 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,8 @@ LFTSRC =	ft_atoi.c \
 			ft_putchar.c \
 			ft_memset.c \
 			ft_strchr.c \
+			ft_strdel.c \
+			ft_memdel.c
 
 OBJS1 = $(LFTSRC:.c=.o)
 	OBJS2 = $(PRINTFSRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:23:40 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/13 23:39:17 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		double_percent(t_print *lst, char *perc)
 
 	i = 0;
 	j = 0;
-	comp = " -+0#hljz123456789";
+	comp = " -+0#hljz123456789.";
 	while (perc[i])
 	{
 		j++;
@@ -32,13 +32,13 @@ static void		double_percent(t_print *lst, char *perc)
 		if (perc[i] == comp[j])
 		{
 			lst->conv = ft_strdup(perc);
-			free(perc);
+//			free(perc);
 			return ;
 		}
 		else if (!perc[i])
 			lst->conv = ft_strnew(0);
 	}
-	free(perc);
+//	free(perc);
 }
 
 static void		simple_percent(t_print *lst, char *perc)
@@ -49,7 +49,7 @@ static void		simple_percent(t_print *lst, char *perc)
 
 	i = 0;
 	j = 0;
-	comp = " -+0#hljz123456789";
+	comp = " -+0#hljz123456789.";
 	while (perc[i])
 	{
 		if (perc[i] == comp[j])
@@ -60,13 +60,14 @@ static void		simple_percent(t_print *lst, char *perc)
 		else if (!comp[j])
 		{
 			lst->conv = ft_strsub(perc, 0, i);
+//			free(perc);
 			return ;
 		}
 		else
 			j++;
 	}
 	lst->conv = ".0%";
-	free(perc);
+//	free(perc);
 }
 
 static void		chk_percent(t_print *lst, char *corr_conv, int c, int ind)
@@ -112,7 +113,7 @@ void			core(t_print *lst, va_list ap)
 			chk_percent(lst, corr_conv, c, c);
 			verif_format(lst, ap);
 			c = concaten_result(lst, c);
-			free(lst->conv);
+//			free(lst->conv);
 			init_opt(lst);
 		}
 		c++;

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 20:11:13 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/13 23:21:27 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,10 @@
 
 typedef struct			s_print
 {
-	int					in; /*est utilise ????*/
 	int					neg;
 	int					c_zero;
 	char				*conv;
-	int					nbr_arg; /*est utilise ????*/
 	char				*fmt;
-	char				*output; /*est utilise ????*/
-	int					out_size; /*est utilise ????*/
 	int					plus;
 	int					less;
 	int					diez;

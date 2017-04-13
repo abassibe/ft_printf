@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:31:59 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/13 23:45:30 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,11 @@ int				ft_printf(const char *format, ...)
 	va_start(ap, format);
 	lst = crea_lst(format);
 	init_opt(lst);
+	lst->c_zero = 0;
 	core(lst, ap);
 	va_end(ap);
 	ft_putstr(lst->fmt);
-	free(lst->fmt);
-	free(lst);
+//	free(lst->fmt);
+//	free(lst);
 	return ((int)ft_strlen(lst->fmt) + lst->c_zero);
 }
