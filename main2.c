@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:24:18 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/13 23:45:25 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/14 17:51:58 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 
 int		main(void)
 {
-
+int		i = 206;
+int		j = 177;
+	write(1, &i, 1);
+	write(1, &j, 1);
+	write(1, "\n", 1);
 //	printf("\033[32mbonjour\033[37hello\n");
-	ft_printf("%%");
 //	ft_printf("\n");
 //	ft_printf("%%\n");
 //	ft_printf("%d\n", 42);

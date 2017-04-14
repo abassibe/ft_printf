@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:35:44 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/14 17:31:50 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,12 @@ void			recup_format(t_print *lst)
 	i = 0;
 	while (lst->conv[i])
 	{
+		if (lst->conv[i] > 48 && lst->conv[i] < 58 && lst->long_preci == -1)
+			lenght_field(lst, &i);
 		if (lst->conv[i] == '-' || lst->conv[i] == '+' || lst->conv[i] == '#'
 				|| lst->conv[i] == '0' || lst->conv[i] == ' ')
 			recup_opt(lst, i);
-		if (lst->conv[i] > 48 && lst->conv[i] < 58)
+		if (lst->conv[i] > 48 && lst->conv[i] < 58 && lst->long_preci == -1)
 			lenght_field(lst, &i);
 		if (lst->conv[i] == '.')
 			recup_preci(lst, &i);

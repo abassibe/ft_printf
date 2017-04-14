@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:44:44 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/14 16:57:40 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ void	conv_d(t_print *lst, va_list ap)
 
 void	conv_int(t_print *lst, va_list ap)
 {
-	if (lst->h == 1)
-		conv_h(lst, ap);
-	else if (lst->hh == 1)
-		conv_hh(lst, ap);
-	else if (lst->l == 1 || lst->ll == 1)
-		conv_l(lst, ap);
+	if (lst->z == 1)
+		conv_z(lst, ap);
 	else if (lst->j == 1)
 		conv_j(lst, ap);
-	else if (lst->z == 1)
-		conv_z(lst, ap);
+	else if (lst->l == 1 || lst->ll == 1)
+		conv_l(lst, ap);
+	else if (lst->hh == 1)
+		conv_hh(lst, ap);
+	else if (lst->h == 1)
+		conv_h(lst, ap);
 	else
 		conv_d(lst, ap);
 	allocate_str(lst);
