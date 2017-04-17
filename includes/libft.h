@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:49:31 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:26:16 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/17 14:52:58 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ char				*ft_itoa_base_maj(long long value, int base);
 char				*ft_itoa_base_unsigned(unsigned long long value, int base);
 char				*ft_itoa_base_maj_unsigned(unsigned long long value,
 		int base);
+char				*ft_itoa_base_unicode(int value, int base);
 void				ft_putchar(char c);
 void				ft_putstr(const char *c);
 void				ft_putendl(char const *s);
@@ -103,5 +104,7 @@ int					ft_sqrt(int nb);
 void				ft_swap(int *a, int *b);
 char				*ft_replace(char *str, char c1, char c2);
 int					ft_count_char(char *str);
+int					ft_power(int nb, int power);
+int					ft_btoi(char *str);
 int					get_next_line(const int fd, char **line);
 #endif

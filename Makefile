@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/14 17:22:00 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/17 14:49:26 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ LFTSRC =	ft_atoi.c \
 			ft_itoa_base_maj.c \
 			ft_itoa_base_unsigned.c \
 			ft_itoa_base_maj_unsigned.c \
+			ft_itoa_base_unicode.c \
 			ft_putstr.c \
 			ft_strdup.c \
 			ft_strjoin.c \
@@ -54,7 +55,9 @@ LFTSRC =	ft_atoi.c \
 			ft_memset.c \
 			ft_strchr.c \
 			ft_strdel.c \
-			ft_memdel.c
+			ft_memdel.c \
+			ft_power.c \
+			ft_btoi.c
 
 OBJS1 = $(LFTSRC:.c=.o)
 	OBJS2 = $(PRINTFSRC:.c=.o)

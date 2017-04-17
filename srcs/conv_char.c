@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:56:17 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/17 17:36:51 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,74 @@ static void		conv_c_next(t_print *lst)
 	}
 }
 
+static char		*conv_wc(t_print *lst)
+{
+	char	*tmp;
+	int		i;
+
+	tmp = NULL;
+	i = 0;
+	if (lst->uni_c <= 127)
+	{
+		lst->c = lst->uni_c;
+		conv_c_next(lst);
+		return (NULL);
+	}
+	else
+		tmp = ft_itoa_base_unicode(lst->uni_c, 2);
+	while (tmp[i])
+	{
+		if (tmp[i] == 'x')
+			tmp[i] = '0';
+		i++;
+	}
+	return (tmp);
+}
+
+static void		conv_wc_next(t_print *lst, char *str)
+{
+	int		i;
+	int		c;
+	char	*tmp;
+
+	i = 0;
+	c = 0;
+	lst->tab = (int *)malloc(6);
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		tmp = ft_strsub(str, i, 8);
+		lst->tab[c] = ft_btoi(tmp);
+//		free(tmp);
+//		tmp = NULL;
+		i += 8;
+		c++;
+	}
+	while (c < 5)
+		lst->tab[c++] = 0;
+	i = 0;
+	c = 0;
+	while (lst->tab[c] != 0)
+		lst->str[i++] = lst->tab[c++];
+	lst->c_zero--;
+}
+
 void			conv_c(t_print *lst, va_list ap)
 {
 	lst->c_zero = 0;
-	lst->c = va_arg(ap, int);
+	if (lst->l == 1)
+		lst->uni_c = va_arg(ap, wchar_t);
+	else
+		lst->c = va_arg(ap, int);
 	if (lst->c == 0)
 		lst->c_zero = 1;
 	lst->len_str_conv = 1;
 	if (lst->len_str_conv < lst->long_opt)
 		lst->len_str_conv = lst->long_opt;
 	lst->str = ft_strnew(lst->len_str_conv);
-	conv_c_next(lst);
+	if (lst->l == 1)
+		conv_wc_next(lst, conv_wc(lst));
+	if (lst->l == 0)
+		conv_c_next(lst);
 }
