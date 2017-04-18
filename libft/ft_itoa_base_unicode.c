@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:18:04 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/17 17:14:04 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/18 17:57:16 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,10 @@ static char		*compte(int value)
 
 	if (value <= 2047)
 		ret = ft_strdup("110xxxxx10xxxxxx");
-	else if (value <= 32767)
+	else if (value <= 57471)
 		ret = ft_strdup("1110xxxx10xxxxxx10xxxxxx");
-	else if (value <= 524287)
-		ret = ft_strdup("11110xxx10xxxxxx10xxxxxx10xxxxxx");
-	else if (value <= 8388607)
-		ret = ft_strdup("111110xx10xxxxxx10xxxxxx10xxxxxx10xxxxxx");
 	else
-		ret = ft_strdup("1111110x10xxxxxx10xxxxxx10xxxxxx10xxxxxx10xxxxxx");
+		ret = ft_strdup("11110xxx10xxxxxx10xxxxxx10xxxxxx");
 	return (ret);
 }
 

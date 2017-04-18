@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/17 17:36:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/18 17:53:18 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static char		*conv_wc(t_print *lst)
 	if (lst->uni_c <= 127)
 	{
 		lst->c = lst->uni_c;
+		if (lst->uni_c != 0)
+			lst->c_zero--;
 		conv_c_next(lst);
 		return (NULL);
 	}
@@ -88,6 +90,7 @@ static void		conv_wc_next(t_print *lst, char *str)
 	while (lst->tab[c] != 0)
 		lst->str[i++] = lst->tab[c++];
 	lst->c_zero--;
+//	free(str);
 }
 
 void			conv_c(t_print *lst, va_list ap)

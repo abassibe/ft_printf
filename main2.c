@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:24:18 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/17 17:23:57 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/18 17:51:25 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ int		i = 206;
 int		j = 177;
 wchar_t		uni = L'α';
 
-wchar_t str = L'α';
+wchar_t *str = L"α α α α";
 
 //printf("sdgfdfg %lc dfsg \n", str);
-printf("%lc, %lc\n", L'ÊM-^ZM-^V', L'ÿ≠');
-ft_printf("%lc, %lc\n", L'ÊM-^ZM-^V', L'ÿ≠');
+i = printf("%C", 0);
+printf("\n");
+j = ft_printf("%C", 0);
+printf("\n");
+printf("i = %d, j = %d\n", i, j);
 
 //	write(1, &i, 1);
 //	write(1, &j, 1);
