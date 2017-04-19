@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:24:18 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/18 17:51:25 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/19 15:32:37 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,30 @@ int		i = 206;
 int		j = 177;
 wchar_t		uni = L'α';
 
+char c;
 wchar_t *str = L"α α α α";
 
 //printf("sdgfdfg %lc dfsg \n", str);
-i = printf("%C", 0);
+
+i = printf("%D", LONG_MIN);
 printf("\n");
-j = ft_printf("%C", 0);
+j = ft_printf("%D", LONG_MIN);
 printf("\n");
 printf("i = %d, j = %d\n", i, j);
-
+/*TEST A REVOIR
+i = printf("%s %C %d %p %x %% %S", "bonjour ", L'該', 42, &free, 42, L"لحم خنزير");
+printf("\n");
+printf("i = %d\n", i);
+i = printf("%s%d%p%%%S%D%i%o%O%u%U%x%X%c%C","bonjour", 42, &c, L"暖炉", LONG_MAX, 42, 42, 42, 100000, ULONG_MAX, 42, 42, 'c', L'플');
+printf("\n");
+printf("i = %d\n", i);
+j = ft_printf("%s %C %d %p %x %% %S", "bonjour ", L'該', 42, &free, 42, L"لحم خنزير");
+printf("\n");
+printf("j = %d\n", j);
+j = ft_printf("%s%d%p%%%S%D%i%o%O%u%U%x%X%c%C","bonjour", 42, &c, L"暖炉", LONG_MAX, 42, 42, 42, 100000, ULONG_MAX, 42, 42, 'c', L'플');
+printf("\n");
+printf("j = %d\n", j);
+*/
 //	write(1, &i, 1);
 //	write(1, &j, 1);
 //	write(1, "\n", 1);

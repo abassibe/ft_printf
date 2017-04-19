@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:25:45 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:46:26 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/19 15:32:35 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,20 @@ void	conv_j(t_print *lst, va_list ap)
 
 	lst->l_int = va_arg(ap, intmax_t);
 	nb = lst->l_int;
-	if (lst->l_int < 0)
+	if (lst->l_int < -9223372036854775807)
 	{
+		lst->str_nb = ft_strdup("9223372036854775808");
 		lst->neg = 1;
-		nb = (long long)(lst->l_int) * -1;
 	}
-	lst->str_nb = ft_itoa_long(nb);
+	else
+	{
+		if (lst->l_int < 0)
+		{
+			lst->neg = 1;
+			nb = (long long)(lst->l_int) * -1;
+		}
+		lst->str_nb = ft_itoa_long(nb);
+	}
 	lst->len_str_conv = ft_strlen(lst->str_nb);
 }
 
