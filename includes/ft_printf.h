@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/19 16:50:55 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/20 18:12:40 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct			s_print
 	int					ll;
 	int					j;
 	int					z;
+	int					conv_c;
 	int					got_opt;
 	int					long_opt;
 	int					long_preci;
@@ -113,6 +114,8 @@ void					recup_args_hexa(t_print *lst, va_list ap, int chack);
 void					conv_uint(t_print *lst, va_list ap);
 
 void					conv_percent(t_print *lst);
+
+void					conv_empty(t_print *lst, char c);
 
 int						concaten_result(t_print *lst, int ind);
 

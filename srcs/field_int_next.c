@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 17:05:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:51:43 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/20 19:36:44 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	field_zero(t_print *lst)
 		lst->str[0] = '-';
 	else if (lst->plus == 1)
 		lst->str[0] = '+';
+	else if (lst->space == 1)
+		lst->str[0] = ' ';
 }
 
 void	field_space(t_print *lst)

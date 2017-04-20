@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/18 16:16:33 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/20 19:01:11 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		chk_flags(t_print *lst, char *comp, int c, int ind)
 		lst->conv = ft_strdup("%");
 		return ;
 	}
-	while (comp[ci])
+	while (comp[ci] && lst->fmt[c])
 	{
 		if (lst->fmt[c] == comp[ci])
 		{
@@ -32,8 +32,6 @@ static void		chk_flags(t_print *lst, char *comp, int c, int ind)
 		else
 			ci++;
 	}
-	if (!ft_strchr("sSpdDioOuUxXcC%", lst->fmt[c]))
-		c--;
 	lst->conv = ft_strsub(lst->fmt, ind, c - ind + 1);
 }
 

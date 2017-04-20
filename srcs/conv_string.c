@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 05:51:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/18 17:00:01 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/20 20:14:57 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ static void		conv_ws_next(t_print *lst, int *j, char *str)
 	{
 		tmp = ft_strsub(str, i, 8);
 		lst->tab[c] = ft_btoi(tmp);
-//		free(tmp);
-//		tmp = NULL;
+		//		free(tmp);
+		//		tmp = NULL;
 		i += 8;
 		c++;
 	}
@@ -61,33 +61,61 @@ static void		conv_ws_next(t_print *lst, int *j, char *str)
 	{
 		lst->str[(*j)++] = lst->tab[c++];
 	}
-//	lst->c_zero--;
-//	free(str);
+	//	lst->c_zero--;
+	//	free(str);
 }
 
-void	conv_s(t_print *lst, va_list ap)
+static int		get_utf8_size(wchar_t i)
+{
+	int		n;
+	int		size;
+
+	size = 0;
+	while (i != 0)
+	{
+		i = i >> 1;
+		size++;
+	}
+	if (size <= 7)
+		n = 1;
+	else
+		n = (size / 6) + 1;
+	return (n);
+}
+
+static void		widestring(t_print *lst, va_list ap)
 {
 	char	*tmp;
 	int		i;
 	int		j;
+	int		k;
 
+	tmp = NULL;
 	i = 0;
 	j = 0;
+	k = lst->long_preci;
+	if (!(lst->uni_str = va_arg(ap, wchar_t *)))
+	{
+		lst->str = ft_strdup("(null)");
+		return ;
+	}
+	lst->str = ft_strnew(100);
+	while (lst->uni_str[i])
+	{
+		if ((k -= get_utf8_size(lst->uni_str[i])) < 0 && lst->long_preci > 0)
+			break ;
+		tmp = conv_ws(lst, lst->uni_str[i++], &j);
+		conv_ws_next(lst, &j, tmp);
+	}
+}
+
+void			conv_s(t_print *lst, va_list ap)
+{
+	char	*tmp;
+
 	tmp = NULL;
 	if (lst->l == 1)
-	{
-		if (!(lst->uni_str = va_arg(ap, wchar_t *)))
-		{
-			lst->str = ft_strdup("(null)");
-			return ;
-		}
-		lst->str = ft_strnew(100);
-		while (lst->uni_str[i])
-		{
-			tmp = conv_ws(lst, lst->uni_str[i++], &j);
-			conv_ws_next(lst, &j, tmp);
-		}
-	}
+		widestring(lst, ap);
 	else
 	{
 		tmp = va_arg(ap, char *);

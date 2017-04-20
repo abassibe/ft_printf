@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/19 15:13:58 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/20 19:35:48 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	allocate_str(t_print *lst)
 		lst->len_str = lst->long_opt;
 	if (lst->len_str < lst->long_preci)
 		lst->len_str = lst->long_preci;
-	lst->str = ft_strnew(lst->len_str);
+	lst->str = ft_strnew(lst->len_str + 1);
 }
 
 void	conv_d(t_print *lst, va_list ap)

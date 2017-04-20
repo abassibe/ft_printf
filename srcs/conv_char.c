@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/20 14:42:09 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/20 17:52:26 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,17 @@ void			conv_c(t_print *lst, va_list ap)
 {
 	if (lst->l == 1)
 	{
-		if (MB_CUR_MAX == 1)
+		lst->uni_c = va_arg(ap, wchar_t);
+		if (MB_CUR_MAX <= 1 && lst->uni_c > 127)
 		{
 			lst->c_zero = -1;
 			lst->fmt = ft_strnew(0);
 			return ;
 		}
-		lst->uni_c = va_arg(ap, wchar_t);
 	}
 	else
 		lst->c = va_arg(ap, int);
+	lst->conv_c = 1;
 	if (lst->c == 0 || lst->l == 1)
 		lst->c_zero++;
 	lst->len_str_conv = 1;
