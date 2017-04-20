@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/19 13:41:02 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/20 14:42:09 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,20 @@ static void		conv_wc_next(t_print *lst, char *str)
 
 void			conv_c(t_print *lst, va_list ap)
 {
-	lst->c_zero = 0;
 	if (lst->l == 1)
+	{
+		if (MB_CUR_MAX == 1)
+		{
+			lst->c_zero = -1;
+			lst->fmt = ft_strnew(0);
+			return ;
+		}
 		lst->uni_c = va_arg(ap, wchar_t);
+	}
 	else
 		lst->c = va_arg(ap, int);
-	if (lst->c == 0)
-		lst->c_zero = 1;
+	if (lst->c == 0 || lst->l == 1)
+		lst->c_zero++;
 	lst->len_str_conv = 1;
 	if (lst->len_str_conv < lst->long_opt)
 		lst->len_str_conv = lst->long_opt;

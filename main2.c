@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:24:18 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/19 15:32:37 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/20 15:01:23 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ wchar_t *str = L"α α α α";
 
 //printf("sdgfdfg %lc dfsg \n", str);
 
-i = printf("%D", LONG_MIN);
+i = printf("%hhC, %hhC", 0, L'Á±≥');
 printf("\n");
-j = ft_printf("%D", LONG_MIN);
+j = ft_printf("%hhC, %hhC", 0, L'Á±≥');
 printf("\n");
 printf("i = %d, j = %d\n", i, j);
 /*TEST A REVOIR

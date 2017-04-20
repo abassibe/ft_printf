@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:53:32 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/20 14:24:57 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,15 @@ static void		preci_octal(t_print *lst)
 
 static void		recup_arg(t_print *lst, va_list ap)
 {
-	if (lst->hh == 1)
-	{
-		lst->us_c = va_arg(ap, int);
-		lst->usll_int = lst->us_c;
-	}
-	else if (lst->l == 1 || lst->ll == 1)
+	if (lst->l == 1 || lst->ll == 1)
 	{
 		lst->l_int = va_arg(ap, long);
 		lst->usll_int = lst->l_int;
+	}
+	else if (lst->hh == 1)
+	{
+		lst->us_c = va_arg(ap, int);
+		lst->usll_int = lst->us_c;
 	}
 	else if (lst->j == 1)
 	{

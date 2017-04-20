@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/17 16:53:00 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/19 16:53:28 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ static void		init_opt_next(t_print *lst)
 	lst->len_str = 0;
 	lst->conv = NULL;
 	lst->tab = NULL;
+	lst->s_str = NULL;
+	lst->s_c = 0;
+	lst->us_str = NULL;
+	lst->us_c = 0;
+	lst->l_hexa = 0;
+	lst->i = 0;
+	lst->usl_int = 0;
+	lst->d_int = 0;
+	lst->f_int = 0;
+	lst->uni_str = NULL;
+	lst->uni_c = 0;
+
 }
 
 void			init_opt(t_print *lst)
@@ -45,6 +57,7 @@ void			init_opt(t_print *lst)
 	lst->zero = 0;
 	lst->space = 0;
 	lst->got_opt = 0;
+	lst->long_opt = 0;
 	lst->c = 0;
 	lst->s_int = 0;
 	lst->uss_int = 0;
@@ -55,7 +68,6 @@ void			init_opt(t_print *lst)
 	lst->size_t_i = 0;
 	lst->str_nb = NULL;
 	lst->len_str_conv = 0;
-	lst->long_opt = 0;
 	init_opt_next(lst);
 }
 
