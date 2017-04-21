@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 05:51:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/20 20:14:57 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/21 13:12:43 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void			conv_s(t_print *lst, va_list ap)
 	char	*tmp;
 
 	tmp = NULL;
-	if (lst->l == 1)
+	if (lst->l == 1 && MB_CUR_MAX > 1)
 		widestring(lst, ap);
 	else
 	{
