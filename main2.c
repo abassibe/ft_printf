@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:24:18 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/20 20:20:11 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/21 13:17:23 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int		main(void)
 {
-	setlocale(LC_ALL, "");
+//	setlocale(LC_ALL, "");
 int		i = 206;
 int		j = 177;
 wchar_t		uni = L'α';
@@ -25,9 +25,9 @@ char c;
 wchar_t *str = L"α α α α";
 
 //printf("sdgfdfg %lc dfsg \n", str);
-i = printf("%2.9p", 1234567);
+i = printf("%S", L"@@");
 printf("\n");
-j = ft_printf("%2.9p", 1234567);
+j = ft_printf("%S", L"@@");
 printf("\n");
 printf("i = %d, j = %d\n", i, j);
 /*TEST A REVOIR
