@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:24:18 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/21 13:17:23 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/21 17:48:20 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,88 @@
 
 int		main(void)
 {
-//	setlocale(LC_ALL, "");
-int		i = 206;
-int		j = 177;
+	setlocale(LC_ALL, "");
+int		k = 0;
+int		h = 0;
+int		i = 150;
+int		j = 10;
 wchar_t		uni = L'α';
 
 char c;
 wchar_t *str = L"α α α α";
-
 //printf("sdgfdfg %lc dfsg \n", str);
-i = printf("%S", L"@@");
+k = printf("{%05.*d}", -15, 42);
 printf("\n");
-j = ft_printf("%S", L"@@");
+h = ft_printf("{%05.*d}", -15, 42);
 printf("\n");
-printf("i = %d, j = %d\n", i, j);
+printf("k = %d, h = %d\n", k, h);
 /*TEST A REVOIR
-i = printf("%s %C %d %p %x %% %S", "bonjour ", L'該', 42, &free, 42, L"لحم خنزير");
-printf("\n");
-printf("i = %d\n", i);
+printf("----- test 18-2 -----\n");
 i = printf("%s%d%p%%%S%D%i%o%O%u%U%x%X%c%C","bonjour", 42, &c, L"暖炉", LONG_MAX, 42, 42, 42, 100000, ULONG_MAX, 42, 42, 'c', L'플');
 printf("\n");
-printf("i = %d\n", i);
-j = ft_printf("%s %C %d %p %x %% %S", "bonjour ", L'該', 42, &free, 42, L"لحم خنزير");
-printf("\n");
-printf("j = %d\n", j);
 j = ft_printf("%s%d%p%%%S%D%i%o%O%u%U%x%X%c%C","bonjour", 42, &c, L"暖炉", LONG_MAX, 42, 42, 42, 100000, ULONG_MAX, 42, 42, 'c', L'플');
 printf("\n");
-printf("j = %d\n", j);
+printf("i = %d, j = %d\n", i, j);
+printf("----- test 43-22 -----\n");
+i = printf("%hhC, %hhC", 0, L'米');
+printf("\n");
+j = ft_printf("%hhC, %hhC", 0, L'米');
+printf("\n");
+printf("i = %d, j = %d\n", i, j);
+printf("----- test 50-5 -----\n");
+i = printf("{%3c}", 0);
+printf("\n");
+j = ft_printf("{%3c}", 0);
+printf("\n");
+printf("i = %d, j = %d\n", i, j);
+printf("----- test 52-7 -----\n");
+i = printf("{%03c}", 0);
+printf("\n");
+j = ft_printf("{%03c}", 0);
+printf("\n");
+printf("i = %d, j = %d\n", i, j);
+printf("----- test 62-6 -----\n");
+i = printf("{% c}", 0);
+printf("\n");
+j = ft_printf("{% c}", 0);
+printf("\n");
+printf("i = %d, j = %d\n", i, j);
+printf("----- test 62-11 -----\n");
+i = printf("{% C}", 0);
+printf("\n");
+j = ft_printf("{% C}", 0);
+printf("\n");
+printf("i = %d, j = %d\n", i, j);
+printf("----- test 79-4 -----\n");
+i = printf("{%05.c}", 0);
+printf("\n");
+j = ft_printf("{%05.c}", 0);
+printf("\n");
+printf("i = %d, j = %d\n", i, j);
+printf("----- test bonus 01-4 -----\n");
+k = printf("{%*c}", 0, 0);
+printf("\n");
+h = ft_printf("{%*c}", 0, 0);
+printf("\n");
+printf("k = %d, h = %d\n", k, h);
+printf("----- test bonus 01-5 -----\n");
+k = printf("{%.*d}", -5, 42);
+printf("\n");
+h = ft_printf("{%.*d}", -5, 42);
+printf("\n");
+printf("k = %d, h = %d\n", k, h);
+printf("----- test bonus 01-7 -----\n");
+k = printf("{%.*d}", -5, 42);
+printf("\n");
+h = ft_printf("{%.*d}", -5, 42);
+printf("\n");
+printf("k = %d, h = %d\n", k, h);
+printf("----- test bonus 01-10 -----\n");
+k = printf("{%.*s}", -5, "42");
+printf("\n");
+h = ft_printf("{%.*s}", -5, "42");
+printf("\n");
+printf("k = %d, h = %d\n", k, h);
 */
 //	write(1, &i, 1);
 //	write(1, &j, 1);

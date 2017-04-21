@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   spc_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 15:50:47 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/21 17:16:14 by abassibe         ###   ########.fr       */
+/*   Created: 2017/04/21 15:57:14 by abassibe          #+#    #+#             */
+/*   Updated: 2017/04/21 17:56:56 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	spc_flags(t_print *lst, int *i, va_list ap)
 {
-	char	*join;
-	int		i;
-	int		j;
-
-	if (!s1 || !s2)
-		return (NULL);
-	if (!(join = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i])
+	if (lst->conv[(*i)] == '*')
 	{
-		join[i] = s1[i];
-		i++;
+		lst->bool_star = 1;
+		if (i > 0 && lst->conv[(*i) - 1] == '.')
+		{
+			lst->long_preci = va_arg(ap, int);
+			if (lst->long_preci < 0)
+				lst->long_preci = -1;
+		}
+		else
+		{
+			lst->long_opt = va_arg(ap, int);
+			if (lst->long_opt < 0)
+			{
+				lst->long_opt *= -1;
+				lst->less = 1;
+			}
+		}
 	}
-	while (s2[j])
-	{
-		join[i + j] = s2[j];
-		j++;
-	}
-	return (join);
 }

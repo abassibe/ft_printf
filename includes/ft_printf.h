@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/20 18:12:40 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/21 16:31:05 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "libft.h"
 # include <stdio.h>
 # include <locale.h>
+
+#define ABS(x) (((x) < 0) ? -(x) : (x));
 
 typedef struct			s_print
 {
@@ -36,6 +38,7 @@ typedef struct			s_print
 	int					j;
 	int					z;
 	int					conv_c;
+	int					bool_star;
 	int					got_opt;
 	int					long_opt;
 	int					long_preci;
@@ -71,7 +74,9 @@ t_print					*crea_lst(const char *format);
 void					core(t_print *lst, va_list ap);
 
 void					verif_format(t_print *lst, va_list ap);
-void					recup_format(t_print *lst);
+void					recup_format(t_print *lst, va_list ap);
+
+void					spc_flags(t_print *lst, int *i, va_list ap);
 
 void					convert_string(t_print *lst);
 

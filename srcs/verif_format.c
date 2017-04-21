@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/20 19:07:40 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/21 15:37:34 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void			verif_format(t_print *lst, va_list ap)
 	int		pos;
 
 	pos = ft_strlen(lst->conv) - 1;
-	recup_format(lst);
+	recup_format(lst, ap);
 	dispatch_one(lst, ap, pos);
 	if (lst->str_nb != NULL)
 	{

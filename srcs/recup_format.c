@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/14 17:31:50 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/21 16:17:46 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,21 @@ static void		lenght_field(t_print *lst, int *i)
 
 static void		recup_preci(t_print *lst, int *i)
 {
+	int		tmp;
+
 	(*i)++;
-	lst->long_preci = 0;
+	tmp = 0;
+	if (lst->long_preci == -1)
+		lst->long_preci++;
 	while (lst->conv[(*i)] >= 48 && lst->conv[(*i)] <= 57)
 	{
-		lst->long_preci *= 10;
-		lst->long_preci += ((int)lst->conv[(*i)++] - 48);
+		tmp *= 10;
+		tmp += ((int)lst->conv[(*i)++] - 48);
 	}
+	if (lst->bool_star == 1 && lst->long_preci < tmp)
+		lst->long_preci = tmp;
+	else if (lst->bool_star == 0)
+		lst->long_preci = tmp;
 }
 
 static void		recup_flag(t_print *lst, int *i)
@@ -74,7 +82,7 @@ static void		recup_flag(t_print *lst, int *i)
 		lst->z = 1;
 }
 
-void			recup_format(t_print *lst)
+void			recup_format(t_print *lst, va_list ap)
 {
 	int		i;
 
@@ -93,6 +101,8 @@ void			recup_format(t_print *lst)
 		if (lst->conv[i] == 'h' || lst->conv[i] == 'l' || lst->conv[i] == 'j' ||
 				lst->conv[i] == 'z')
 			recup_flag(lst, &i);
+		else
+			spc_flags(lst, &i, ap);
 		i++;
 	}
 }

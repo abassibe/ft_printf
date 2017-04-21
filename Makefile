@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/20 17:59:35 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/21 16:03:25 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ PRINTFSRC =	ft_printf.c \
 			concaten_result.c \
 			conv_uint.c \
 			conv_percent.c \
-			conv_empty.c
+			conv_empty.c \
+			spc_flags.c
 
 LFTSRC =	ft_atoi.c \
 			ft_itoa_long.c \
