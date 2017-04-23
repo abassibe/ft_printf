@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/10 14:42:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:54:00 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 04:12:40 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ static void		conv_hu(t_print *lst, va_list ap)
 
 void			conv_uint(t_print *lst, va_list ap)
 {
+	struct lconv		*lc;
+
+	lc = localeconv();
 	if (lst->l == 1 || lst->ll == 1 || lst->j == 1 || lst->z == 1)
 		conv_lu(lst, ap);
 	else if (lst->h == 1)
@@ -55,4 +58,9 @@ void			conv_uint(t_print *lst, va_list ap)
 		lst->plus = 0;
 	if (lst->space == 1)
 		lst->space = 0;
+	if (lst->apostrophe == 1 && lc->thousands_sep[0])
+	{
+		thousands_sep(lst, lc);
+		lst->len_str_conv = ft_strlen(lst->str_nb);
+	}
 }

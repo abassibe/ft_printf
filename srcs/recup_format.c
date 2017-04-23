@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/21 16:17:46 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 03:53:32 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static void		recup_opt(t_print *lst, int i)
 		lst->zero = 1;
 	if (lst->conv[i] == ' ')
 		lst->space = 1;
+	if (lst->conv[i] == '\'')
+		lst->apostrophe = 1;
 	if (lst->plus == 1 && lst->space == 1)
 		lst->space = 0;
 	if (lst->less == 1 && lst->zero == 1)
@@ -92,7 +94,8 @@ void			recup_format(t_print *lst, va_list ap)
 		if (lst->conv[i] > 48 && lst->conv[i] < 58 && lst->long_preci == -1)
 			lenght_field(lst, &i);
 		if (lst->conv[i] == '-' || lst->conv[i] == '+' || lst->conv[i] == '#'
-				|| lst->conv[i] == '0' || lst->conv[i] == ' ')
+				|| lst->conv[i] == '0' || lst->conv[i] == ' ' ||
+				lst->conv[i] == '\'')
 			recup_opt(lst, i);
 		if (lst->conv[i] > 48 && lst->conv[i] < 58 && lst->long_preci == -1)
 			lenght_field(lst, &i);

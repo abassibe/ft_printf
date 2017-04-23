@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/21 15:24:19 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 02:40:05 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			core(t_print *lst, va_list ap)
 	char	*comp;
 	int		c;
 
-	comp = " -+0#hljz123456789.*";
+	comp = " -+0#hljz123456789.*'";
 	c = 0;
 	while (lst->fmt[c])
 	{

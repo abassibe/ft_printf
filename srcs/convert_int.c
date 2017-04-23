@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/20 19:35:48 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 04:12:22 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,39 @@ void	conv_d(t_print *lst, va_list ap)
 	lst->len_str_conv = ft_strlen(lst->str_nb);
 }
 
+void	thousands_sep(t_print *lst, struct lconv *lc)
+{
+	int					i;
+	int					j;
+	int					c;
+	char				*tmp;
+
+	c = -1;
+	i = lst->len_str_conv / 3;
+	if (lst->len_str_conv % 3 == 0)
+		i--;
+	tmp = ft_strnew(lst->len_str_conv + i);
+	i += lst->len_str_conv;
+	j = lst->len_str_conv;
+	while (i >= 0)
+	{
+		tmp[i--] = lst->str_nb[j--];
+		c++;
+		if (c == 3)
+		{
+			tmp[i--] = lc->thousands_sep[0];
+			c = 0;
+		}
+	}
+	lst->str_nb = ft_strdup(tmp);
+//	free(tmp);
+}
+
 void	conv_int(t_print *lst, va_list ap)
 {
+	struct lconv		*lc;
+
+	lc = localeconv();
 	if (lst->z == 1)
 		conv_z(lst, ap);
 	else if (lst->j == 1)
@@ -51,5 +82,10 @@ void	conv_int(t_print *lst, va_list ap)
 		conv_h(lst, ap);
 	else
 		conv_d(lst, ap);
+	if (lst->apostrophe == 1 && lc->thousands_sep[0])
+	{
+		thousands_sep(lst, lc);
+		lst->len_str_conv = ft_strlen(lst->str_nb);
+	}
 	allocate_str(lst);
 }

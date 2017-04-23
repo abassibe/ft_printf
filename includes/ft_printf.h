@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/21 16:31:05 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 04:11:52 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct			s_print
 	int					ll;
 	int					j;
 	int					z;
+	int					apostrophe;
 	int					conv_c;
 	int					bool_star;
 	int					got_opt;
@@ -83,6 +84,7 @@ void					convert_string(t_print *lst);
 void					conv_int(t_print *lst, va_list ap);
 void					conv_d(t_print *lst, va_list ap);
 void					allocate_str(t_print *lst);
+void					thousands_sep(t_print *lst, struct lconv *lc);
 
 void					conv_h(t_print *lst, va_list ap);
 void					conv_hh(t_print *lst, va_list ap);

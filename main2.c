@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/21 19:26:42 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 04:18:51 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 
 int		main(void)
 {
+	struct lconv *lc;
 	setlocale(LC_ALL, "");
 	setlocale(LC_NUMERIC, "da_DK");
 	int		k = 0;
 	int		h = 0;
-	int		i = 12345678;
+	int		i = 0;
 	int		j = 10;
 	float	f = 10000.51;
 	wchar_t	uni = L'α';
@@ -28,9 +29,11 @@ int		main(void)
 	char	c;
 	wchar_t *str = L"α α α α";
 
-	k = printf("%'d", i);
+	lc = localeconv();
+	printf("Decimal point: {%s}\n",lc->thousands_sep);
+	k = printf("%'.15d", i);
 	printf("\n");
-//	h = ft_printf("%2$d %2$#x", 16, 54854);
+	h = ft_printf("%'.15d", i);
 	printf("\n");
 	printf("k = %d, h = %d\n", k, h);
 	/*TEST A REVOIR
