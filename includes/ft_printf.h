@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 05:45:34 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 05:58:56 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ typedef struct			s_print
 	wchar_t				*uni_str;
 	wchar_t				uni_c;
 	int					*tab;
+	char				*test;
+	int					tst;
 }						t_print;
 
 int						ft_printf(const char *format, ...);

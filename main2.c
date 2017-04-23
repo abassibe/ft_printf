@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 05:35:55 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 06:00:36 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		main(void)
 	printf("Decimal point: {%s}\n",lc->thousands_sep);
 	k = printf("*Kashim a � histoires à raconterIl fait au moins �\n�\nc\n\n\nly est fantastique!\n\n");
 	printf("\n");
-	h = ft_printf("*Kashim a � histoires à raconterIl fait au moins �\n�\nc\n\n\nly est fantastique!\n\n");
+	h = ft_printf("*Kashim %c � histoires à raconterIl fait au moins �\n�\nc\n\n\nly est fantastique!\n\n", 54);
 	printf("\n");
 	printf("k = %d, h = %d\n", k, h);
 	/*TEST A REVOIR

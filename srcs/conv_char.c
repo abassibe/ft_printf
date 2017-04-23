@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 05:46:58 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 05:59:15 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ static void		conv_wc_next(t_print *lst, char *str)
 
 void			conv_c(t_print *lst, va_list ap)
 {
+	lst->tst = 1;
 	if (lst->l == 1 && MB_CUR_MAX > 1)
 		lst->uni_c = va_arg(ap, wchar_t);
 	else
