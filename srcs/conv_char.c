@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 05:59:15 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 06:12:13 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,5 @@ void			conv_c(t_print *lst, va_list ap)
 		conv_wc_next(lst, conv_wc(lst));
 	else
 		conv_c_next(lst);
+	printf("[%d]", lst->c);
 }
