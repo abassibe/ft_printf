@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 04:18:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 04:38:21 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int		main(void)
 {
 	struct lconv *lc;
-	setlocale(LC_ALL, "");
+//	setlocale(LC_ALL, "");
 	setlocale(LC_NUMERIC, "da_DK");
 	int		k = 0;
 	int		h = 0;
@@ -31,9 +31,9 @@ int		main(void)
 
 	lc = localeconv();
 	printf("Decimal point: {%s}\n",lc->thousands_sep);
-	k = printf("%'.15d", i);
+	k = printf("Lalalala, 100%% des gens qui parlent %C Ly adorent Ly. Ou Presque. 2, 10, 2710,", 200);
 	printf("\n");
-	h = ft_printf("%'.15d", i);
+	h = ft_printf("Lalalala, 100%% des gens qui parlent %C Ly adorent Ly. Ou Presque. 2, 10, 2710,", 200);
 	printf("\n");
 	printf("k = %d, h = %d\n", k, h);
 	/*TEST A REVOIR
