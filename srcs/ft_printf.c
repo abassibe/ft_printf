@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 06:04:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 06:06:33 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,16 @@ int				ft_printf(const char *format, ...)
 	va_start(ap, format);
 	lst = crea_lst(format);
 	lst->tst = 0;
-	lst->test = ft_strdup(format);
 	init_opt(lst);
 	lst->c_zero = 0;
 	core(lst, ap);
-	va_end(ap);
-	ft_putstr(lst->fmt);
-	write(1, "\n\n\n", 3);
 	if (lst->tst == 1)
 	{
-		ft_putstr(lst->test);
+		ft_putstr(format);
 	}
+	write(1, "\n\n\n", 3);
+	va_end(ap);
+	ft_putstr(lst->fmt);
 //	free(lst->fmt);
 //	free(lst);
 	return ((int)ft_strlen(lst->fmt) + lst->c_zero);
