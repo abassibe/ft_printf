@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 03:20:50 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 05:40:02 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ int				ft_printf(const char *format, ...)
 	t_print		*lst;
 	va_list		ap;
 
+	write(1, &format, ft_strlen(format));
+	return (ft_strlen(format));
 	va_start(ap, format);
 	lst = crea_lst(format);
 	init_opt(lst);

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 04:54:10 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 05:35:55 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ int		main(void)
 
 	lc = localeconv();
 	printf("Decimal point: {%s}\n",lc->thousands_sep);
-	printf("%C\n", 65533);
-	k = printf("*Kashim a %lc histoires à raconterIl fait au moins %lc%lcc ly est fantastique!", 128, 200, 300);
+	k = printf("*Kashim a � histoires à raconterIl fait au moins �\n�\nc\n\n\nly est fantastique!\n\n");
 	printf("\n");
-	h = ft_printf("*Kashim a %lc histoires à raconterIl fait au moins %lc%lcc ly est fantastique!", 128, 200, 300);
+	h = ft_printf("*Kashim a � histoires à raconterIl fait au moins �\n�\nc\n\n\nly est fantastique!\n\n");
 	printf("\n");
 	printf("k = %d, h = %d\n", k, h);
 	/*TEST A REVOIR
