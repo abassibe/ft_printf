@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/21 16:03:25 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/24 14:17:12 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ LFTSRC =	ft_atoi.c \
 			ft_itoa_base_unsigned.c \
 			ft_itoa_base_maj_unsigned.c \
 			ft_itoa_base_unicode.c \
-			ft_putstr.c \
+			ft_putnstr.c \
 			ft_strdup.c \
 			ft_strndup.c \
 			ft_strjoin.c \

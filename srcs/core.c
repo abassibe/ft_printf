@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 02:40:05 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 16:11:34 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,27 @@ static void		chk_flags(t_print *lst, char *comp, int c, int ind)
 void			core(t_print *lst, va_list ap)
 {
 	char	*comp;
+	int		diff;
 	int		c;
 
+	diff = 0;
 	comp = " -+0#hljz123456789.*'";
 	c = 0;
 	while (lst->fmt[c])
 	{
+		diff++;
 		if (lst->fmt[c] == '%')
 		{
+			diff = 0;
+			lst->ind_cut = c;
 			c++;
 			chk_flags(lst, comp, c, c);
-			verif_format(lst, ap);
-			c = concaten_result(lst, c);
-//			free(lst->conv);
+			c += verif_format(lst, ap);
+			c = concaten_result(lst);
+			//free(lst->conv);
 			init_opt(lst);
 		}
 		c++;
 	}
+	lst->len_ret += diff;
 }

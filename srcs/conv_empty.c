@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 17:57:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/20 18:40:04 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 16:23:03 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	conv_empty(t_print *lst, char c)
 	int		i;
 
 	i = 0;
-	lst->len_str = 1;
-	if (lst->long_opt > lst->len_str)
-		lst->len_str = lst->long_opt;
-	lst->str = ft_strnew(lst->len_str);
+	lst->len_str_conv = 1;
+	if (lst->long_opt > lst->len_str_conv)
+		lst->len_str_conv = lst->long_opt;
+	lst->str = ft_strnew(lst->len_str_conv);
 	if (lst->less == 1)
 	{
 		lst->str[i++] = c;

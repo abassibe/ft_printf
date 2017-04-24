@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 05:58:56 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 14:18:15 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 typedef struct			s_print
 {
+	int					ind_cut;
+	int					len_ret;
 	int					neg;
 	int					c_zero;
 	char				*conv;
@@ -76,7 +78,7 @@ t_print					*crea_lst(const char *format);
 
 void					core(t_print *lst, va_list ap);
 
-void					verif_format(t_print *lst, va_list ap);
+int						verif_format(t_print *lst, va_list ap);
 void					recup_format(t_print *lst, va_list ap);
 
 void					spc_flags(t_print *lst, int *i, va_list ap);
@@ -126,6 +128,6 @@ void					conv_percent(t_print *lst);
 
 void					conv_empty(t_print *lst, char c);
 
-int						concaten_result(t_print *lst, int ind);
+int						concaten_result(t_print *lst);
 
 #endif

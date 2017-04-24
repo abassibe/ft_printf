@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 13:42:30 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 15:44:22 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,5 @@ void			conv_hexa_x(t_print *lst)
 	else
 		hexa_field(lst);
 	lst->str = ft_strdup(lst->str_nb);
+	lst->len_str_conv = (int)ft_strlen(lst->str);
 }

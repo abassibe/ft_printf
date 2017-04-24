@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/21 15:37:34 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 16:45:41 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ static void		dispatch_four(t_print *lst, va_list ap, int pos)
 	}
 	else if (lst->conv[pos] == '%')
 		conv_percent(lst);
-	else if ((!ft_strchr(" +#0-lhjz", lst->conv[pos])) || lst->long_opt > 0 )
+	else if ((!ft_strchr(" +#0-lhjz", lst->conv[pos])) || lst->long_opt > 0)
+	{
 		conv_empty(lst, lst->conv[pos]);
+	}
 	else
 		lst->str = ft_strnew(0);
 }
@@ -107,11 +109,13 @@ static void		dispatch_one(t_print *lst, va_list ap, int pos)
 		dispatch_two(lst, ap, pos);
 }
 
-void			verif_format(t_print *lst, va_list ap)
+int				verif_format(t_print *lst, va_list ap)
 {
 	int		pos;
 
 	pos = ft_strlen(lst->conv) - 1;
+	if (pos < 0)
+		pos = 0;
 	recup_format(lst, ap);
 	dispatch_one(lst, ap, pos);
 	if (lst->str_nb != NULL)
@@ -119,4 +123,5 @@ void			verif_format(t_print *lst, va_list ap)
 //		free(lst->str_nb);
 		lst->str_nb = NULL;
 	}
+	return (ft_strlen(lst->conv));
 }

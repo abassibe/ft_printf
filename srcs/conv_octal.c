@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/20 14:24:57 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 14:37:31 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,5 @@ void			conv_octal(t_print *lst, va_list ap)
 	else
 		octal_field(lst);
 	lst->str = ft_strdup(lst->str_nb);
+	lst->len_str_conv = (int)ft_strlen(lst->str);
 }

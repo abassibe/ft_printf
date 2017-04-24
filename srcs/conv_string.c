@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 05:51:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/21 13:17:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 17:11:18 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,19 @@ static char		*conv_ws(t_print *lst, wchar_t uni, int *j)
 static void		conv_ws_next(t_print *lst, int *j, char *str)
 {
 	int		i;
-	int		c;
 	char	*tmp;
 
 	i = 0;
-	c = 0;
 	if (!str)
 		return ;
-	lst->tab = (int *)malloc(6);
 	while (str[i])
 	{
 		tmp = ft_strsub(str, i, 8);
-		lst->tab[c] = ft_btoi(tmp);
-		//		free(tmp);
-		//		tmp = NULL;
+		lst->str[(*j)++] = ft_btoi(tmp);
+		lst->str[(*j) + 1] = 0;
+//		ft_strdel(tmp);
 		i += 8;
-		c++;
 	}
-	while (c < 5)
-		lst->tab[c++] = 0;
-	c = 0;
-	while (lst->tab[c] != 0)
-	{
-		lst->str[(*j)++] = lst->tab[c++];
-	}
-	//	lst->c_zero--;
 	//	free(str);
 }
 
@@ -99,7 +87,7 @@ static void		widestring(t_print *lst, va_list ap)
 		lst->str = ft_strdup("(null)");
 		return ;
 	}
-	lst->str = ft_strnew(100);
+	lst->str = ft_strnew((int)ft_strlen((char *)lst->uni_str) * 5 + 1);
 	while (lst->uni_str[i])
 	{
 		if ((k -= get_utf8_size(lst->uni_str[i])) < 0 && lst->long_preci > 0)
@@ -123,5 +111,5 @@ void			conv_s(t_print *lst, va_list ap)
 	}
 	if (lst->str == NULL)
 		lst->str = ft_strdup("(null)");
-	lst->len_str_conv = ft_strlen(lst->str);
+	lst->len_str_conv = (int)ft_strlen(lst->str);
 }

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 06:00:36 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 17:13:09 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,30 @@ int		main(void)
 	int		k = 0;
 	int		h = 0;
 	int		i = 0;
-	int		j = 10;
+	int		j = 1000;
 	float	f = 10000.51;
 	wchar_t	uni = L'α';
+	char	*test;
+	char	*str2;
 
+	test = malloc(100);
 	char	c;
 	wchar_t *str = L"α α α α";
+	str2 = "TEST";
 
 	lc = localeconv();
-	printf("Decimal point: {%s}\n",lc->thousands_sep);
-	k = printf("*Kashim a � histoires à raconterIl fait au moins �\n�\nc\n\n\nly est fantastique!\n\n");
-	printf("\n");
-	h = ft_printf("*Kashim %c � histoires à raconterIl fait au moins �\n�\nc\n\n\nly est fantastique!\n\n", 54);
-	printf("\n");
+	k = printf("%C\n", L'猫');
+	h = ft_printf("%C\n", L'猫');
 	printf("k = %d, h = %d\n", k, h);
+/*	printf("Decimal point: {%s}\n",lc->thousands_sep);
+	k = sprintf(test, "%cKashim a %c histoires à raconterIl fait au moins %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",
+			42, -23, -64, 0, 0, -1, 99, 10, 108, 121, 32, 101, 115, 116, 32, 102, 97, 110, 116, 97, 115, 116, 105, 113, 117, 101, 33, 13, 9);
+	printf("%s\n", test);
+	printf("\n");
+	h = ft_printf("%cKashim a %c histoires à raconterIl fait au moins %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",
+			42, -23, -64, 0, 0, -1, 99, 10, 108, 121, 32, 101, 115, 116, 32, 102, 97, 110, 116, 97, 115, 116, 105, 113, 117, 101, 33, 13, 9);
+	printf("\n");
+	printf("k = %d, h = %d\n", k, h);*/
 	/*TEST A REVOIR
 	printf("----- test 18-2 -----\n");
 	i = printf("%s%d%p%%%S%D%i%o%O%u%U%x%X%c%C","bonjour", 42, &c, L"暖炉", LONG_MAX, 42, 42, 42, 100000, ULONG_MAX, 42, 42, 'c', L'플');

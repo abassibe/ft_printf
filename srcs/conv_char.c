@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 06:12:13 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/23 09:27:47 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ static void		conv_wc_next(t_print *lst, char *str)
 	{
 		tmp = ft_strsub(str, i, 8);
 		lst->tab[c] = ft_btoi(tmp);
-//		free(tmp);
-//		tmp = NULL;
+//		ft_strdel(tmp);
 		i += 8;
 		c++;
 	}
@@ -97,7 +96,8 @@ static void		conv_wc_next(t_print *lst, char *str)
 
 void			conv_c(t_print *lst, va_list ap)
 {
-	lst->tst = 1;
+//	lst->tst = 1;
+
 	if (lst->l == 1 && MB_CUR_MAX > 1)
 		lst->uni_c = va_arg(ap, wchar_t);
 	else
@@ -113,5 +113,5 @@ void			conv_c(t_print *lst, va_list ap)
 		conv_wc_next(lst, conv_wc(lst));
 	else
 		conv_c_next(lst);
-	printf("[%d]", lst->c);
+//	printf("[%d]", lst->c);
 }

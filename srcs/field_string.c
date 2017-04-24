@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 07:07:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/12 19:41:25 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 14:36:34 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void			convert_string(t_print *lst)
 		options_zero(lst, str, lenght);
 	else
 		options_pos(lst, str, lenght);
+	lst->len_str_conv = (int)ft_strlen(lst->str);
 }
