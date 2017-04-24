@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/24 14:18:15 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 18:16:16 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ typedef struct			s_print
 	int					diez;
 	int					zero;
 	int					space;
+	int					apostrophe;
 	int					h;
 	int					hh;
 	int					l;
 	int					ll;
 	int					j;
 	int					z;
-	int					apostrophe;
 	int					conv_c;
 	int					bool_star;
 	int					got_opt;

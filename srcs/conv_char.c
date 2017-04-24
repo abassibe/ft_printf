@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 09:27:47 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/24 18:20:20 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ static void		conv_c_next(t_print *lst)
 			lst->str[i++] = ' ';
 		lst->str[i] = lst->c;
 	}
-	if (lst->c == 0 && lst->less == 1)
-		lst->str++;
 }
 
 static char		*conv_wc(t_print *lst)
@@ -79,17 +77,12 @@ static void		conv_wc_next(t_print *lst, char *str)
 	while (str[i])
 	{
 		tmp = ft_strsub(str, i, 8);
-		lst->tab[c] = ft_btoi(tmp);
+		lst->str[c++] = ft_btoi(tmp);
 //		ft_strdel(tmp);
 		i += 8;
-		c++;
+		lst->len_str_conv++;
 	}
-	while (c < 5)
-		lst->tab[c++] = 0;
-	i = 0;
-	c = 0;
-	while (lst->tab[c] != 0)
-		lst->str[i++] = lst->tab[c++];
+	lst->len_str_conv--;
 	lst->c_zero--;
 //	free(str);
 }
