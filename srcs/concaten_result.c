@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:22:49 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/26 17:24:59 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/26 21:18:58 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char		*str_cut(char *str, int ind)
 	return (tmp);
 }
 
-static char		*str_join(char *str1, char * str2, int ind1, int ind2)
+static char		*str_join(char *str1, char *str2, int ind1, int ind2)
 {
 	int		i;
 	int		j;
@@ -44,7 +44,7 @@ static char		*str_join(char *str1, char * str2, int ind1, int ind2)
 	return (tmp);
 }
 
-static char		*str_join_fin(char *str1, char * str2, int ind, int len)
+static char		*str_join_fin(char *str1, char *str2, int ind, int len)
 {
 	int		i;
 	int		j;

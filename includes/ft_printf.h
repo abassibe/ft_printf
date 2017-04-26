@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/26 16:51:56 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/26 21:20:41 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct			s_print
 	int					ind_cut;
 	int					len_ret;
 	int					neg;
-	int					c_zero;
 	char				*conv;
 	char				*fmt;
 	int					plus;

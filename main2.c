@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/26 17:42:05 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/26 21:08:38 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(void)
 	char	*test;
 	char	*str2;
 
-	ft_printf("{cyan} couleur");
+	ft_printf("test {blue} couleur et fin de couleur {eoc}voila\n");
 	//	h = ft_printf("%'d\n", 1000000);
 	//	printf("k = %d, h = %d\n", k, h);
 	/*TEST A REVOIR

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/24 18:20:20 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/26 21:21:34 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ static char		*conv_wc(t_print *lst)
 	if (lst->uni_c <= 127)
 	{
 		lst->c = lst->uni_c;
-		if (lst->uni_c != 0)
-			lst->c_zero--;
 		conv_c_next(lst);
 		return (NULL);
 	}
@@ -83,21 +81,17 @@ static void		conv_wc_next(t_print *lst, char *str)
 		lst->len_str_conv++;
 	}
 	lst->len_str_conv--;
-	lst->c_zero--;
 //	free(str);
 }
 
 void			conv_c(t_print *lst, va_list ap)
 {
 //	lst->tst = 1;
-
 	if (lst->l == 1 && MB_CUR_MAX > 1)
 		lst->uni_c = va_arg(ap, wchar_t);
 	else
 		lst->c = va_arg(ap, int);
 	lst->conv_c = 1;
-	if (lst->c == 0 || lst->l == 1)
-		lst->c_zero++;
 	lst->len_str_conv = 1;
 	if (lst->len_str_conv < lst->long_opt)
 		lst->len_str_conv = lst->long_opt;
