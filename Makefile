@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/24 14:17:12 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/26 17:42:34 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ PRINTFSRC =	ft_printf.c \
 			conv_uint.c \
 			conv_percent.c \
 			conv_empty.c \
-			spc_flags.c
+			spc_flags.c \
+			chk_color.c
 
 LFTSRC =	ft_atoi.c \
 			ft_itoa_long.c \
@@ -62,7 +63,8 @@ LFTSRC =	ft_atoi.c \
 			ft_strdel.c \
 			ft_memdel.c \
 			ft_power.c \
-			ft_btoi.c
+			ft_btoi.c \
+			ft_strcmp.c
 
 OBJS1 = $(LFTSRC:.c=.o)
 	OBJS2 = $(PRINTFSRC:.c=.o)

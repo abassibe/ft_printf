@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/24 18:16:16 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/26 16:51:56 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,7 @@ void					conv_percent(t_print *lst);
 void					conv_empty(t_print *lst, char c);
 
 int						concaten_result(t_print *lst);
+
+void					chk_color(t_print *lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:22:49 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/24 16:44:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/26 17:24:59 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,8 @@ int				concaten_result(t_print *lst)
 	i = lst->ind_cut + lst->len_str_conv;
 	lst->fmt = str_join_fin(tmp, lst->fmt, i, lst->ind_cut + len_conv + 1);
 	lst->len_ret = lst->ind_cut + lst->len_str_conv;
-
-/*	len_conv = (int)ft_strlen(lst->conv);
-	tmp = ft_strjoin(ft_strsub(lst->fmt, 0, ind - 1), lst->str);
-	i = (int)ft_strlen(tmp) - 1;
-	tmp = ft_strjoin(tmp, ft_strsub(lst->fmt, ind + len_conv,
-				ft_strlen(lst->fmt) - ind + len_conv));
 //	free(lst->fmt);
-	lst->fmt = ft_strdup(tmp);
 //	free(tmp);
-//	free(lst->str);*/
+//	free(lst->str);
 	return (i - 1);
 }
