@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:43:57 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/26 16:50:37 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 05:07:42 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void			core(t_print *lst, va_list ap)
 			chk_flags(lst, comp, c, c);
 			c += verif_format(lst, ap);
 			c = concaten_result(lst);
-			//free(lst->conv);
+//			ft_strdel(&lst->conv);
 			init_opt(lst);
 		}
 		c++;

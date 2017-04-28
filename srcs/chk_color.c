@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 16:54:16 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/26 21:19:17 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 05:08:52 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void			chk_color(t_print *lst)
 	i = 0;
 	j = 0;
 	c = 0;
+	tmp = NULL;
 	while (lst->fmt[i++] && lst->fmt[j++])
 		if (lst->fmt[i] == '{')
 		{
@@ -94,4 +95,5 @@ void			chk_color(t_print *lst)
 		}
 	if (lst->bool_star == 1)
 		lst->len_ret += j;
+	ft_strdel(&tmp);
 }

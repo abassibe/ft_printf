@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/26 21:20:41 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 04:21:36 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include "libft.h"
 # include <stdio.h>
 # include <locale.h>
-
-#define ABS(x) (((x) < 0) ? -(x) : (x));
 
 typedef struct			s_print
 {
@@ -62,8 +60,6 @@ typedef struct			s_print
 	long int			l_int;
 	unsigned long		usl_int;
 	unsigned long long	usll_int;
-	double				d_int;
-	float				f_int;
 	wchar_t				*uni_str;
 	wchar_t				uni_c;
 	int					*tab;
@@ -72,6 +68,8 @@ typedef struct			s_print
 }						t_print;
 
 int						ft_printf(const char *format, ...);
+int						ft_sprintf(char **str, const char *format, ...);
+int						ft_fprintf(int fd, const char *format, ...);
 void					init_opt(t_print *lst);
 t_print					*crea_lst(const char *format);
 
@@ -124,6 +122,8 @@ void					recup_args_hexa(t_print *lst, va_list ap, int chack);
 void					conv_uint(t_print *lst, va_list ap);
 
 void					conv_percent(t_print *lst);
+
+void					conv_bin(t_print*lst, va_list ap);
 
 void					conv_empty(t_print *lst, char c);
 

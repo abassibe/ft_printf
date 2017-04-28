@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:22:49 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/26 21:18:58 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 05:09:26 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static char		*str_join(char *str1, char *str2, int ind1, int ind2)
 		tmp[c++] = str1[i++];
 	while (j < ind2)
 		tmp[c++] = str2[j++];
+//	ft_strdel(&str1);
 	return (tmp);
 }
 

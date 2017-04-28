@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   conv_bin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/23 18:01:22 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 05:01:36 by abassibe         ###   ########.fr       */
+/*   Created: 2017/04/28 03:26:28 by abassibe          #+#    #+#             */
+/*   Updated: 2017/04/28 04:18:09 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-void	ft_strdel(char **as)
+void			conv_bin(t_print *lst, va_list ap)
 {
-	if (as && *as)
-	{
-		free(*as);
-		*as = NULL;
-	}
+	lst->l_int = va_arg(ap, long);
+	lst->str_nb = ft_itoa_base(lst->l_int, 2);
+	lst->len_str_conv = (int)ft_strlen(lst->str_nb);
+	lst->len_str = lst->long_preci;
+	if (lst->len_str < lst->long_opt)
+		lst->len_str = lst->long_opt;
+	lst->str = ft_strnew(lst->len_str + 1);
 }

@@ -6,13 +6,14 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/26 21:08:38 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 04:52:09 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include <limits.h>
 #include <string.h>
+#include <fcntl.h>
 
 int		main(void)
 {
@@ -27,8 +28,12 @@ int		main(void)
 	wchar_t	uni = L'α';
 	char	*test;
 	char	*str2;
+	FILE	*ptr;
+	int fd = 12345;
 
-	ft_printf("test {blue} couleur et fin de couleur {eoc}voila\n");
+	ft_printf("test{red}re test\n");
+	//fd = open("./filetest", O_WRONLY);
+	//ft_printf("un int %d et une chaine %s voila\n", 10000, "deux chaine");
 	//	h = ft_printf("%'d\n", 1000000);
 	//	printf("k = %d, h = %d\n", k, h);
 	/*TEST A REVOIR
