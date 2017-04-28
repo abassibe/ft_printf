@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 05:08:17 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:57:39 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int				ft_printf(const char *format, ...)
 	chk_color(lst);
 	va_end(ap);
 	ft_putnstr(lst->fmt, lst->len_ret);
-//	ft_strdel(&lst->conv);
-//	free(lst->fmt);
-//	free(lst);
+	ft_strdel(&lst->conv);
+	ft_strdel(&lst->fmt);
 	if (lst->bool_star == 1)
 		write(1, "\033[0;0m", 7);
+//	free(lst);
 	return (lst->len_ret);
 }
 
@@ -49,8 +49,9 @@ int				ft_sprintf(char **str, const char *format, ...)
 	init_opt(lst);
 	va_end(ap);
 	*str = ft_strdup(lst->fmt);
-//	free(lst->fmt);
-//	free(lst);
+	ft_strdel(&lst->conv);
+	ft_strdel(&lst->fmt);
+	free(lst);
 	return (lst->len_ret);
 }
 
@@ -68,7 +69,8 @@ int				ft_fprintf(int fd, const char *format, ...)
 	init_opt(lst);
 	va_end(ap);
 	write(fd, lst->fmt, lst->len_ret);
-//	free(lst->fmt);
-//	free(lst);
+	ft_strdel(&lst->conv);
+	ft_strdel(&lst->fmt);
+	free(lst);
 	return (lst->len_ret);
 }

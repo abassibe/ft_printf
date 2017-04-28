@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 05:31:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 07:34:56 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:19:59 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	thousands_sep(t_print *lst, struct lconv *lc)
 			c = 0;
 		}
 	}
-	lst->str_nb = ft_strdup(tmp);
-//	free(tmp);
+	ft_strdel(&lst->str_nb);
+	lst->str_nb = tmp;
 }
 
 void	conv_int(t_print *lst, va_list ap)

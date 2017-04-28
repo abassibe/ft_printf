@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 05:51:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/24 17:11:18 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:15:42 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,9 @@ static void		conv_ws_next(t_print *lst, int *j, char *str)
 		tmp = ft_strsub(str, i, 8);
 		lst->str[(*j)++] = ft_btoi(tmp);
 		lst->str[(*j) + 1] = 0;
-//		ft_strdel(tmp);
+		ft_strdel(&tmp);
 		i += 8;
 	}
-	//	free(str);
 }
 
 static int		get_utf8_size(wchar_t i)
@@ -95,6 +94,7 @@ static void		widestring(t_print *lst, va_list ap)
 		tmp = conv_ws(lst, lst->uni_str[i++], &j);
 		conv_ws_next(lst, &j, tmp);
 	}
+	ft_strdel(&tmp);
 }
 
 void			conv_s(t_print *lst, va_list ap)
@@ -107,7 +107,8 @@ void			conv_s(t_print *lst, va_list ap)
 	else
 	{
 		tmp = va_arg(ap, char *);
-		lst->str = tmp;
+		if (tmp != NULL)
+			lst->str = ft_strdup(tmp);
 	}
 	if (lst->str == NULL)
 		lst->str = ft_strdup("(null)");

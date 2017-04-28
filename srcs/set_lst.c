@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/28 03:20:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 03:40:20 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:56:39 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_print			*crea_lst(const char *format)
 	t_print		*new;
 
 	new = (t_print *)malloc(sizeof(t_print));
+	new->fmt = NULL;
 	new->fmt = ft_strdup((char *)format);
 	return (new);
 }
@@ -28,8 +29,6 @@ static void		init_opt_next(t_print *lst)
 	lst->str = NULL;
 	lst->len_str = 0;
 	lst->conv = NULL;
-	lst->tab = NULL;
-	lst->s_str = NULL;
 	lst->s_c = 0;
 	lst->us_str = NULL;
 	lst->us_c = 0;
@@ -38,7 +37,6 @@ static void		init_opt_next(t_print *lst)
 	lst->usl_int = 0;
 	lst->uni_str = NULL;
 	lst->uni_c = 0;
-	lst->conv_c = 0;
 	lst->bool_star = 0;
 	lst->apostrophe = 0;
 }

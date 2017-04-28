@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 01:09:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/26 21:21:34 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:56:26 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,29 +69,26 @@ static void		conv_wc_next(t_print *lst, char *str)
 
 	i = 0;
 	c = 0;
-	lst->tab = (int *)malloc(6);
 	if (!str)
 		return ;
 	while (str[i])
 	{
 		tmp = ft_strsub(str, i, 8);
 		lst->str[c++] = ft_btoi(tmp);
-//		ft_strdel(tmp);
+		ft_strdel(&tmp);
 		i += 8;
 		lst->len_str_conv++;
 	}
 	lst->len_str_conv--;
-//	free(str);
+	ft_strdel(&str);
 }
 
 void			conv_c(t_print *lst, va_list ap)
 {
-//	lst->tst = 1;
 	if (lst->l == 1 && MB_CUR_MAX > 1)
 		lst->uni_c = va_arg(ap, wchar_t);
 	else
 		lst->c = va_arg(ap, int);
-	lst->conv_c = 1;
 	lst->len_str_conv = 1;
 	if (lst->len_str_conv < lst->long_opt)
 		lst->len_str_conv = lst->long_opt;
@@ -100,5 +97,4 @@ void			conv_c(t_print *lst, va_list ap)
 		conv_wc_next(lst, conv_wc(lst));
 	else
 		conv_c_next(lst);
-//	printf("[%d]", lst->c);
 }

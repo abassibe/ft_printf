@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:22:49 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 05:09:26 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 06:33:32 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static char		*str_join(char *str1, char *str2, int ind1, int ind2)
 		tmp[c++] = str1[i++];
 	while (j < ind2)
 		tmp[c++] = str2[j++];
-//	ft_strdel(&str1);
+	ft_strdel(&str1);
+	ft_strdel(&str2);
 	return (tmp);
 }
 
@@ -60,6 +61,8 @@ static char		*str_join_fin(char *str1, char *str2, int ind, int len)
 		tmp[c++] = str1[i++];
 	while (str2[len])
 		tmp[c++] = str2[len++];
+	ft_strdel(&str1);
+	ft_strdel(&str2);
 	return (tmp);
 }
 
@@ -76,8 +79,5 @@ int				concaten_result(t_print *lst)
 	i = lst->ind_cut + lst->len_str_conv;
 	lst->fmt = str_join_fin(tmp, lst->fmt, i, lst->ind_cut + len_conv + 1);
 	lst->len_ret = lst->ind_cut + lst->len_str_conv;
-//	free(lst->fmt);
-//	free(tmp);
-//	free(lst->str);
 	return (i - 1);
 }

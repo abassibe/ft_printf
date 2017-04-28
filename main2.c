@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 04:52:09 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:23:54 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ int		main(void)
 	char	*str2;
 	FILE	*ptr;
 	int fd = 12345;
-
-	ft_printf("test{red}re test\n");
+	printf("%S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	printf("\n");
+	ft_printf("%S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
 	//fd = open("./filetest", O_WRONLY);
 	//ft_printf("un int %d et une chaine %s voila\n", 10000, "deux chaine");
 	//	h = ft_printf("%'d\n", 1000000);

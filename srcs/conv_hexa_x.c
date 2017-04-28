@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/24 15:44:22 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 06:48:27 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void		hexa_diez(t_print *lst, int lenght, int i)
 		else
 			tmp[i++] = lst->str_nb[j++];
 	}
+	ft_strdel(&lst->str_nb);
 	lst->str_nb = tmp;
 }
 
@@ -55,6 +56,7 @@ static void		hexa_less(t_print *lst)
 		tmp[i++] = lst->str_nb[j++];
 	while (i < lst->len_str)
 		tmp[i++] = ' ';
+	ft_strdel(&lst->str_nb);
 	lst->str_nb = tmp;
 }
 
@@ -76,6 +78,7 @@ static void		hexa_field(t_print *lst)
 		else
 			tmp[i++] = lst->str_nb[j++];
 	}
+	ft_strdel(&lst->str_nb);
 	lst->str_nb = tmp;
 }
 
@@ -92,6 +95,7 @@ static void		preci_hexa(t_print *lst)
 		lst->len_str_conv = lst->long_opt;
 	if (lst->long_preci == 0 && lst->l_hexa == 0)
 	{
+		ft_strdel(&lst->str_nb);
 		lst->str_nb = ft_strnew(0);
 		return ;
 	}
@@ -130,6 +134,6 @@ void			conv_hexa_x(t_print *lst)
 		hexa_diez(lst, lenght, i);
 	else
 		hexa_field(lst);
-	lst->str = ft_strdup(lst->str_nb);
+	lst->str = lst->str_nb;
 	lst->len_str_conv = (int)ft_strlen(lst->str);
 }

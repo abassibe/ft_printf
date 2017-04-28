@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 18:04:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 04:12:05 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:25:09 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ void			preci_int(t_print *lst)
 	if (lst->long_preci == -1)
 		return ;
 	if (lst->str_nb[0] == '0' && lst->long_preci == 0)
+	{
+		ft_strdel(&lst->str_nb);
 		lst->str_nb = ft_strnew(0);
+	}
 	else if (lst->neg == 1)
 		neg(lst);
 	else

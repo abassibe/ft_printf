@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 04:21:36 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 07:57:09 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct			s_print
 	int					ll;
 	int					j;
 	int					z;
-	int					conv_c;
 	int					bool_star;
 	int					got_opt;
 	int					long_opt;
@@ -47,7 +46,6 @@ typedef struct			s_print
 	int					len_str;
 	char				*str;
 	char				c;
-	signed char			*s_str;
 	signed char			s_c;
 	unsigned char		*us_str;
 	unsigned char		us_c;
@@ -62,9 +60,6 @@ typedef struct			s_print
 	unsigned long long	usll_int;
 	wchar_t				*uni_str;
 	wchar_t				uni_c;
-	int					*tab;
-	char				*test;
-	int					tst;
 }						t_print;
 
 int						ft_printf(const char *format, ...);

@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 03:06:27 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 05:19:25 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 06:53:54 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	recup_args_hexa(t_print *lst, va_list ap, int check)
 	if (check == 1)
 		lst->str_nb = ft_itoa_base_maj_unsigned(lst->l_hexa, 16);
 	else
-		lst->str_nb = ft_itoa_base_unsigned(lst->l_hexa, 16);
+		lst->str_nb = ft_itoa_base_us(lst->l_hexa, 16);
 }

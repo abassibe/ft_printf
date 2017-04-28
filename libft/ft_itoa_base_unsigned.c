@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:18:04 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 06:37:32 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 06:55:56 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		compte(unsigned long long nbr, int base)
 	return (ret);
 }
 
-char			*ft_itoa_base_unsigned(unsigned long long value, int base)
+char			*ft_itoa_base_us(unsigned long long value, int base)
 {
 	char	*retour;
 	int		nb;

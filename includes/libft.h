@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:49:31 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/24 14:15:22 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 06:53:21 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char				*ft_itoa_long(long int n);
 char				*ft_itoa_ulong(unsigned long int n);
 char				*ft_itoa_base(long long value, int base);
 char				*ft_itoa_base_maj(long long value, int base);
-char				*ft_itoa_base_unsigned(unsigned long long value, int base);
+char				*ft_itoa_base_us(unsigned long long value, int base);
 char				*ft_itoa_base_maj_unsigned(unsigned long long value,
 		int base);
 char				*ft_itoa_base_unicode(int value, int base);
