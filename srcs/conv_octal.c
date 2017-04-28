@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 07:04:42 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 08:45:37 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ static void		preci_octal(t_print *lst)
 		else
 			tmp[i++] = lst->str_nb[j++];
 	}
+	ft_strdel(&lst->str_nb);
 	lst->str_nb = tmp;
 }
 

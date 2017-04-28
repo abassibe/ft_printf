@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 17:05:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/20 19:13:44 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 08:26:34 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	field_int(t_print *lst)
 	else
 		field_diez(lst);
 	lst->len_str_conv = ft_strlen(lst->str);
+	ft_strdel(&lst->str_nb);
 }

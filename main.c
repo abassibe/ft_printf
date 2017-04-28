@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 16:18:37 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/14 17:54:22 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 08:08:19 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,15 @@ int		main(void)
 {
 	int		page = 1;
 	int				i = -500000;
-//	long int		i = 9223372036854775807;
-//	long int		i = -9223372036854775808;
-//	unsigned long long		i = 18446744073709551615;
-//	float		f =10.641;
-//	char	c = 'A';
-//	char	*str = "bla";
-//	char	*i = "deuxieme phrase";
-//	char	*str2 = "troisieme";
+	float		f =10.641;
+	char	c = 'A';
+	char	*str = "bla";
+	char	*str2 = "troisieme";
 	wchar_t	*uni = L"䯂 䯂 䯂 䯂 䯂 䯂";
 
 	i = printf("%ls\n", uni);
 	printf ("%d\n", i);
-/*
+
 	printf("------------- int  ---------------\n");
 	ft_printf("%.0d|.0\n", i);
 	printf("%.0d|.0 printf\n", i);
@@ -2764,6 +2760,6 @@ int		main(void)
 	printf("Appuyez sur ENTRER pour continuer...(page %d)\n", page);
 	page++;
 	getchar();
-*/
+
 	return (0);
 }

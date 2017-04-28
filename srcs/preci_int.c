@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 18:04:58 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 07:25:09 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 08:49:32 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void		pos(t_print *lst)
 			else
 				tmp[i++] = lst->str_nb[j++];
 		}
+		ft_strdel(&lst->str_nb);
 		lst->str_nb = tmp;
 		lst->len_str_conv = ft_strlen(lst->str_nb);
 	}
@@ -53,6 +54,7 @@ static void		neg(t_print *lst)
 			else
 				tmp[i++] = lst->str_nb[j++];
 		}
+		ft_strdel(&lst->str_nb);
 		lst->str_nb = tmp;
 		lst->len_str_conv = ft_strlen(lst->str_nb);
 	}

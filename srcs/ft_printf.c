@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 00:27:59 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 07:57:39 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 08:27:17 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int				ft_printf(const char *format, ...)
 	ft_strdel(&lst->fmt);
 	if (lst->bool_star == 1)
 		write(1, "\033[0;0m", 7);
-//	free(lst);
+	free(lst);
 	return (lst->len_ret);
 }
 

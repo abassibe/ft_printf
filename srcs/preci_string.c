@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 01:21:28 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 07:26:17 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 09:09:37 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	preci_string(t_print *lst)
 		str[i] = lst->str[i];
 		i++;
 	}
+	ft_strdel(&lst->str);
 	lst->str = ft_strdup(str);
 	ft_strdel(&str);
 }

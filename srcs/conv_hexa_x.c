@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 06:48:27 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/28 08:53:00 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ static void		hexa_field(t_print *lst)
 
 	i = 0;
 	j = 0;
-	tmp = ft_strnew(lst->len_str);
 	if (lst->long_opt == 0)
 		return ;
+	tmp = ft_strnew(lst->len_str);
 	while (i < lst->len_str)
 	{
 		if (i < lst->len_str - ((int)ft_strlen(lst->str_nb)))
@@ -108,6 +108,7 @@ static void		preci_hexa(t_print *lst)
 		else
 			tmp[i++] = lst->str_nb[j++];
 	}
+	ft_strdel(&lst->str_nb);
 	lst->str_nb = tmp;
 }
 
@@ -127,7 +128,6 @@ void			conv_hexa_x(t_print *lst)
 	preci_hexa(lst);
 	if (lst->diez == 1 && lst->l_hexa != 0)
 		lst->str_nb = ft_strjoinfn("0x", lst->str_nb);
-	lst->str = ft_strnew(lst->len_str);
 	if (lst->less == 1)
 		hexa_less(lst);
 	else if (lst->diez == 1)
