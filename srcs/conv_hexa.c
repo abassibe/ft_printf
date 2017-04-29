@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 08:56:06 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/29 06:25:36 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		hexa_field(t_print *lst)
 
 	i = 0;
 	j = 0;
-	tmp = ft_strnew(lst->len_str);
+	tmp = ft_strnew(lst->len_str + 2);
 	while (i < lst->len_str + 2)
 	{
 		if (i < lst->len_str - ((int)ft_strlen(lst->str_nb)))
@@ -49,7 +49,7 @@ static void		hexa_field(t_print *lst)
 	lst->str_nb = tmp;
 }
 
-static void		preci_hexa(t_print *lst)
+static void		preci_hexa_next(t_print *lst)
 {
 	char	*tmp;
 	int		i;
@@ -57,6 +57,22 @@ static void		preci_hexa(t_print *lst)
 
 	i = 0;
 	j = 0;
+	tmp = ft_strnew(lst->len_str_conv);
+	while (i < lst->len_str_conv)
+	{
+		if (i < (lst->len_str_conv - (int)ft_strlen(lst->str_nb)))
+		{
+			tmp[i++] = '0';
+		}
+		else
+			tmp[i++] = lst->str_nb[j++];
+	}
+	ft_strdel(&lst->str_nb);
+	lst->str_nb = tmp;
+}
+
+static void		preci_hexa(t_print *lst)
+{
 	if (lst->long_preci == -1 &&
 			(lst->long_opt > lst->len_str_conv && lst->zero == 1))
 		lst->len_str_conv = lst->long_opt - 2;
@@ -66,17 +82,7 @@ static void		preci_hexa(t_print *lst)
 		lst->str_nb = ft_strnew(0);
 		return ;
 	}
-	else
-		tmp = ft_strnew(lst->len_str_conv);
-	while (i < lst->len_str_conv)
-	{
-		if (i < (lst->len_str_conv - (int)ft_strlen(lst->str_nb)))
-			tmp[i++] = '0';
-		else
-			tmp[i++] = lst->str_nb[j++];
-	}
-	ft_strdel(&lst->str_nb);
-	lst->str_nb = tmp;
+	preci_hexa_next(lst);
 }
 
 void			conv_hexa(t_print *lst, va_list ap)
@@ -97,6 +103,4 @@ void			conv_hexa(t_print *lst, va_list ap)
 		hexa_field(lst);
 	lst->str = lst->str_nb;
 	lst->len_str_conv = (int)ft_strlen(lst->str);
-	if (lst->l_hexa == 0 && lst->long_preci > 0)
-		lst->len_str_conv--;
 }

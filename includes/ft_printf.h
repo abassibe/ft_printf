@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 07:57:09 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/29 06:44:01 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void					conv_s(t_print *lst, va_list ap);
 void					preci_string(t_print *lst);
 
 void					conv_octal(t_print *lst, va_list ap);
+void					recup_arg(t_print *lst, va_list ap);
 
 void					conv_hexa(t_print *lst, va_list ap);
 
@@ -121,6 +122,8 @@ void					conv_percent(t_print *lst);
 void					conv_bin(t_print*lst, va_list ap);
 
 void					conv_empty(t_print *lst, char c);
+
+void					conv_n(t_print *lst, va_list ap);
 
 int						concaten_result(t_print *lst);
 

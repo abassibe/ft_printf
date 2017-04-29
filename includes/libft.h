@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 16:49:31 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 06:53:21 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/29 01:17:47 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char				*ft_strnjoin(char const *s1, char const *s2, int len);
 char				*ft_strjoinn(char const *s1, char const *s2, int len);
 char				*ft_strjoinf(char const *s1, char const *s2);
 char				*ft_strjoinf(char const *s1, char const *s2);
-char				*ft_strjoinfn(char const *s1, char const *s2);
+char				*ft_strjoinfn(char *s1, char *s2);
 char				*ft_strjoinff(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);

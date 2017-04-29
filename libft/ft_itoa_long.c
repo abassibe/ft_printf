@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 18:24:17 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/09 06:37:26 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/29 04:46:54 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ char			*ft_itoa_long(long int n)
 	while (tmp /= 10)
 		len++;
 	len += neg;
-	if ((str = (char*)malloc(sizeof(char) * len)) == NULL)
-		return (NULL);
+	str = ft_strnew(len);
 	str[--len] = '\0';
 	while (len--)
 	{

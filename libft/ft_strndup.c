@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 15:09:47 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 07:29:54 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/29 04:49:58 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ char	*ft_strndup(const char *src, int len)
 	char	*dst;
 
 	c = 0;
-	if (!(dst = (char *)malloc(sizeof(char) * len + 1)))
-		return (NULL);
+	dst = ft_strnew(len);
 	while (c != len)
 	{
 		dst[c] = src[c];

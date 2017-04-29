@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 05:51:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 09:24:14 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/29 05:37:59 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static void		conv_ws_next(t_print *lst, int *j, char *str)
 		ft_strdel(&tmp);
 		i += 8;
 	}
+	lst->str[(*j)] = '\0';
+	ft_strdel(&str);
 }
 
 static int		get_utf8_size(wchar_t i)
@@ -86,7 +88,7 @@ static void		widestring(t_print *lst, va_list ap)
 		lst->str = ft_strdup("(null)");
 		return ;
 	}
-	lst->str = ft_strnew((int)ft_strlen((char *)lst->uni_str) * 5 + 1);
+	lst->str = ft_strnew(sizeof(lst->uni_str) * 5 + 1);
 	while (lst->uni_str[i])
 	{
 		if ((k -= get_utf8_size(lst->uni_str[i])) < 0 && lst->long_preci > 0)
@@ -94,7 +96,6 @@ static void		widestring(t_print *lst, va_list ap)
 		tmp = conv_ws(lst, lst->uni_str[i++], &j);
 		conv_ws_next(lst, &j, tmp);
 	}
-	ft_strdel(&tmp);
 }
 
 void			conv_s(t_print *lst, va_list ap)

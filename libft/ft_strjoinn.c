@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 15:50:47 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 07:29:28 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/29 04:49:35 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ char	*ft_strjoinn(char const *s1, char const *s2, int len)
 
 	if (!s1 || !s2)
 		return (NULL);
-	if (!(join = ft_memalloc(ft_strlen(s1) + len + 1)))
-		return (NULL);
+	join = ft_strnew((int)ft_strlen(s1) + (int)ft_strlen(s2) + 1);
 	i = 0;
 	j = 0;
 	while (s1[i])

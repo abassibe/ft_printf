@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 08:45:37 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/29 06:23:39 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		octal_field(t_print *lst)
 
 	i = 0;
 	j = 0;
-	tmp = ft_strnew(lst->len_str);
+	tmp = ft_strnew(lst->len_str + 2);
 	while (i < lst->len_str + 2)
 	{
 		if (i < lst->len_str - ((int)ft_strlen(lst->str_nb)))
@@ -49,7 +49,7 @@ static void		octal_field(t_print *lst)
 	lst->str_nb = tmp;
 }
 
-static void		preci_octal(t_print *lst)
+static void		preci_octal_next(t_print *lst)
 {
 	char	*tmp;
 	int		i;
@@ -57,18 +57,10 @@ static void		preci_octal(t_print *lst)
 
 	i = 0;
 	j = 0;
-	if (lst->long_preci == 0 && lst->str_nb[0] == '0' && lst->diez != 1)
-	{
-		ft_strdel(&lst->str_nb);
-		lst->str_nb = ft_strnew(0);
-		if (lst->long_opt == 0)
-			lst->len_str = 0;
-		return ;
-	}
 	if (lst->long_preci == -1 &&
 			(lst->long_opt > lst->len_str_conv && lst->zero == 1))
 		lst->len_str_conv = lst->long_opt;
-	tmp = ft_strnew(lst->len_str_conv);
+	tmp = ft_strnew(lst->len_str_conv + 1);
 	while (i < lst->len_str_conv)
 	{
 		if (i < (lst->len_str_conv - (int)ft_strlen(lst->str_nb)))
@@ -80,33 +72,17 @@ static void		preci_octal(t_print *lst)
 	lst->str_nb = tmp;
 }
 
-static void		recup_arg(t_print *lst, va_list ap)
+static void		preci_octal(t_print *lst)
 {
-	if (lst->l == 1 || lst->ll == 1)
+	if (lst->long_preci == 0 && lst->str_nb[0] == '0' && lst->diez != 1)
 	{
-		lst->l_int = va_arg(ap, long);
-		lst->usll_int = lst->l_int;
+		ft_strdel(&lst->str_nb);
+		lst->str_nb = ft_strnew(0);
+		if (lst->long_opt == 0)
+			lst->len_str = 0;
+		return ;
 	}
-	else if (lst->hh == 1)
-	{
-		lst->us_c = va_arg(ap, int);
-		lst->usll_int = lst->us_c;
-	}
-	else if (lst->j == 1)
-	{
-		lst->l_int = va_arg(ap, intmax_t);
-		lst->usll_int = lst->l_int;
-	}
-	else if (lst->z == 1)
-	{
-		lst->size_t_i = va_arg(ap, size_t);
-		lst->usll_int = lst->size_t_i;
-	}
-	else
-	{
-		lst->us_int = va_arg(ap, int);
-		lst->usll_int = lst->us_int;
-	}
+	preci_octal_next(lst);
 }
 
 void			conv_octal(t_print *lst, va_list ap)

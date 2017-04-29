@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 02:07:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/23 07:53:13 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/04/29 05:05:08 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static void		recup_opt(t_print *lst, int i)
 		lst->less = 1;
 	if (lst->conv[i] == '#')
 		lst->diez = 1;
-	if (lst->conv[i] == '0' &&
-			!(lst->conv[i - 1] > '0' && lst->conv[i - 1] <= '9'))
+	if ((lst->conv[i] == '0' && i == 0) || (lst->conv[i] == '0' &&
+			!(lst->conv[i - 1] > '0' && lst->conv[i - 1] <= '9')))
 		lst->zero = 1;
 	if (lst->conv[i] == ' ')
 		lst->space = 1;

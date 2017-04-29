@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/04/28 06:53:01 by abassibe         ###   ########.fr        #
+#    Updated: 2017/04/29 06:45:36 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,14 @@ PRINTFSRC =	ft_printf.c \
 			conv_char.c \
 			conv_hexa.c \
 			conv_octal.c \
+			conv_octal_next.c \
 			conv_hexa_x.c \
 			recup_args_hexa.c \
 			concaten_result.c \
 			conv_uint.c \
 			conv_percent.c \
 			conv_bin.c \
+			conv_n.c \
 			conv_empty.c \
 			spc_flags.c \
 			chk_color.c \
