@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/29 06:54:34 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/05/01 06:03:50 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,13 @@
 
 int		main(void)
 {
-	int		i;
-	int		k;
-	i = 0;
-	k = 0;
-	ft_printf("df88888g%sdsh%#10n\n", "xfgfghdfgh",  &k);
-	printf("%d\n", &k);
-	printf("%d\n", k);
-	printf("df88888g%sdsh%#10n\n", "xfgfghdfgh",  &i);
-	printf("%d\n", &i);
-	printf("%d\n", i);
+	float	f;
+
+	f = -3141.4513200;
+	printf("{%f}{%F}\n", 1444565444646.6465424242242, 1444565444646.6465424242242);
+	ft_printf("{%f}{%F}\n", 1444565444646.6465424242242, 1444565444646.6465424242242);
 /*	struct lconv *lc;
 	setlocale(LC_ALL, "");
-	setlocale(LC_NUMERIC, "da_DK");
 	int		k = 0;
 	int		h = 0;
 	int		i = 0;

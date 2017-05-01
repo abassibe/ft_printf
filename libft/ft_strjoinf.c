@@ -6,13 +6,13 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 15:50:47 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/29 04:49:11 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/05/01 04:01:59 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-char	*ft_strjoinf(char const *s1, char const *s2)
+char	*ft_strjoinf(char *s1, char *s2)
 {
 	char	*join;
 	int		i;
@@ -33,7 +33,7 @@ char	*ft_strjoinf(char const *s1, char const *s2)
 		join[i + j] = s2[j];
 		j++;
 	}
-	free((void *)s1);
-	free((void *)s2);
+	ft_strdel(&s1);
+	ft_strdel(&s2);
 	return (join);
 }
