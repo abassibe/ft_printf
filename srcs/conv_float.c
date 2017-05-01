@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/01 03:38:27 by abassibe          #+#    #+#             */
-/*   Updated: 2017/05/01 04:06:51 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/05/01 06:14:35 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 static void		creat_str(t_print *lst, long i)
 {
-	struct lconv		*lc;
+	struct lconv	*lc;
+	char			*tmp;
+	int				c;
 
+	tmp = NULL;
+	c = 0;
 	lc = localeconv();
 	if (lst->neg == 1)
 		lst->str = ft_strjoinfn("-", lst->str);
@@ -23,7 +27,15 @@ static void		creat_str(t_print *lst, long i)
 		lst->str = ft_strjoinff(lst->str, lc->decimal_point);
 	else
 		lst->str = ft_strjoinff(lst->str, ".");
-	lst->str = ft_strjoinf(lst->str, ft_itoa_long(i));
+	if (lst->dec == 0)
+	{
+		tmp = ft_strnew(lst->long_preci);
+		while (c < lst->long_preci)
+			tmp[c++] = '0';
+		lst->str = ft_strjoinf(lst->str, tmp);
+	}
+	else
+		lst->str = ft_strjoinf(lst->str, ft_itoa_long(i));
 }
 
 void			conv_float(t_print *lst)
