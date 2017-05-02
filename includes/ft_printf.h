@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 12:13:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/05/01 05:44:39 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/05/02 12:42:23 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,6 @@ typedef struct			s_print
 	unsigned long long	usll_int;
 	wchar_t				*uni_str;
 	wchar_t				uni_c;
-	float				f;
-	float				dec;
-	unsigned int		ent;
 }						t_print;
 
 int						ft_printf(const char *format, ...);
@@ -127,10 +124,6 @@ void					conv_bin(t_print*lst, va_list ap);
 void					conv_empty(t_print *lst, char c);
 
 void					conv_n(t_print *lst, va_list ap);
-
-void					recup_float(t_print *lst, va_list ap);
-
-void					conv_float(t_print *lst);
 
 int						concaten_result(t_print *lst);
 

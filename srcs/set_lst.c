@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/28 03:20:50 by abassibe          #+#    #+#             */
-/*   Updated: 2017/05/01 03:37:07 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/05/02 12:42:33 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ static void		init_opt_next(t_print *lst)
 	lst->uni_c = 0;
 	lst->bool_star = 0;
 	lst->apostrophe = 0;
-	lst->f = 0;
-	lst->dec = 0;
-	lst->ent = 0;
 }
 
 void			init_opt(t_print *lst)
