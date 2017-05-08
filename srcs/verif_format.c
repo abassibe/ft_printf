@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 15:05:20 by abassibe          #+#    #+#             */
-/*   Updated: 2017/05/02 12:43:01 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/05/04 01:46:21 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ static void		dispatch_four(t_print *lst, va_list ap, int pos)
 		conv_c(lst, ap);
 	}
 	else if (lst->conv[pos] == 'b')
-	{
 		conv_bin(lst, ap);
-		preci_int(lst);
-		field_int(lst);
-	}
 	else if (lst->conv[pos] == 'n')
 		conv_n(lst, ap);
+	else if (lst->conv[pos] == 'f' || lst->conv[pos] == 'F')
+	{
+		recup_float(lst, ap);
+		conv_float(lst);
+	}
 	else if (lst->conv[pos] == '%')
 		conv_percent(lst);
 	else if ((!ft_strchr(" +#0-lhjz", lst->conv[pos])) || lst->long_opt > 0)

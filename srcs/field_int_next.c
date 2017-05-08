@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 17:05:23 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/28 04:18:31 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/05/08 15:14:40 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	field_plus(t_print *lst)
 
 	i = lst->len_str - 1;
 	j = lst->len_str_conv - 1;
-	if (lst->long_preci == 0 && lst->str_nb[0] == 0)
-		i++;
 	while (j >= 0)
 		lst->str[i--] = lst->str_nb[j--];
 	if (lst->neg == 1)
@@ -106,7 +104,9 @@ void	field_diez(t_print *lst)
 	if (lst->long_preci == 0 && lst->str_nb[0] == 0 && lst->long_opt != 0)
 		i++;
 	while (j >= 0)
+	{
 		lst->str[i--] = lst->str_nb[j--];
+	}
 	if (lst->neg == 1)
 		lst->str[i--] = '-';
 	while (i >= 0)

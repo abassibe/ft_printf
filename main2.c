@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/21 18:37:19 by abassibe          #+#    #+#             */
-/*   Updated: 2017/05/01 06:08:44 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/05/08 16:56:05 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,9 @@ int		main(void)
 {
 	float	f;
 
-	f = -3141.4513200;
-	printf("{%f}\n", 9.0);
-	ft_printf("{%f}\n", 9.0);
+//	f = -3141.4513200;
 /*	struct lconv *lc;
 	setlocale(LC_ALL, "");
-	int		k = 0;
-	int		h = 0;
 	int		i = 0;
 	int		j = 1000;
 	float	f = 1000000.5;
@@ -34,6 +30,9 @@ int		main(void)
 	char	*str2;
 	FILE	*ptr;
 	int fd = 12345;*/
+
+	int		k = 0;
+	int		h = 0;
 
 /*	fd = open("./filetest", O_WRONLY);
 	ft_printf("un int %d et une chaine %s voila\n", 10000, "deux chaine");

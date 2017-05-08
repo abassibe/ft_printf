@@ -6,7 +6,7 @@
 /*   By: abassibe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 02:31:48 by abassibe          #+#    #+#             */
-/*   Updated: 2017/04/29 06:25:36 by abassibe         ###   ########.fr       */
+/*   Updated: 2017/05/08 16:34:31 by abassibe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		hexa_less(t_print *lst)
 
 	i = 0;
 	j = 0;
-	tmp = ft_strnew(lst->len_str);
+	tmp = ft_strnew(lst->len_str + 2);
 	while (j < lst->len_str_conv + 2)
 		tmp[i++] = lst->str_nb[j++];
 	while (i < lst->len_str)
@@ -57,7 +57,7 @@ static void		preci_hexa_next(t_print *lst)
 
 	i = 0;
 	j = 0;
-	tmp = ft_strnew(lst->len_str_conv);
+	tmp = ft_strnew(lst->len_str_conv + 2);
 	while (i < lst->len_str_conv)
 	{
 		if (i < (lst->len_str_conv - (int)ft_strlen(lst->str_nb)))

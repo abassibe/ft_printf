@@ -6,7 +6,7 @@
 #    By: abassibe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/01 12:45:46 by abassibe          #+#    #+#              #
-#    Updated: 2017/05/02 12:42:44 by abassibe         ###   ########.fr        #
+#    Updated: 2017/05/01 03:38:07 by abassibe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ PRINTFSRC =	ft_printf.c \
 			conv_percent.c \
 			conv_bin.c \
 			conv_n.c \
+			recup_float.c \
+			conv_float.c \
 			conv_empty.c \
 			spc_flags.c \
 			chk_color.c \
